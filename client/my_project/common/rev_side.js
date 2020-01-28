@@ -1,0 +1,1 @@
+FlowRouter.template('/rev_side', 'rev_side');

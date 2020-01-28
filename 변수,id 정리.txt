@@ -1,0 +1,16 @@
+변수/id 정리
+
+메인 - localhost:3000/rev_main/:area/:tag/:visual/:order/:_id
+글쓰기(수정) - localhost:3000/rev_posting/:_id
+내/추/검 - localhost:3000/rev_myposts, rev_myrec, rev_search
+글자세 - localhost:3000/rev_post/:_id
+
+<rev_main>
+앨범형/목록형 : visual_type
+앨범버튼id : btn-album	목록형버튼id : btn-list
+최신순/추천순 : order_type
+최신버튼id : btn-newest	추천순버튼id : btn-rec
+#태그 : tag
+태그버튼id : btn-tag0, btn-tag1, ...
+지역 : area
+

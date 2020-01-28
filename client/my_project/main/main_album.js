@@ -1,0 +1,1 @@
+FlowRouter.template('/main_album', 'main_album');

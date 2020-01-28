@@ -1,0 +1,1 @@
+FlowRouter.template('/rev_navbar', 'rev_navbar');

@@ -1,0 +1,61 @@
+<template name="rev_main">
+
+    <div id="__blaze-root"><id id="ex_dashboard">
+        <!--upside bar-->
+        <nav class="fixed-top">
+            {{> rev_navbar}}
+        </nav>
+
+        <div class="container-fluid">
+            <div class="row">
+                {{>rev_side}}
+
+                <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4"><div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
+
+                    <div style="margin-top: 20px">
+                        <div  style="padding: 10px;">
+                            <div style="border-radius: 25px; border: 2px solid rgba(128,128,128,0.71); padding: 20px;">
+                                <button id="btn-tag0" class="btn btn-outline-primary" style="margin: 5px; margin-right: 15px">#전체</button>
+                                <button id="btn-tag1" class="btn btn-outline-primary" style="margin: 5px 15px;">#한식</button>
+                                <button id="btn-tag2" class="btn btn-outline-primary" style="margin: 5px 15px;">#일식</button>
+                                <button id="btn-tag3" class="btn btn-outline-primary" style="margin: 5px 15px;">#중식</button>
+                                <button id="btn-tag4" class="btn btn-outline-primary" style="margin: 5px 15px;">#양식</button>
+                                <button id="btn-tag5" class="btn btn-outline-primary" style="margin: 5px 15px;">#분식</button>
+                                <button id="btn-tag6" class="btn btn-outline-primary" style="margin: 5px 15px;">#카페</button>
+                                <button id="btn-tag7" class="btn btn-outline-primary" style="margin: 5px 15px;">#포차</button>
+                                <button id="btn-tag8" class="btn btn-outline-primary" style="margin: 5px 15px;">#기타</button>
+                            </div>
+                        </div>
+                        <div  style="padding: 10px;">
+                            <div style="border-radius: 25px; border: 2px solid rgba(128,128,128,0.71); padding: 20px;">
+                                <button id='btn-album' class="btn btn-sm btn-outline-secondary">앨범형</button>
+                                <button id='btn-list' class="btn btn-sm btn-outline-secondary">목록형</button>
+
+                                <div class="btn-group" style="float:right">
+                                    <button id="btn-newest" type="button" class="btn btn-sm btn-outline-secondary">최신순</button>
+                                    <button id="btn-rec" type="button" class="btn btn-sm btn-outline-secondary">추천순</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div  style="padding: 10px;">
+                            <div style="border-radius: 25px; border: 2px solid rgba(128,128,128,0.71); padding: 20px;">
+                                {{>main_list}}
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- main-->
+                </main>
+
+            </div>
+        </div>
+
+    </id>
+    </div>
+
+
+
+
+
+
+</template>
