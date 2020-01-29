@@ -1,0 +1,86 @@
+<template name="rev_posting">
+
+    <div id="__blaze-root"><id id="ex_dashboard">
+        <!--upside bar-->
+        <nav class="fixed-top">
+            {{> rev_navbar}}
+        </nav>
+
+        <div class="container-fluid">
+            <div class="row">
+                {{>rev_side}}
+
+                <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4"><div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
+
+                    <div style="margin-top: 20px">
+                        <div  style="padding: 10px;">
+                            <div style="border-radius: 25px; border: 2px solid rgba(128,128,128,0.71); padding: 20px;">
+<!--                                포스팅-->
+                                <div id="ex_posting">
+                                    <section class="jumbotron" style="background-color: white;">
+                                        <div class="container">
+
+                                            {{#with post}}
+                                                <div class="row text-center">
+                                                    <div class="input-group mb-3 col-md-9">
+                                                        <input class="form-control" value="{{title}}" type="text" id="inp-title" placeholder="제목"/>
+                                                    </div>
+                                                    <input type="file" id="inp-file"/>
+
+                                                    <li class="nav-item dropdown">
+                                                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">지역</a>
+                                                        <div class="dropdown-menu">
+                                                            <a class="place" href="#">상명대</a>
+                                                            <a class="place" href="#">신촌</a>
+                                                            <a class="place" href="#">경복궁</a>
+                                                            <a class="place" href="#">종각</a>
+                                                            <a class="place" href="#">을지로</a>
+                                                            <a class="place" href="#">홍제</a>
+                                                            <a class="place" href="#">불광</a>
+                                                        </div>
+                                                    </li>
+                                                    <li class="nav-item dropdown">
+                                                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">태그</a>
+                                                        <div class="dropdown-menu">
+                                                            <a class="tag" href="#">한식</a>
+                                                            <a class="tag" href="#">일식</a>
+                                                            <a class="tag" href="#">중식</a>
+                                                            <a class="tag" href="#">양식</a>
+                                                            <a class="tag" href="#">분식</a>
+                                                            <a class="tag" href="#">카페</a>
+                                                            <a class="tag" href="#">포차</a>
+                                                            <a class="tag" href="#">기타</a>
+                                                        </div>
+                                                    </li>
+
+                                                </div>
+
+                                                <input class="form-control" value="{{content}}"  type="text" id="inp-content" placeholder="본문을 입력하세요" style="width:1050px;height:200px">
+
+
+                                            {{/with}}
+                                            <p>
+                                                <a id="btn-save" href="#" class="btn btn-primary">올리기</a>
+                                            </p>
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- main-->
+                </main>
+
+            </div>
+        </div>
+
+    </id>
+    </div>
+
+
+
+
+
+
+</template>
