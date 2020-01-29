@@ -7,7 +7,7 @@ Template.ex_posts.onRendered(function() {
 Template.ex_posts.helpers({
   boards: function() {
     return DB_POSTS.findAll({}, {sort: {createdAt: -1}});
-  },
+},
   YMD: function() {
     return this.createdAt.toStringYMD();
   },

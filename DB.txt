@@ -1,0 +1,2 @@
+DB_REVS { ID, 제목, 지역, 태그,  내용, 사진, 추천수 }
+DB_REV_USERS

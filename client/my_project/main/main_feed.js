@@ -1,11 +1,11 @@
 FlowRouter.template('/main_list', 'main_list');
 
 
-Template.main_list.onRendered(function() {
+Template.main_feed.onRendered(function() {
 
 });
 
-Template.main_list.helpers({
+Template.main_feed.helpers({
     boards: function() {
         return DB_POSTS.findAll({}, {sort: {createdAt: -1}});
     },
@@ -17,7 +17,7 @@ Template.main_list.helpers({
     }
 });
 
-Template.main_list.events({
+Template.main_feed.events({
     'click #btn-remove': function() {
         alert('삭제');
         // if(confirm('삭제 하시겠습니까?')) {

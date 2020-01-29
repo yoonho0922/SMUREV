@@ -1,27 +1,30 @@
+FlowRouter.template('/rev_main/:area/:tag', 'rev_main');
 FlowRouter.template('/rev_main', 'rev_main');
 
 Template.rev_main.onRendered(function() {
+    // 화면이 그려지고 난 후 제일 먼저 수행
+    Session.set('type_list', true);
 
 });
 
 Template.rev_main.helpers({
 
-    visual_type: function() {
-        var visual_type = 'album';
+    type_list: function() {
+        return Session.get('type_list'); //화면을 회원가입 모드로 변경/복구
+    },
+    revs: function() {
 
-        return visual_type;
-    }
-
+    },
 });
 
 Template.rev_main.events({
     
     //글 보기방식 버튼 함수
     'click #btn-album': function() {
-        alert('앨범형');
+        Session.set('type_list', true);
     },
-    'click #btn-list': function(){
-        alert('목록형');
+    'click #btn-feed': function(){
+        Session.set('type_list', false);
     },
     'click #btn-newest': function(){
         alert('최신순');

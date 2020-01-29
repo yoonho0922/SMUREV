@@ -29,7 +29,7 @@
                         <div  style="padding: 10px;">
                             <div style="border-radius: 25px; border: 2px solid rgba(128,128,128,0.71); padding: 20px;">
                                 <button id='btn-album' class="btn btn-sm btn-outline-secondary">앨범형</button>
-                                <button id='btn-list' class="btn btn-sm btn-outline-secondary">목록형</button>
+                                <button id='btn-feed' class="btn btn-sm btn-outline-secondary">피드형</button>
 
                                 <div class="btn-group" style="float:right">
                                     <button id="btn-newest" type="button" class="btn btn-sm btn-outline-secondary">최신순</button>
@@ -39,7 +39,14 @@
                         </div>
                         <div  style="padding: 10px;">
                             <div style="border-radius: 25px; border: 2px solid rgba(128,128,128,0.71); padding: 20px;">
-                                {{>main_list}}
+
+                                {{#if type_list}}
+                                    {{>main_album}}
+                                    {{else}}
+                                    {{>main_feed}}
+                                {{/if}}
+
+
                             </div>
                         </div>
                     </div>
