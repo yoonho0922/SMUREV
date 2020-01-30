@@ -1,0 +1,5 @@
+변수/id 정리
+
+<rev_posting>
+드롭다운에서 지역=place, 태그=tag로 설정
+
