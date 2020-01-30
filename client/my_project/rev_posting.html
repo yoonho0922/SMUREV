@@ -25,34 +25,34 @@
                                                     <div class="input-group mb-3 col-md-9">
                                                         <input class="form-control" value="{{title}}" type="text" id="inp-title" placeholder="제목"/>
                                                     </div>
-                                                    <input type="file" id="inp-file"/>
+                                                    <input multiple="multiple" type="file" id="inp-file[]"/>
 
-                                                    <li class="nav-item dropdown">
-                                                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">지역</a>
-                                                        <div class="dropdown-menu">
-                                                            <a class="place" href="#">상명대</a>
-                                                            <a class="place" href="#">신촌</a>
-                                                            <a class="place" href="#">경복궁</a>
-                                                            <a class="place" href="#">종각</a>
-                                                            <a class="place" href="#">을지로</a>
-                                                            <a class="place" href="#">홍제</a>
-                                                            <a class="place" href="#">불광</a>
-                                                        </div>
-                                                    </li>
-                                                    <li class="nav-item dropdown">
-                                                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">태그</a>
-                                                        <div class="dropdown-menu">
-                                                            <a class="tag" href="#">한식</a>
-                                                            <a class="tag" href="#">일식</a>
-                                                            <a class="tag" href="#">중식</a>
-                                                            <a class="tag" href="#">양식</a>
-                                                            <a class="tag" href="#">분식</a>
-                                                            <a class="tag" href="#">카페</a>
-                                                            <a class="tag" href="#">포차</a>
-                                                            <a class="tag" href="#">기타</a>
-                                                        </div>
-                                                    </li>
+                                                     <div class="dropdown">
+                                                        <select class="inp-place">
+                                                            <option>전체</option>
+                                                            <option>상명대</option>
+                                                            <option>신촌</option>
+                                                            <option>경복궁</option>
+                                                            <option>종각</option>
+                                                            <option>을지로</option>
+                                                            <option>홍제</option>
+                                                            <option>불광</option>
+                                                        </select>
+                                                    </div>
 
+                                                    <div class="dropdown">
+                                                        <select class="inp-tag">
+                                                            <option>전체</option>
+                                                            <option>한식</option>
+                                                            <option>일식</option>
+                                                            <option>중식</option>
+                                                            <option>양식</option>
+                                                            <option>분식</option>
+                                                            <option>카페</option>
+                                                            <option>포차</option>
+                                                            <option>기타</option>
+                                                        </select>
+                                                    </div>
                                                 </div>
 
                                                 <input class="form-control" value="{{content}}"  type="text" id="inp-content" placeholder="본문을 입력하세요" style="width:1050px;height:200px">
