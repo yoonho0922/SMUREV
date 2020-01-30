@@ -15,15 +15,15 @@
                     <div style="margin-top: 20px">
                         <div  style="padding: 10px;">
                             <div style="border-radius: 25px; border: 2px solid rgba(128,128,128,0.71); padding: 20px;">
-                                <button id="btn-tag0" class="btn btn-outline-primary" style="margin: 5px; margin-right: 15px">#전체</button>
-                                <button id="btn-tag1" class="btn btn-outline-primary" style="margin: 5px 15px;">#한식</button>
-                                <button id="btn-tag2" class="btn btn-outline-primary" style="margin: 5px 15px;">#일식</button>
-                                <button id="btn-tag3" class="btn btn-outline-primary" style="margin: 5px 15px;">#중식</button>
-                                <button id="btn-tag4" class="btn btn-outline-primary" style="margin: 5px 15px;">#양식</button>
-                                <button id="btn-tag5" class="btn btn-outline-primary" style="margin: 5px 15px;">#분식</button>
-                                <button id="btn-tag6" class="btn btn-outline-primary" style="margin: 5px 15px;">#카페</button>
-                                <button id="btn-tag7" class="btn btn-outline-primary" style="margin: 5px 15px;">#포차</button>
-                                <button id="btn-tag8" class="btn btn-outline-primary" style="margin: 5px 15px;">#기타</button>
+                                <a id="btn-tag0" href="/rev_main/{{area}}/전체/new" class="btn btn-outline-primary" style="margin: 5px; margin-right: 15px">#전체</a>
+                                <a id="btn-tag1" href="/rev_main/{{area}}/한식/new" class="btn btn-outline-primary" style="margin: 5px 15px;">#한식</a>
+                                <a id="btn-tag2" href="/rev_main/{{area}}/일식/new" class="btn btn-outline-primary" style="margin: 5px 15px;">#일식</a>
+                                <a id="btn-tag3" href="/rev_main/{{area}}/중식/new" class="btn btn-outline-primary" style="margin: 5px 15px;">#중식</a>
+                                <a id="btn-tag4" href="/rev_main/{{area}}/양식/new" class="btn btn-outline-primary" style="margin: 5px 15px;">#양식</a>
+                                <a id="btn-tag5" href="/rev_main/{{area}}/분식/new" class="btn btn-outline-primary" style="margin: 5px 15px;">#분식</a>
+                                <a id="btn-tag6" href="/rev_main/{{area}}/카페/new" class="btn btn-outline-primary" style="margin: 5px 15px;">#카페</a>
+                                <a id="btn-tag7" href="/rev_main/{{area}}/포차/new" class="btn btn-outline-primary" style="margin: 5px 15px;">#포차</a>
+                                <a id="btn-tag8" href="/rev_main/{{area}}/기타/new" class="btn btn-outline-primary" style="margin: 5px 15px;">#기타</a>
                             </div>
                         </div>
                         <div  style="padding: 10px;">
@@ -32,22 +32,18 @@
                                 <button id='btn-feed' class="btn btn-sm btn-outline-secondary">피드형</button>
 
                                 <div class="btn-group" style="float:right">
-                                    <button id="btn-newest" type="button" class="btn btn-sm btn-outline-secondary">최신순</button>
-                                    <button id="btn-rec" type="button" class="btn btn-sm btn-outline-secondary">추천순</button>
+                                    <a id="btn-newest" href="/rev_main/{{area}}/{{tag}}/new" type="button" class="btn btn-sm btn-outline-secondary">최신순</a>
+                                    <a id="btn-rec" href="/rev_main/{{area}}/{{tag}}/rec" type="button" class="btn btn-sm btn-outline-secondary">추천순</a>
                                 </div>
                             </div>
                         </div>
                         <div  style="padding: 10px;">
-                            <div style="border-radius: 25px; border: 2px solid rgba(128,128,128,0.71); padding: 20px;">
 
-                                {{#if type_list}}
-                                    {{>main_album}}
-                                    {{else}}
-                                    {{>main_feed}}
-                                {{/if}}
-
-
-                            </div>
+                            {{#if type_list}}
+                               {{>main_album}}
+                            {{else}}
+                               {{>main_feed}}
+                            {{/if}}
                         </div>
                     </div>
 

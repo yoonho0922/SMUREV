@@ -60,7 +60,6 @@ Template.rev_posting.events({
         }
 
         alert('저장하였습니다.');
-        // $('#inp-name').val('');
         $('#inp-title').val('');
         // $('#editor').summernote('reset');
         $('#inp-content').val();
