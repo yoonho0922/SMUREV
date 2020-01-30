@@ -1,0 +1,1 @@
+FlowRouter.template('/rev_myPosts','rev_myPosts')

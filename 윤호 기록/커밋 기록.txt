@@ -10,4 +10,8 @@
 -변수,id정리.txt 생성
 -main페이지 버튼 동작까지만 구현, 글 목록을 어떻게 띄울지 고민해봐야된다..
 
+2020.01
+:글세부,내글,추천글 페이지 생성
+-rev_post, rev_myPosts, rev_recPosts .html .js추가
+-rev_side 지역버튼 외에 버튼 링크 연결
 

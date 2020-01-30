@@ -7,7 +7,7 @@ Template.main_feed.onRendered(function() {
 
 Template.main_feed.helpers({
     boards: function() {
-        return DB_POSTS.findAll({}, {sort: {createdAt: -1}});
+        return DB_REVS.findAll({}, {sort: {createdAt: -1}});
     },
     YMD: function() {
         return this.createdAt.toStringYMD();
