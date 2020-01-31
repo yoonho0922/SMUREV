@@ -30,8 +30,8 @@ Template.rev_posting.events({
         var title = $('#inp-title').val();
         // var html = $('#editor').summernote('code');
         var content=$('#inp-content').val();
-        var place=$('.inp-place').val();
-        var tag=$('.inp-tag').val();
+        var posting_area=$('.inp-area').val();
+        var posting_tag=$('.inp-tag').val();
 
         if(!title) {
             return alert('제목은 반드시 입력 해 주세요.');
@@ -42,8 +42,8 @@ Template.rev_posting.events({
                 createdAt: new Date(),
                 title: title,
                 content: content,
-                place:place,
-                tag:tag,
+                posting_area:posting_area,
+                posting_tag:posting_tag,
                 recommend:0,
                 readCount: 0,
                 file_id:[]
@@ -54,8 +54,8 @@ Template.rev_posting.events({
 
             post.title = title;
             post.content = content;
-            post.place=place;
-            post.tag=tag;
+            post.posting_area=posting_area;
+            post.posting_tag=posting_tag;
             DB_REVS.update({_id: _id}, post);
         }
 
@@ -63,7 +63,7 @@ Template.rev_posting.events({
         $('#inp-title').val('');
         // $('#editor').summernote('reset');
         $('#inp-content').val();
-        $('.inp-place').val();
+        $('.inp-area').val();
         $('.inp-tag').val();
 
 

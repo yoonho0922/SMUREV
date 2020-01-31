@@ -1,79 +1,41 @@
 <template name="main_album">
 
-    <div class="mt-2">
-        <div id="ex_album">
-            <div class="container">
-                <div style="border-radius: 25px; border: 2px solid rgba(128,128,128,0.71); padding: 20px;">
-                    <p>지역 : {{area}} 태그 : {{tag}} 정렬 : {{order}}</p>
-                  <div class="row">
-                    <div class="col-md-4">
+    <div style="border-radius: 25px; border: 2px solid rgba(128,128,128,0.71); padding: 20px;">
+        <div>
+            <p>지역 : {{area}} 태그 : {{tag}} 정렬 : {{order}}</p>
+            <div class="row">
+                {{#each boards}}
+                    <div class="col-md-3">
                         <div class="mb-4 shadow-sm">
                             <a href="/examples/0001.jpeg" target="_blank"><img src="/examples/0001.jpeg" alt="" class="card-img-top"></a>
-                            <div class="card-body">
-                                <p class="card-text">This is a wider card with supporting text below as a natural
-                                    lead-in to additional content. This content is a little bit longer.</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                            <div class="card-body" style="width:350px;height: 200px;overflow:hidden">
+                                <div class="recommend">
+                                    <div class="rec" style="width:50px;height:50px;float:right">
+                                        <a href="/examples/좋아요2.jpeg"><img src="/examples/좋아요2.jpeg" style="width:50px;height:50px;float:right" alt=""></a>
+                                        <p class="re" style="padding:50px 25px;">{{recommend}}</p>
                                     </div>
-                                    <small class="text-muted">{{area}}</small>
+                                    <div class="title">
+                                        <p class="card-text" style="font-size:35px"><strong>{{title}}</strong></p>
+                                    </div>
                                 </div>
+
+                                <div class="content">
+                                    <div class="card-text" style="font-size: 18px;padding:20px 0px">{{content}}</div>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-user">
+                                    <div class="text-muted" style="padding:15px">작성자</div><!--로그인하면 아이디 넣을수있게-->
+                                </div>
+                                <small class="btn">
+                                    <button type="button" style="color: #fff; background:gray; font-size:1em; border-radius:1.5em; padding:1px 13px;">#{{posting_area}}</button>
+                                    <button type="button" style="color: #fff; background:gray; font-size:1em; border-radius:1.5em; padding:1px 13px;">#{{posting_tag}}</button>
+                                </small>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="card mb-4 shadow-sm">
-                            <a href="/examples/0002.jpeg" target="_blank"><img src="/examples/0002.jpeg" alt="" class="card-img-top"></a>
-                            <div class="card-body">
-                                <p class="card-text">This is a wider card with supporting text below as a natural
-                                    lead-in to additional content. This content is a little bit longer.</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                                    </div>
-                                    <small class="text-muted">9 mins</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card mb-4 shadow-sm">
-                            <a href="/examples/0003.jpeg" target="_blank"><img src="/examples/0003.jpeg" alt="" class="card-img-top"></a>
-                            <div class="card-body">
-                                <p class="card-text">This is a wider card with supporting text below as a natural
-                                    lead-in to additional content. This content is a little bit longer.</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                                    </div>
-                                    <small class="text-muted">9 mins</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card mb-4 shadow-sm">
-                            <a href="/examples/0004.jpeg" target="_blank"><img src="/examples/0004.jpeg" alt="" class="card-img-top"></a>
-                            <div class="card-body">
-                                <p class="card-text">This is a wider card with supporting text below as a natural
-                                    lead-in to additional content. This content is a little bit longer.</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                                    </div>
-                                    <small class="text-muted">9 mins</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                </div>
+                {{/each}}
             </div>
         </div>
     </div>
-
 </template>

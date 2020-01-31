@@ -7,4 +7,15 @@
 :글올리기페이지 작성
 -rev_posting 작성
 
+2020.01.30 - 혜진
+:DB항목추가랑 포스팅 페이지연결 완료
+-rev_posting 수정
+-database.js에 DB_REVS 추가
+-DB에 들어갈 내용들 추가(CreateAt, title, content, posting_area, posting_tag, recommend, readCount)
 
+2020.01.30
+:앨범형 파일 작성
+-main_album에 좋아요버튼 추가, 디비랑 연결
+-태그나타내기, 작성자 넣을 공간
+-main_album 페이지크기 맞춰서 칸 넣는거 했고
+ 본문 너무 길면 잘려서 화면에 출력할수있게 했음
