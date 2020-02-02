@@ -15,49 +15,47 @@
                     <div style="margin-top: 20px">
                         <div  style="padding: 10px;">
                             <div style="border-radius: 25px; border: 2px solid rgba(128,128,128,0.71); padding: 20px;">
-                                <!--                                포스팅-->
                                 <div id="ex_posting">
                                     <section class="jumbotron" style="background-color: white;">
                                         <div class="container">
 
                                             {{#with post}}
                                                 <div class="row text-center">
-                                                    <div class="input-group mb-3 col-md-9">
-                                                        <input class="form-control" value="{{title}}" type="text" id="inp-title" placeholder="제목"/>
-                                                    </div>
-                                                    <input multiple="multiple" type="file" id="inp-file[]"/>
-
-                                                    <div class="dropdown" >
-                                                        <select class="inp-area">
-                                                            <option>전체</option>
-                                                            <option>상명대</option>
-                                                            <option>신촌</option>
-                                                            <option>경복궁</option>
-                                                            <option>종각</option>
-                                                            <option>을지로</option>
-                                                            <option>홍제</option>
-                                                            <option>불광</option>
-                                                        </select>
+                                                    <div class="input-group mb-1 col-md-12">
+                                                        <input class="form-control" style="height: 60px" value="{{title}}" type="text" id="inp-title" placeholder="제목"/>
+                                                        <input multiple="multiple" type="file"  id="inp-file[]" style="padding-top: 18px;padding-left: 13px"/>
                                                     </div>
 
-                                                    <div class="dropdown">
-                                                        <select class="inp-tag">
-                                                            <option>전체</option>
-                                                            <option>한식</option>
-                                                            <option>일식</option>
-                                                            <option>중식</option>
-                                                            <option>양식</option>
-                                                            <option>분식</option>
-                                                            <option>카페</option>
-                                                            <option>포차</option>
-                                                            <option>기타</option>
-                                                        </select>
+                                                    <div class="input-group mb-1 col-md-12">
+                                                        <div class="dropdown" >
+                                                            <select class="inp-area" style="height:35px;width:90px;font-size: 16px">
+                                                                <option>지역</option>
+                                                                <option>상명대</option>
+                                                                <option>신촌</option>
+                                                                <option>경복궁</option>
+                                                                <option>종각</option>
+                                                                <option>을지로</option>
+                                                                <option>홍제</option>
+                                                                <option>불광</option>
+                                                            </select>
+
+                                                            <select class="inp-tag" style="height:35px;width:90px;font-size: 16px">
+                                                                <option>태그</option>
+                                                                <option>한식</option>
+                                                                <option>일식</option>
+                                                                <option>중식</option>
+                                                                <option>양식</option>
+                                                                <option>분식</option>
+                                                                <option>카페</option>
+                                                                <option>포차</option>
+                                                                <option>기타</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="input-group mb-1 col-md-12">
+                                                        <textarea class="form-control"  type="text" id="inp-content" placeholder="본문을 입력하세요." style="height:400px">{{content}}</textarea>
                                                     </div>
                                                 </div>
-
-                                                <input class="form-control" value="{{content}}"  type="text" id="inp-content" placeholder="본문을 입력하세요" style="width:1050px;height:200px">
-
-
                                             {{/with}}
                                             <p>
                                                 <a id="btn-save" href="#" class="btn btn-primary">올리기</a>
