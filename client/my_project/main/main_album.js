@@ -1,8 +1,8 @@
 FlowRouter.template('/main_album', 'main_album');
 
-Template.main_feed.onRendered(function() {
+Template.main_album.onRendered(function() {
 
-});
+})
 
 Template.main_album.helpers({
     boards: function() {
@@ -14,6 +14,7 @@ Template.main_album.helpers({
     HMS: function() {
         return this.createdAt.toStringHMS();
     }
+
 });
 
 Template.main_album.helpers({
