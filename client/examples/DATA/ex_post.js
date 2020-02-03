@@ -14,5 +14,8 @@ Template.ex_post.helpers({
   },
   createdAt: function() {
     return this.createdAt.toStringYMDHMS();
+  },
+  order: function () {
+    var order = FlowRouter.getParam('order')
   }
 });

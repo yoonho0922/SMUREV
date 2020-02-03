@@ -17,6 +17,22 @@ Template.main_feed.helpers({
     }
 });
 
+Template.main_feed.helpers({
+
+    area : function(){
+        var area = FlowRouter.getParam('area');
+        return area;
+    },
+    tag : function(){
+        var tag = FlowRouter.getParam('tag');
+        return tag;
+    },
+    order : function(){
+        var order = FlowRouter.getParam('order');
+        return order;
+    }
+});
+
 Template.main_feed.events({
     'click #btn-remove': function() {
         alert('삭제');

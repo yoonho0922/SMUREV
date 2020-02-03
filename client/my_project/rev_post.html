@@ -15,6 +15,7 @@
                     <div style="margin-top: 20px">
                         <div  style="padding: 10px;">
                             <div style="border-radius: 25px; border: 2px solid rgba(128,128,128,0.71); padding: 20px;">
+                                <a id="btn-tag0" href="/rev_main/{{area}}/전체/new" class="btn btn-outline-primary" style="margin: 5px; margin-right: 15px">#상세페이지입니다!</a>
                                 <a id="btn-tag0" href="/rev_main/{{area}}/전체/new" class="btn btn-outline-primary" style="margin: 5px; margin-right: 15px">#전체</a>
                                 <a id="btn-tag1" href="/rev_main/{{area}}/한식/new" class="btn btn-outline-primary" style="margin: 5px 15px;">#한식</a>
                                 <a id="btn-tag2" href="/rev_main/{{area}}/일식/new" class="btn btn-outline-primary" style="margin: 5px 15px;">#일식</a>
@@ -28,19 +29,44 @@
                         </div>
                         <div  style="padding: 10px;">
                             <div style="border-radius: 25px; border: 2px solid rgba(128,128,128,0.71); padding: 20px;">
+                         {{#with board}}
+                             <table class="post-table">
+                                 <tr>
+                                     <td id="title" colspan="2">{{title}}</td>
+                                 </tr>
+                                 <tr>
+                                     <td colspan="2">
+                                         <div style="float:left;">유댕유댕(yoonho0922)</div>
+                                         <div style="float:right; padding-left: 10px">
+                                             <a id="btn-mod" href="">수정</a>
+                                             <a id="btn-del" href="">삭제</a>
+                                         </div>
+                                         <div style="float:right;">{{createdAt}}</div>
+                                     </td>
+                                 </tr>
+                                 <tr>
+                                     <td colspan="2" id="picture">
+                                         <img style="width:400px; height: 400px;" src="/examples/0001.jpeg">
+                                         <img style="width:400px; height: 400px;" src="/examples/0001.jpeg">
+                                         <img style="width:400px; height: 400px;" src="/examples/0001.jpeg">
+                                     </td>
+                                 </tr>
+                                 <tr>
+                                     <td colspan="2" id="content">{{content}}</td>
+                                 </tr>
+                                 <tr>
+                                     <td>
+                                         <a href="/rev_main/{{posting_area}}/전체/new" type="button" style="color: #fff; background:gray; font-size:1em; border-radius:1.5em; padding:1px 13px;">#{{posting_area}}</a>
+                                         <a href="/rev_main/{{posting_area}}/{{posting_tag}}/new" type="button" style="color: #fff; background:gray; font-size:1em; border-radius:1.5em; padding:1px 13px;">#{{posting_tag}}</a>
+                                     </td>
+                                     <td style="vertical-align:middle;">
+                                         <a id="btn-rec"><img src="/examples/좋아요2.jpeg" style="max-width: 100%; height: auto; float:right;"></a>
+                                         <div style="float:right;">{{recommend}}</div>
+                                     </td>
+                                 </tr>
 
-
-                                <table style="border:1px;">
-                                    <tr style="height: 50px;">
-                                        김치
-                                    </tr>
-                                    <tr>
-                                        상어
-                                    </tr>
-                                    <tr>
-                                        오징어
-                                    </tr>
-                                </table>
+                             </table>
+                         {{/with}}
 
 
                             </div>

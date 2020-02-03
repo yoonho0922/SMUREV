@@ -14,4 +14,9 @@
 태그버튼id : btn-tag0, btn-tag1, ...
 지역 : area
 
+<post>
+btn-mod : 수정버튼id
+btn-del : 삭제버튼 id
+btn-rec : 추천버튼 id
+
 
