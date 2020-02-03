@@ -22,7 +22,11 @@ Template.rev_post.events({
 
     'click #btn-del': function() {
         if(confirm('삭제하겠습니까?')){
+            var area = FlowRouter.getParam('area');
+            var tag = FlowRouter.getParam('tag');
+            var order = FlowRouter.getParam('order');
             DB_REVS.remove({_id: FlowRouter.getParam('_id')});
+            location.href="/rev_main/"+area+"/"+tag+"/"+order;
         }
     },
 
