@@ -21,3 +21,8 @@
 -main_album 링크 연결 완성
 :삭제기능 수정
 -삭제하고 링크이동하도록 변경함
+
+2020.02.04
+:주소 버그 수정
+-rev_main.js, main_ablum.js에 :area,:tag,:order 값이 null일 경우 전달 되는 값 설정.
+-main_album.html 게시글별 지역,태그 버튼 링크 연결

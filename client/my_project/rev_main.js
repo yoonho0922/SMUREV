@@ -1,4 +1,6 @@
 FlowRouter.template('/rev_main/:area/:tag/:order', 'rev_main');
+FlowRouter.template('/rev_main/:area/:tag', 'rev_main');
+FlowRouter.template('/rev_main/:area', 'rev_main');
 FlowRouter.template('/rev_main', 'rev_main');
 
 Template.rev_main.onRendered(function() {
@@ -13,10 +15,16 @@ Template.rev_main.helpers({
     },
     area : function(){
         var area = FlowRouter.getParam('area');
-        return area;
+       //  if(!area){
+       //     location.href="/rev_main/전체/전체/new";
+       // }
+       return area;
     },
     tag : function(){
         var tag = FlowRouter.getParam('tag');
+        // if(!tag){
+        //     location.href="/rev_main/전체/전체/new";
+        // }
         return tag;
     }
 });
@@ -31,6 +39,7 @@ Template.rev_main.events({
         Session.set('type_list', false);
     },
     'click #btn-newest': function(){
+            location.href="/rev_main/전체/전체/new";
     },
     'click #btn-rec': function(){
     },
@@ -41,6 +50,5 @@ Template.rev_main.events({
     'click #btn-tag1': function(){
     },
     'click #btn-tag2': function(){
-
     }
 });

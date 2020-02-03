@@ -21,14 +21,27 @@ Template.main_album.helpers({
 
     area : function(){
         var area = FlowRouter.getParam('area');
+        if(!area){
+            return '전체';
+        }
         return area;
     },
     tag : function(){
         var tag = FlowRouter.getParam('tag');
+        if(!tag){
+            return '전체';
+        }
         return tag;
     },
     order : function(){
         var order = FlowRouter.getParam('order');
+        if(!order){
+            return 'new';
+        }
         return order;
     }
 });
+
+Template.main_album.events({
+
+})
