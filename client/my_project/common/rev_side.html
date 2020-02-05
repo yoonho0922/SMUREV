@@ -1,28 +1,50 @@
 <template name="rev_side">
     <nav class="col-md-2 d-none d-md-block sidebar" style="margin-top: 15px;">
-        <div style="padding-left: 30px">
-            <ul class="nav flex-column" style="font-size: 20px; padding-top: 90px">
-                <li class="nav-item">
-                    <a class="nav-link active" href="/rev_posting/newPosting">
-                        글쓰기 <span class="sr-only">(current)</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/rev_myPosts">
-                        내가쓴글
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/rev_recPosts">
-                        추천한글
-                    </a>
-                </li>
-            </ul>
+        <div style="padding-left: 30px;padding-top: 50px">
 
-            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-                <span style="font-size: 15px">지역</span>
+            <img style="border: 0px solid black;border-radius:70px;-moz-border-radius: 70px;-html-border-radius: 70px;-webkit-border-radius: 70px;width: 80px;height: 80px" src="/img/오구.jpg" />
+            <a style="padding-left: 25px;font-size: 19px">유댕유댕</a>
+            <a class="text-muted" style="padding-left: 110px;font-size: 15px">(@yoonho0922)</a>
+            <!--로그인하면 아이디 넣을수있게-->
+            <div class="my_info" style="padding-top: 20px;padding-left: 25px">
+                <div>
+                    <a href="/rev_myPosts" style="color: #333333; font-size: 17px">- 내가 쓴 글 보기</a>
+                </div>
+                <div>
+                    <a href="/rev_recPosts" style="color: #333333; font-size: 17px">- 좋아요한 글 보기</a>
+                </div>
+            </div>
+            <div class="new_post" style="padding-top: 25px">
+                <a class="btn btn-primary" href="/rev_posting/newPosting" style="width: 270px;height:40px;">
+                    글쓰기 <span class="sr-only">(current)</span>
+                </a>
+            </div>
+
+
+
+
+<!--            <ul class="nav flex-column" style="font-size: 20px; padding-top: 90px">-->
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link active" href="/rev_posting/newPosting">-->
+<!--                        글쓰기 <span class="sr-only">(current)</span>-->
+<!--                    </a>-->
+<!--                </li>-->
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link" href="/rev_myPosts">-->
+<!--                        내가쓴글-->
+<!--                    </a>-->
+<!--                </li>-->
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link" href="/rev_recPosts">-->
+<!--                        추천한글-->
+<!--                    </a>-->
+<!--                </li>-->
+<!--            </ul>-->
+
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted" style="padding-top: 40px">
+                <span style="font-size: 20px;padding-bottom: 17px">지역</span>
             </h6>
-            <ul class="nav flex-column mb-2" style="font-size: 20px">
+            <ul class="nav flex-column mb-2" style="font-size: 19px;">
                 <li class="nav-item">
                     <a class="nav-link" href="/rev_main/전체/전체/new">
                         전체
