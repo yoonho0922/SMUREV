@@ -5,7 +5,7 @@ FlowRouter.template('/rev_main', 'rev_main');
 
 Template.rev_main.onRendered(function() {
     // 화면이 그려지고 난 후 제일 먼저 수행
-    Session.set('type_list', true);
+    // Session.set('type_list', true);
 });
 
 Template.rev_main.helpers({

@@ -1,39 +1,44 @@
 <template name="main_feed">
-    <div id="ex_posts" class="container">
-
-        <div style="border-radius: 25px; border: 2px solid rgba(128,128,128,0.71); padding: 20px;">
-            <p>지역 : {{area}} 태그 : {{tag}}  정렬 : {{order}}</p>
-            <div class="row">
-                <table class="table table-striped">
-                    <thead>
+    {{#each boards}}
+        <div style="width:100%; margin:20px; border-radius: 25px; border: 2px solid rgba(128,128,128,0.71); padding: 30px 150px;">
+            <div style="width:100%; height:300px;">
+                <table class="feed-table">
                     <tr>
-                        <th scope="col">제목</th>
-                        <th scope="col">작성자</th>
-                        <th scope="col">작성일</th>
-                        <th scope="col" class="d-none d-lg-block">조회</th>
-                        <th scope="col">삭제</th>
+                        <td rowspan="3">
+                            <a href="/rev_post/{{posting_area}}/{{posting_tag}}/{{order}}/{{_id}}"><img style="width:300px; height: 300px; margin-right: 20px" src="/examples/0001.jpeg"></a>
+                        </td>
+                        <td colspan="4" style="width:100%; height:30%;font-size: 50px;">
+                            <a  href="/rev_post/{{posting_area}}/{{posting_tag}}/{{order}}/{{_id}}">
+                                <p style="font-size:50px; color: #333333 ;"><strong>{{title}}</strong></p>
+                            </a>
+                        </td>
                     </tr>
-                    </thead>
-                    <tbody>
-                    <button id="btn-remove" class="close" style="float: left;">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    {{#each boards}}
-                        <tr>
-                            <td><a href="/rev_post/{{area}}/{{tag}}/{{order}}/{{_id}}">{{title}}</a></td>
-                            <td>{{name}}</td>
-                            <td>{{YMD}}<br><span class="d-none d-lg-block">{{HMS}}</span></td>
-                            <td class="d-none d-lg-block">{{readCount}}</td>
-                            <td><button id="btn-remove" class="close" style="float: left;">
-                                <span aria-hidden="true">&times;</span>
-                            </button></td>
-                        </tr>
-                    {{/each}}
-                    </tbody>
+                    <tr>
+                        <td colspan="4" style="height:58%; font-size: 30px;">
+                            <a  href="/rev_post/{{posting_area}}/{{posting_tag}}/{{order}}/{{_id}}">
+                                <p style="font-size: 30px; color: #646464">{{content}}</p>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr >
+                        <td  style="height: 12%">
+                            작성자 / {{createdAt}}
+                        </td>
+                        <td width="30%">
+                            <a href="/rev_main/{{posting_area}}/전체/new" type="button" style="color: #fff; background:gray; font-size:1em; border-radius:1.5em; padding:1px 13px;">#{{posting_area}}</a>
+                            <a href="/rev_main/{{posting_area}}/전체/new" type="button" style="color: #fff; background:gray; font-size:1em; border-radius:1.5em; padding:1px 13px;">#{{posting_area}}</a>
+                        </td>
+                        <td width="3%">
+                            <a  id="btn-rec">
+                                <img src="/examples/좋아요2.jpeg" style="padding-right:5px; height:30px; float:right;">
+                            </a>
+                        </td>
+                        <td width="7%">
+                            {{recommend}}
+                        </td>
+                    </tr>
                 </table>
             </div>
         </div>
-
-    </div>
-
+    {{/each}}
 </template>
