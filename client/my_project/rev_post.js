@@ -7,6 +7,9 @@ Template.rev_post.helpers({
     },
     createdAt: function() {
         return this.createdAt.toStringYMDHMS();
+    },
+    area: function(){
+        return FlowRouter.getParam('area');
     }
 });
 
