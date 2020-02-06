@@ -23,7 +23,7 @@
                                                 <div class="row text-center">
                                                     <div class="input-group mb-1 col-md-12">
                                                         <input class="form-control" style="height: 60px" value="{{title}}" type="text" id="inp-title" placeholder="제목"/>
-                                                        <input multiple="multiple" type="file"  id="inp-file" style="padding-top: 18px;padding-left: 13px"/>
+                                                        <input type="file"  id="inp-file" style="padding-top: 18px;padding-left: 13px"/>
                                                     </div>
 
                                                     <div class="input-group mb-1 col-md-12">
@@ -53,7 +53,8 @@
                                                         </div>
                                                     </div>
                                                     <div class="input-group mb-1 col-md-12">
-                                                        <textarea class="form-control"  type="text" id="inp-content" placeholder="본문을 입력하세요." style="height:400px">{{content}}</textarea>
+<!--                                                        <textarea class="form-control"  type="text" id="inp-content" placeholder="본문을 입력하세요." style="height:400px">{{content}}</textarea>-->
+                                                        <div id="editor">{{content}}</div>
                                                     </div>
                                                 </div>
                                             {{/with}}

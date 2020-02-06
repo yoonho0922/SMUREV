@@ -20,6 +20,7 @@ Template.rev_posting.helpers({
             $('#editor').summernote('reset')
         });
 
+
         return DB_REVS.findOne({_id: _id});
     }
 });
@@ -28,8 +29,8 @@ Template.rev_posting.events({
     'click #btn-save': function() {
 
         var title = $('#inp-title').val();
-        // var html = $('#editor').summernote('code');
-        var content=$('#inp-content').val();
+        var html = $('#editor').summernote('code');
+        // var content=$('#inp-content').val();
         var posting_area=$('.inp-area').val();
         var posting_tag=$('.inp-tag').val();
 
@@ -37,11 +38,12 @@ Template.rev_posting.events({
             return alert('제목은 반드시 입력 해 주세요.');
         }
         var _id = FlowRouter.getParam('_id');
+
         if( _id === 'newPosting') {
             DB_REVS.insert({
                 createdAt: new Date(),
                 title: title,
-                content: content,
+                content: html,
                 posting_area:posting_area,
                 posting_tag:posting_tag,
                 recommend:0,
@@ -53,7 +55,7 @@ Template.rev_posting.events({
             var post = DB_POSTS.findOne({_id: _id});
 
             post.title = title;
-            post.content = content;
+            post.content = html;
             post.posting_area=posting_area;
             post.posting_tag=posting_tag;
             DB_REVS.update({_id: _id}, post);
@@ -61,8 +63,8 @@ Template.rev_posting.events({
 
         alert('저장하였습니다.');
         $('#inp-title').val('');
-        // $('#editor').summernote('reset');
-        $('#inp-content').val();
+        $('#editor').summernote('reset');
+        // $('#inp-content').val();
         $('.inp-area').val();
         $('.inp-tag').val();
 

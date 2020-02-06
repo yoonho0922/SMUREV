@@ -39,6 +39,11 @@ Template.main_album.helpers({
             return 'new';
         }
         return order;
+    },
+    link:function () {
+        var rev_link = FlowRouter.getParam('rev_link');
+        return rev_link;
+
     }
 });
 
