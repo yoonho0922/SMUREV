@@ -33,6 +33,8 @@ Template.rev_posting.events({
         // var content=$('#inp-content').val();
         var posting_area=$('.inp-area').val();
         var posting_tag=$('.inp-tag').val();
+        var file = $('#inp-file').prop('files')[0];   // 화면에서 선택 된 파일 가져오기
+        var file_id = DB_FILES.insertFile(file);
 
         if(!title) {
             return alert('제목은 반드시 입력 해 주세요.');
@@ -48,7 +50,7 @@ Template.rev_posting.events({
                 posting_tag:posting_tag,
                 recommend:0,
                 readCount: 0,
-                file_id:[]
+                file_id:file_id
 
             })
         } else {
