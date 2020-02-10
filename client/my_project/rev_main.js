@@ -6,6 +6,7 @@ FlowRouter.template('/rev_main', 'rev_main');
 Template.rev_main.onRendered(function() {
     // 화면이 그려지고 난 후 제일 먼저 수행
     // Session.set('type_list', true);
+
 });
 
 Template.rev_main.helpers({
@@ -25,6 +26,7 @@ Template.rev_main.helpers({
         // if(!tag){
         //     location.href="/rev_main/전체/전체/new";
         // }
+
         return tag;
     }
 });
@@ -46,6 +48,7 @@ Template.rev_main.events({
     
     //태그 버튼 함수
     'click #btn-tag0': function(){
+
     },
     'click #btn-tag1': function(){
     },

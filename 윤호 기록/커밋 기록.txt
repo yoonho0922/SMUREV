@@ -39,3 +39,9 @@
 -feed, post 버그 수정, nav_bar 메인 이동을 rev_main/전체/전체/new로 이동하게 바꿈
 :메인 앨범 디비 필터링
 -앨범에도 필터링 기능 넣음
+
+2020.0210
+:내가쓴글, 추천한글
+-내글, 추천글 뼈대 작성.
+-document.getElementById('btn-tag1').style.backgroundColor='red'
+ 을 이용해 지역, 태그버튼 눌렀을때 색깔 바뀌게 해보려 했지만 실패.
