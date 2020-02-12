@@ -56,6 +56,10 @@ Template.main_feed.helpers({
     order : function(){
         var order = FlowRouter.getParam('order');
         return order;
+    },
+    link: function() {
+        // 저장 된 이미지 링크를 반환
+        return DB_FILES.findOne({_id: this.file_id}).link()
     }
 });
 
