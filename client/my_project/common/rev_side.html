@@ -1,26 +1,53 @@
 <template name="rev_side">
     <nav class="col-md-2 d-none d-md-block sidebar" style="margin-top: 15px;">
         <div style="padding-left: 30px;padding-top: 50px">
-
+<!--            <p>{{modProfile}}</p>-->
+            <p>{{link}}</p>
             <!-- 유저정보 -->
-            {{#with userInfo}}
-                <img style="border: 0px solid black;border-radius:70px;-moz-border-radius: 70px;-html-border-radius: 70px;-webkit-border-radius: 70px;width: 80px;height: 80px" src="/img/오구.jpg" />
-                <a style="padding-left: 25px;font-size: 19px">{{profile.name}}</a>
-                <a class="text-muted" style="padding-left: 110px;font-size: 15px">({{email}})</a>
-                <div class="my_info" style="padding-top: 20px;padding-left: 25px">
-                    <div>
-                        <a href="/rev_myPosts/전체/전체/new" style="color: #333333; font-size: 17px">내가 쓴 글 보기</a>
+            {{#if currentUser}}
+                {{#if modProfile}}  <!-- 프로필수정 -->
+                    {{#with userInfo}}
+                        <img style="border: 0px solid black;border-radius:70px;-moz-border-radius: 70px;-html-border-radius: 70px;-webkit-border-radius: 70px;width: 80px;height: 80px" src="{{link}}" />
+                        <h1 class="h3 mb-3 font-weight-normal">{{email}}</h1>
+                        <input id="inp-nickname" type="text" class="form-control mb-1" placeholder="Nickname" value="{{profile.nickname}}">
+                        <input type="file"  id="inp-img" style="padding-top: 18px;padding-left: 13px"/>
+                    {{/with}}
+
+                    <div class="new_post" style="padding-top: 25px">
+                        <button id="btn-update-profile" class="btn" style="width: 270px;height:40px; background-color: lightgray;color: white">
+                            수정 <span class="sr-only">(current)</span>
+                        </button>
                     </div>
-                    <div>
-                        <a href="/rev_recPosts/전체/전체/new" style="color: #333333; font-size: 17px">좋아요한 글 보기</a>
-                    </div>
-                </div>
+                {{else}}    <!-- 로그인 상태정보 -->
+                    {{#with userInfo}}
+                        <img style="border: 0px solid black;border-radius:70px;-moz-border-radius: 70px;-html-border-radius: 70px;-webkit-border-radius: 70px;width: 80px;height: 80px" src="{{profile.img}}" />
+                        <a style="padding-left: 25px;font-size: 19px">{{profile.nickname}}</a>
+                        <a class="text-muted" style="padding-left: 110px;font-size: 15px">({{email}})</a>
+                        <div class="my_info" style="padding-top: 20px;padding-left: 25px">
+                            <div>
+                                <button id="btn-mod-profile" style="color: #333333; font-size: 17px">내 정보 수정</button>
+                            </div>
+                            <div>
+                                <a href="/rev_myPosts/전체/전체/new" style="color: #333333; font-size: 17px">내가 쓴 글 보기</a>
+                            </div>
+                            <div>
+                                <a href="/rev_recPosts/전체/전체/new" style="color: #333333; font-size: 17px">좋아요한 글 보기</a>
+                            </div>
+                        </div>
+                        <div class="new_post" style="padding-top: 25px">
+                            <a class="btn" href="/rev_posting/newPosting" style="width: 270px;height:40px; background-color: lightgray;color: white">
+                                글쓰기 <span class="sr-only">(current)</span>
+                            </a>
+                        </div>
+                    {{/with}}
+                {{/if}}
+            {{else}}    <!--로그아웃상태-->
                 <div class="new_post" style="padding-top: 25px">
-                    <a class="btn" href="/rev_posting/newPosting" style="width: 270px;height:40px; background-color: lightgray;color: white">
-                        글쓰기 <span class="sr-only">(current)</span>
+                    <a class="btn" href="/rev_login" style="width: 270px;height:40px; background-color: lightgray;color: white">
+                        로그인해주세요 <span class="sr-only">(current)</span>
                     </a>
                 </div>
-            {{/with}}
+            {{/if}}
 
             <!-- 지역 카테고리 -->
             <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted" style="padding-top: 40px">

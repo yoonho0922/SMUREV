@@ -1,8 +1,7 @@
 FlowRouter.template('/rev_side', 'rev_side');
 
 Template.rev_side.onRendered(function() {
-    // 화면이 그려지고 난 후 제일 먼저 수행
-    Session.set('count', 0);
+    // Session.set('mymod', false);
 });
 
 Template.rev_side.helpers({
@@ -11,12 +10,42 @@ Template.rev_side.helpers({
     },
     userInfo: function() {
         return Meteor.user();
+    },
+    modProfile: function () {
+        return Session.get('modProfile');
+    },
+    link: function() {  //프사 가져오기....
+        // var user_id = Meteor.user()._id;
+        // var img_id = users.
+        // return DB_FILES.findOne({_id: this.img_id}).link()
     }
 });
 
 Template.rev_side.events({
-    // 화면의 이벤트를 처리
-    'click #btn-count': function() {
-        Session.set('count', Session.get('count')+1);
+    'click #btn-mod-profile': function(){
+        Session.set('modProfile', true);
+    },
+    'click #btn-update-profile': function() {
+        var userInfo = Meteor.user();
+        var nickname = $('#inp-nickname').val();
+        Meteor.users.update({_id: userInfo._id}, {
+            $set: {
+                'profile.nickname': nickname,
+                // 'profile.img' : img_id
+            }
+        });
+
+        // //프사 저장
+        // var img = $('#inp-img').prop('files')[0];
+        // var img_id = DB_PROFILE.insertFile(img);
+        //
+        // var post = DB_PROFILE.findOne({_id: _id});
+        //
+        // post.title = title;
+
+
+
+        alert('수정 되었습니다')
+        Session.set('modProfile', false);
     }
 });
