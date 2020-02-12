@@ -45,3 +45,8 @@
 -내글, 추천글 뼈대 작성.
 -document.getElementById('btn-tag1').style.backgroundColor='red'
  을 이용해 지역, 태그버튼 눌렀을때 색깔 바뀌게 해보려 했지만 실패
+
+ 2020.0212
+ :로그인 기능 기초작업
+ -로그인 기능 넣음
+ -nav_bar, nav_side 로그인에 따라 바뀌도록 작업
