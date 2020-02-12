@@ -73,16 +73,7 @@ Template.main_album.helpers({
         // 저장 된 이미지 링크를 반환
         return DB_FILES.findOne({_id: this.file_id}).link()
     }
-    // },
-    // recommend:function(){
-    //     return DB_REVS.findOne({_id: this.recommend}).recommend()
-    // }
-
 });
 
 Template.main_album.events({
-    // 'click #btn-rec': function() {
-    //     recommend++;
-    // }
-
 })
