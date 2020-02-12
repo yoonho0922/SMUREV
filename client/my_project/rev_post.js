@@ -31,6 +31,7 @@ Template.rev_post.events({
             DB_REVS.remove({_id: FlowRouter.getParam('_id')});
             location.href="/rev_main/"+area+"/"+tag+"/"+order;
         }
+
     },
 
     'click #btn-rec': function() {
@@ -39,5 +40,13 @@ Template.rev_post.events({
             $inc: {recommend: 1}  //조회수 1 증가 업데이트
         });
         alert('추천')
+    },
+
+    'click #submit':function () {
+        DB_COMMENT.insert({    // 컨텐츠 DB에 저장
+            createdAt: new Date(),          // 저장 시각
+            comment: $('#comment-input').val()// 저장 컨텐츠
+        });
+        $('#comment-input').val('');
     }
 })

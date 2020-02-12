@@ -2,3 +2,4 @@
 // DB_REVS = new Mongo.Collection('DB_REVS');
 DB_REVS = new Mongo.Collection('DB_REVS');
 DB_REVSUPLOAD = new Mongo.Collection('DB_REVSUPLOAD');
+DB_COMMENT = new Mongo.Collection('DB_COMMENT');

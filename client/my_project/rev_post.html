@@ -66,36 +66,57 @@
 
                              </table>
                          {{/with}}
+                                <!--댓글기능-->
+                                <section class="jumbotron text-center">
+                                    <div class="comment" style="padding-left:100px; ">
+                                        <div class="com">
+                                            <meta charset="utf-8">
+                                            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                                            <title>Page Title</title>
+                                            <meta name="viewport" content="width=device-width, initial-scale=1">
+                                            <link rel="stylesheet" type="text/css" media="screen" href="rev_comment.less">
 
+                                        </div>
+                                        <div class="com2">
+                                            <div id="form-commentInfo">
+                                                <div id="comment-count">댓글 <span id="count">0</span></div>
+                                                <div class = "c">
+                                                    <input id="comment-input" placeholder="댓글을 입력해 주세요.">
+                                                    <button id="submit">등록</button>
+                                                </div>
+
+                                            </div>
+                                        </div>
+<!--                                        <div id=comments> </div>-->
+<!--                                        <script src="rev_comment.js"></script>-->
+                                    </div>
+                                </section>
+
+                                <div class="container">
+                                    <div class="row">
+
+
+                                            <div style="border:1px solid; width: 1300px">
+                                                <p class="text" style="font-size: 20px">좋아요</p>
+                                                <div id="comment-user" style="font-size: 14px">hhz2000</div>
+                                                <button type="button" class="btn btn-sm btn-outline-secondary" style="float: right">x</button>
+                                            </div>
+
+
+
+                                    </div>
+                                </div>
+
+
+                                <!--댓글기능-->
 
                             </div>
                         </div>
                     </div>
-
-
-                    <div id="disqus_thread"></div>
-                    <script>
-
-                        /**
-                         *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-                         *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-
-                        var disqus_config = function () {
-                        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-                        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-                        };
-
-                        (function() { // DON'T EDIT BELOW THIS LINE
-                            var d = document, s = d.createElement('script');
-                            s.src = 'https://review-12.disqus.com/embed.js';
-                            s.setAttribute('data-timestamp', +new Date());
-                            (d.head || d.body).appendChild(s);
-                        })();
-                    </script>
-                    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
                     <!-- main-->
+
                 </main>
+
 
 
             </div>
@@ -103,8 +124,6 @@
 
     </id>
     </div>
-
-
 
     <style>
         table {
@@ -118,10 +137,5 @@
 
 
 
-
-    <script id="dsq-count-scr" src="//review-12.disqus.com/count.js" async></script>
-
-
-
-
 </template>
+
