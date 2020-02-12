@@ -33,7 +33,11 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-outline-primary" href="#">Sign in</a>
+                        {{#if currentUser}}
+                            <button id="btn-logout" class="btn btn-outline-primary">sign out</button>
+                            {{else}}
+                            <a class="btn btn-outline-primary" href="/rev_login">Sign in</a>
+                        {{/if}}
                     </li>
                 </ul>
             </div>

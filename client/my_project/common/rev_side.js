@@ -6,14 +6,11 @@ Template.rev_side.onRendered(function() {
 });
 
 Template.rev_side.helpers({
-    // 화면에 데이터를 전달
-    count: function() {
-        var count = Session.get('count');
-        if (!count) {
-            return 'Click!';
-        } else {
-            return 'Count: ' + count;
-        }
+    email: function() {
+        return Meteor.user().emails[0].address; //화면에 사용자의 이메일을 전달
+    },
+    userInfo: function() {
+        return Meteor.user();
     }
 });
 
