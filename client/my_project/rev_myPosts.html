@@ -15,7 +15,11 @@
                     <div style="margin-top: 20px">
                         <div  style="padding: 10px;">
                             <div style="border-radius: 25px; border: 2px solid rgba(128,128,128,0.71); padding: 20px;">
-                                <a id="btn-tag0" href="/rev_myPosts/{{area}}/전체/new" class="btn btn-outline-dark" style="margin: 5px; margin-right: 15px">#전체</a>
+                                {{#if tag = '전체'}}
+                                    <a id="btn-tag0" href="/rev_myPosts/{{area}}/전체/new" class="btn " style="margin: 5px; margin-right: 15px">#전체</a>
+                                    {{else}}
+                                    <a id="btn-tag0" href="/rev_myPosts/{{area}}/전체/new" class="btn btn-outline-dark" style="margin: 5px; margin-right: 15px">#전체</a>
+                                {{/if}}
                                 <a id="btn-tag1" href="/rev_myPosts/{{area}}/한식/new" class="btn btn-outline-dark" style="margin: 5px 15px;">#한식</a>
                                 <a id="btn-tag2" href="/rev_myPosts/{{area}}/일식/new" class="btn btn-outline-dark" style="margin: 5px 15px;">#일식</a>
                                 <a id="btn-tag3" href="/rev_myPosts/{{area}}/중식/new" class="btn btn-outline-dark" style="margin: 5px 15px;">#중식</a>

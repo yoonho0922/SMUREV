@@ -44,4 +44,4 @@
 :내가쓴글, 추천한글
 -내글, 추천글 뼈대 작성.
 -document.getElementById('btn-tag1').style.backgroundColor='red'
- 을 이용해 지역, 태그버튼 눌렀을때 색깔 바뀌게 해보려 했지만 실패.
+ 을 이용해 지역, 태그버튼 눌렀을때 색깔 바뀌게 해보려 했지만 실패
