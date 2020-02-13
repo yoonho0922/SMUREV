@@ -29,7 +29,7 @@ Template.rev_posting.events({
     'click #btn-save': function() {
 
         var title = $('#inp-title').val();
-        var html = $('#editor').summernote('code');
+        var content = $('#editor').summernote('code');
         // var content=$('#inp-content').val();
         var posting_area=$('.inp-area').val();
         var posting_tag=$('.inp-tag').val();
@@ -45,7 +45,7 @@ Template.rev_posting.events({
             DB_REVS.insert({
                 createdAt: new Date(),
                 title: title,
-                content: html,
+                content: content,
                 posting_area:posting_area,
                 posting_tag:posting_tag,
                 recommend:0,
@@ -57,7 +57,7 @@ Template.rev_posting.events({
             var post = DB_POSTS.findOne({_id: _id});
 
             post.title = title;
-            post.content = html;
+            post.content = content;
             post.posting_area=posting_area;
             post.posting_tag=posting_tag;
             DB_REVS.update({_id: _id}, post);

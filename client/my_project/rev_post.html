@@ -51,7 +51,7 @@
                                      </td>
                                  </tr>
                                  <tr>
-                                     <td colspan="2" id="content">{{content}}</td>
+                                     <td colspan="2" id="content">{{{content}}}</td>
                                  </tr>
                                  <tr>
                                      <td>
@@ -67,6 +67,25 @@
                              </table>
                          {{/with}}
                                 <!--댓글기능-->
+                                <div class="container">
+                                    <div class="row">
+                                        {{#each comments}}
+                                            <div style="width: 1300px">
+                                                <div class="text" >
+                                                    <img style="border: 0px solid black;border-radius:70px;-moz-border-radius: 70px;-html-border-radius: 70px;-webkit-border-radius: 70px;width: 80px;height: 80px" src="{{link}}" />
+                                                    <span style="font-size: 20px">{{comment}}</span>
+                                                    <button id="comment-remove" type="button" class="btn btn-sm btn-outline-secondary" style="float: right; ">x</button>
+                                                </div>
+
+                                                <div id="comment-user" style="font-size: 14px;padding-left: 12px;padding-top: 5px">hhz2000
+                                                <span id="comment-date" style="font-size: 14px; padding-left: 30px">{{createdAt}}</span>
+                                                </div>
+                                                <hr id="hr-1" size="7px">
+                                            </div>
+                                        {{/each}}
+                                    </div>
+                                </div>
+
                                 <section class="jumbotron text">
                                     <div class="comment" style="padding-left:100px; ">
                                         <div class="com">
@@ -89,57 +108,10 @@
 
                                             </div>
                                         </div>
-<!--                                        <div id=comments> </div>-->
-<!--                                        <script src="rev_comment.js"></script>-->
                                     </div>
                                 </section>
 
-                                <div class="container">
-                                    <div class="row">
 
-
-                                        <div style="width: 1300px">
-                                            <div class="text" >
-                                                <p style="font-size: 20px">좋아요</p>
-                                            </div>
-
-                                            <div id="comment-date" style="font-size: 14px">2020-02-12</div>
-                                            <!--                                                <div id="comment-user" style="font-size: 14px">hhz2000</div>-->
-
-                                            <button type="button" class="btn btn-sm btn-outline-secondary" style="float: right">x</button>
-                                            <hr id="hr-1" size="5px">
-                                        </div>
-
-                                        <div style="width: 1300px">
-                                            <div class="text" >
-                                                <p style="font-size: 20px">좋아요</p>
-                                            </div>
-
-                                            <div id="comment-date" style="font-size: 14px">2020-02-12</div>
-                                            <!--                                                <div id="comment-user" style="font-size: 14px">hhz2000</div>-->
-
-                                            <button type="button" class="btn btn-sm btn-outline-secondary" style="float: right">x</button>
-                                            <hr id="hr-1" size="5px">
-                                        </div>
-
-
-                                        <div style="width: 1300px">
-                                            <div class="text" >
-                                                <p style="font-size: 20px">좋아요</p>
-                                            </div>
-
-                                            <div id="comment-date" style="font-size: 14px">2020-02-12</div>
-                                            <!--                                                <div id="comment-user" style="font-size: 14px">hhz2000</div>-->
-
-                                            <button type="button" class="btn btn-sm btn-outline-secondary" style="float: right">x</button>
-                                            <hr id="hr-1" size="5px">
-                                        </div>
-
-
-
-
-                                    </div>
-                                </div>
 
 
                                 <!--댓글기능-->

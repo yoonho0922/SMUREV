@@ -10,6 +10,15 @@ Template.rev_post.helpers({
     },
     area: function(){
         return FlowRouter.getParam('area');
+    },
+    comments: function() {
+        return DB_COMMENT.find({revs_id: FlowRouter.getParam('_id')});
+    },
+    writer: function() {
+        //this에는 DB_COMMENTS {} 하나하나가 들어 있음.
+        return Meteor.users.findOne({writer: FlowRouter.getParam('_id')}).username;
+
+
     }
 });
 
@@ -43,10 +52,21 @@ Template.rev_post.events({
     },
 
     'click #submit':function () {
-        DB_COMMENT.insert({    // 컨텐츠 DB에 저장
+        var comment=$('#comment-input').val();
+
+        DB_COMMENT.insert({    // 댓글 DB에 저장
             createdAt: new Date(),          // 저장 시각
-            comment: $('#comment-input').val()// 저장 컨텐츠
+            comment: comment,// 댓글내용
+            writer: Meteor.user()._id,//유저아이디
+            revs_id: FlowRouter.getParam('_id')
         });
         $('#comment-input').val('');
+    },
+    'click #comment-remove': function () {
+        if(confirm('삭제 하시겠습니까?')) {
+            DB_COMMENT.remove({_id: this._id});
+            alert('삭제 되었습니다.');
+        }
+
     }
 })
