@@ -53,6 +53,16 @@
             <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted" style="padding-top: 40px">
                 <span style="font-size: 20px;padding-bottom: 17px">지역</span>
             </h6>
+
+            <script type="text/javascript">
+                function sel(option) {
+                    for(var i=0,len=option.length ; i<len ; i++) {
+                        option[i].style.color = "#000";
+                    }
+                    option[option.selectedIndex].style.color = "#f00";
+                }
+            </script>
+
             <ul class="nav flex-column mb-2" style="font-size: 19px;">
                 <li class="nav-item">
                     <a class="nav-link" href="/rev_main/전체/전체/new">
@@ -99,7 +109,17 @@
                         기타
                     </a>
                 </li>
+
             </ul>
+
+            <style>
+                li:hover{background: lightblue;}
+
+                li:active {background-color:lightcoral; }
+
+
+            </style>
         </div>
     </nav>
+
 </template>

@@ -1,3 +1,5 @@
+import {toggleClass} from "cheerio";
+
 FlowRouter.template('/rev_side', 'rev_side');
 
 Template.rev_side.onRendered(function() {
@@ -47,5 +49,13 @@ Template.rev_side.events({
 
         alert('수정 되었습니다')
         Session.set('modProfile', false);
-    }
+    },
+    // 'click .nav-item': function(){
+    //     $(".nav-link").css("background-color","lightgray")
+    //
+    //
+    // }
+
 });
+
+

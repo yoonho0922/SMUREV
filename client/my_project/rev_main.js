@@ -53,5 +53,10 @@ Template.rev_main.events({
     'click #btn-tag1': function(){
     },
     'click #btn-tag2': function(){
-    }
+    },
+
+    ///클릭하면 색상 변경
+    'click #btn-tag0': function(){
+            $("#btn-tag0").css("background-color","lightgray")
+        }
 });
