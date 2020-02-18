@@ -1,20 +1,19 @@
 FlowRouter.template('/rev_side', 'rev_side');
 
 Template.rev_side.onRendered(function() {
-    // Session.set('mymod', false);
-
-    switch (FlowRouter.current().path) {
-
-        case '/rev_main/상명대/전체/new':
-            alert(10)
-            $('#nav-item1').attr('style', 'color:red')
-            return
-        case '/rev_main/전체/전체/new':
-            alert(11)
-            $('#nav-item0').attr('style', 'background-color:lightgray')
-            return
-        default:
-    }
+    FlowRouter.cu
+    // switch (FlowRouter.current().path) {
+    //
+    //     case '/rev_main/상명대/전체/new':
+    //         alert(10)
+    //         $('#nav-item1').attr('style', 'color:red')
+    //         return
+    //     case '/rev_main/전체/전체/new':
+    //         alert(11)
+    //         $('#nav-item0').attr('style', 'background-color:lightgray')
+    //         return
+    //     default:
+    // }
 });
 
 Template.rev_side.helpers({
@@ -33,18 +32,72 @@ Template.rev_side.helpers({
         return proPicture.file_id.link();
     },
 
-    // nav_item0: function() {
-    //   // if (FlowRouter.current().path === '/rev_main/전체/전체/new')
-    //       alert(11)
-    //       return 'background-color: lightgray;'
-    // },
-    // ex_carousel: function() {
-    //   if (FlowRouter.current().path === '/ex_carousel')
-    //     return 'color: red;'
-    // }
-
-
-// }
+    activated0: function(){
+        if(FlowRouter.getParam('area') == '전체'){
+            return 'color : skyblue;';
+        }
+        return;
+    },
+    activated1: function(){
+        if(FlowRouter.getParam('area') == '상명대'){
+            return 'color : skyblue;';
+        }
+        return;
+    },
+    activated2: function(){
+        if(FlowRouter.getParam('area') == '신촌'){
+            return 'color : skyblue;';
+        }
+        return;
+    },
+    activated3: function(){
+        if(FlowRouter.getParam('area') == '경복궁'){
+            return 'color : skyblue;';
+        }
+        return;
+    },
+    activated4: function(){
+        if(FlowRouter.getParam('area') == '종각'){
+            return 'color : skyblue;';
+        }
+        return;
+    },
+    activated5: function(){
+        if(FlowRouter.getParam('area') == '을지로'){
+            return 'color : skyblue;';
+        }
+        return;
+    },
+    activated6: function(){
+        if(FlowRouter.getParam('area') == '홍제'){
+            return 'color : skyblue;';
+        }
+        return;
+    },
+    activated7: function(){
+        if(FlowRouter.getParam('area') == '불광'){
+            return 'color : skyblue;';
+        }
+        return;
+    },
+    activated8: function(){
+        if(FlowRouter.getParam('area') == '기타'){
+            return 'color : skyblue;';
+        }
+        return;
+    },
+    activated10: function(){
+        if(FlowRouter.getParam('area') == '기타'){
+            return 'color : skyblue;';
+        }
+        return;
+    },
+    activated11: function(){
+        if(FlowRouter.getParam('area') == '기타'){
+            return 'color : skyblue;';
+        }
+        return;
+    }
 
 });
 

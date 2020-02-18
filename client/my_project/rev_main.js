@@ -28,6 +28,61 @@ Template.rev_main.helpers({
         // }
 
         return tag;
+    },
+
+    activated0: function(){
+        if(FlowRouter.getParam('tag') == '전체'){
+            return 'background-color : skyblue; color : white;';
+        }
+        return;
+    },
+    activated1: function(){
+        if(FlowRouter.getParam('tag') == '한식'){
+            return 'background-color : skyblue; color : white;';
+        }
+        return;
+    },
+    activated2: function(){
+        if(FlowRouter.getParam('tag') == '일식'){
+            return 'background-color : skyblue; color : white;';
+        }
+        return;
+    },
+    activated3: function(){
+        if(FlowRouter.getParam('tag') == '중식'){
+            return 'background-color : skyblue; color : white;';
+        }
+        return;
+    },
+    activated4: function(){
+        if(FlowRouter.getParam('tag') == '양식'){
+            return 'background-color : skyblue; color : white;';
+        }
+        return;
+    },
+    activated5: function(){
+        if(FlowRouter.getParam('tag') == '분식'){
+            return 'background-color : skyblue; color : white;';
+        }
+        return;
+    },
+    activated6: function(){
+        if(FlowRouter.getParam('tag') == '카페'){
+            return 'background-color : skyblue; color : white;';
+        }
+        return;
+    },
+    activated7: function(){
+        if(FlowRouter.getParam('tag') == '포차'){
+            return 'background-color : skyblue; color : white;';
+        }
+        return;
+    },
+    activated8: function(){
+        if(FlowRouter.getParam('tag') == '기타'){
+            return 'background-color : skyblue; color : white;';
+        }
+        return;
     }
 });
 

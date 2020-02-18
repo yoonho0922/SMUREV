@@ -1,8 +1,6 @@
 <template name="rev_side">
     <nav class="col-md-2 d-none d-md-block sidebar" style="margin-top: 15px;">
         <div style="padding-left: 30px;padding-top: 50px">
-<!--            <p>{{modProfile}}</p>-->
-            <p>{{link}}</p>
             <!-- 유저정보 -->
             {{#if currentUser}}
 
@@ -12,10 +10,10 @@
                         <a class="text-muted" style="padding-left: 110px;font-size: 15px">({{email}})</a>
                         <div class="my_info" style="padding-top: 20px;padding-left: 25px">
                             <div>
-                                <a href="/rev_myPosts/전체/전체/new" style="color: #333333; font-size: 17px">내가 쓴 글 보기</a>
+                                <a href="/rev_myPosts/전체/전체/new" style="{{activated10}} color: #333333; font-size: 17px">내가 쓴 글 보기</a>
                             </div>
                             <div>
-                                <a href="/rev_recPosts/전체/전체/new" style="color: #333333; font-size: 17px">좋아요한 글 보기</a>
+                                <a href="/rev_recPosts/전체/전체/new" style="{{activated11}} color: #333333; font-size: 17px">좋아요한 글 보기</a>
                             </div>
                         </div>
                         <div class="new_post" style="padding-top: 25px">
@@ -40,47 +38,47 @@
 
             <ul class="nav flex-column mb-2" style="font-size: 19px;">
                 <li class="nav-item">
-                    <a id="nav-item0" class="nav-link" href="/rev_main/전체/전체/new">
+                    <a id="nav-item0" class="nav-link" style="{{activated0}}" href="/rev_main/전체/전체/new">
                         전체
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a id="nav-item1" class="nav-link" href="/rev_main/상명대/전체/new">
+                    <a id="nav-item1" class="nav-link" style="{{activated1}}" href="/rev_main/상명대/전체/new">
                         상명대
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a id="nav-item2" class="nav-link" href="/rev_main/신촌/전체/new">
+                    <a id="nav-item2" class="nav-link" style="{{activated2}}" href="/rev_main/신촌/전체/new">
                         신촌
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a id="nav-item3" class="nav-link" href="/rev_main/경복궁/전체/new">
+                    <a id="nav-item3" class="nav-link" style="{{activated3}}" href="/rev_main/경복궁/전체/new">
                         경복궁
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a id="nav-item4" class="nav-link" href="/rev_main/종각/전체/new">
+                    <a id="nav-item4" class="nav-link" style="{{activated4}}" href="/rev_main/종각/전체/new">
                         종각
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a id="nav-item5" class="nav-link" href="/rev_main/을지로/전체/new">
+                    <a id="nav-item5" class="nav-link" style="{{activated5}}" href="/rev_main/을지로/전체/new">
                         을지로
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a id="nav-item6" class="nav-link" href="/rev_main/홍제/전체/new">
+                    <a id="nav-item6" class="nav-link" style="{{activated6}}" href="/rev_main/홍제/전체/new">
                         홍제
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a id="nav-item7" class="nav-link" href="/rev_main/불광/전체/new">
+                    <a id="nav-item7" class="nav-link" style="{{activated7}}" href="/rev_main/불광/전체/new">
                         불광
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a id="nav-item8" class="nav-link" href="/rev_main/기타/전체/new">
+                    <a id="nav-item8" class="nav-link" style="{{activated8}}" href="/rev_main/기타/전체/new">
                         기타
                     </a>
                 </li>
