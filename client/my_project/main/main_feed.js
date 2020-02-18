@@ -60,7 +60,12 @@ Template.main_feed.helpers({
     link: function() {
         // 저장 된 이미지 링크를 반환
         return DB_FILES.findOne({_id: this.file_id}).link()
+    },
+    username:function () {
+        return DB_REVS.findOne({_id: this.user_nickname})
+
     }
+
 });
 
 Template.main_feed.events({

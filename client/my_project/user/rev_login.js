@@ -35,6 +35,7 @@ Template.rev_login.events({
                 alert(err);
             }
             else {
+                alert('로그인되었습니다')
                 window.history.back();
             }
         });
@@ -42,6 +43,13 @@ Template.rev_login.events({
     'click #btn-logout': function() {
         Meteor.logout();
         alert("로그아웃 되었습니다.");
+    },
+    'click #btn-home':function () {
+        location.href="/rev_main/전체/전체/new";
+    },
+    'click #btn-fix':function () {
+        location.href="/rev_myPage";
+
     },
     'click #btn-signUpMode': function() {
         Session.set('isSignUpMode', true);  //회원 가입 모드 On
@@ -64,25 +72,26 @@ Template.rev_login.events({
                     alert(err);
                 }
             });
+            // location.href="/rev_main/전체/전체/new";
         }
         else {
             alert('비밀번호가 일치하지 않습니다. 다시 확인 해 주세요.');
         }
     },
-    'click #btn-update-profile': function() {
-        var userInfo = Meteor.user();
-        var name = $('#inp-name').val();
-        var address = $('#inp-address').val();
-        var mobile = $('#inp-mobile').val();
-
-        Meteor.users.update({_id: userInfo._id}, {
-            $set: {
-                'profile.name': name,
-                'profile.address': address,
-                'profile.mobile': mobile
-            }
-        });
-
-        alert('사용자 프로파일을 수정 하였습니다.');
-    }
+    // 'click #btn-update-profile': function() {
+    //     var userInfo = Meteor.user();
+    //     var name = $('#inp-name').val();
+    //     var address = $('#inp-address').val();
+    //     var mobile = $('#inp-mobile').val();
+    //
+    //     Meteor.users.update({_id: userInfo._id}, {
+    //         $set: {
+    //             'profile.name': name,
+    //             'profile.address': address,
+    //             'profile.mobile': mobile
+    //         }
+    //     });
+    //
+    //     alert('사용자 프로파일을 수정 하였습니다.');
+    // }
 });
