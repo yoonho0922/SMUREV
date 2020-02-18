@@ -5,7 +5,28 @@ Template.rev_posting.onRendered(function() {
     $('#editor').summernote({
         popover: {},
         minHeight: 200,
-        maximumImageFileSize: 1048576*10
+        maximumImageFileSize: 1048576*10,
+        callbacks: {
+            onImageUpload : function(files) {
+                alert(111)
+                if (!files.length) return;
+                var file = files[0];
+                // create FileReader
+                var reader  = new FileReader();
+                reader.onloadend = function () {
+                    // when loaded file, img's src set datauri
+                    console.log("img",$("<img>"));
+                    var img = $("<img>").attr({src: reader.result, width: "100%"}); // << Add here img attributes !
+                    console.log("var img", img);
+                    $('#editor').summernote("insertNode", img[0]);
+                }
+
+                if (file) {
+                    // convert fileObject to datauri
+                    reader.readAsDataURL(file);
+                }
+            }
+        }
     });
 });
 
@@ -30,8 +51,6 @@ Template.rev_posting.events({
 
         var user_id = Meteor.user()._id;
         var user_email = Meteor.user().emails[0].address;
-        alert(Meteor.user().emails[0].address);
-        alert(user_email);
         var user_nickname = Meteor.user().profile.nickname;
 
         var title = $('#inp-title').val();
