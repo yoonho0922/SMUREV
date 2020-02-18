@@ -2,15 +2,18 @@ FlowRouter.template('/rev_side', 'rev_side');
 
 Template.rev_side.onRendered(function() {
     // Session.set('mymod', false);
+
     switch (FlowRouter.current().path) {
-        case '/rev_main/전체/전체/new':
-            $('#nav-item0').attr('style', 'color:red')
-            return
+
         case '/rev_main/상명대/전체/new':
+            alert(10)
             $('#nav-item1').attr('style', 'color:red')
             return
+        case '/rev_main/전체/전체/new':
+            alert(11)
+            $('#nav-item0').attr('style', 'background-color:lightgray')
+            return
         default:
-
     }
 });
 
@@ -31,7 +34,8 @@ Template.rev_side.helpers({
     },
 
     // nav_item0: function() {
-    //   if (FlowRouter.current().path === '/rev_main/전체/전체/new')
+    //   // if (FlowRouter.current().path === '/rev_main/전체/전체/new')
+    //       alert(11)
     //       return 'background-color: lightgray;'
     // },
     // ex_carousel: function() {
