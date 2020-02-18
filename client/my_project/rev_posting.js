@@ -28,9 +28,14 @@ Template.rev_posting.helpers({
 Template.rev_posting.events({
     'click #btn-save': function() {
 
+        var user_id = Meteor.user()._id;
+        var user_email = Meteor.user().emails[0].address;
+        alert(Meteor.user().emails[0].address);
+        alert(user_email);
+        var user_nickname = Meteor.user().profile.nickname;
+
         var title = $('#inp-title').val();
         var content = $('#editor').summernote('code');
-        // var content=$('#inp-content').val();
         var posting_area=$('.inp-area').val();
         var posting_tag=$('.inp-tag').val();
         var file = $('#inp-file').prop('files')[0];   // 화면에서 선택 된 파일 가져오기
@@ -43,6 +48,9 @@ Template.rev_posting.events({
 
         if( _id === 'newPosting') {
             DB_REVS.insert({
+                user_id : user_id,
+                user_email : user_email,
+                user_nickname : user_nickname,
                 createdAt: new Date(),
                 title: title,
                 content: content,
@@ -51,7 +59,6 @@ Template.rev_posting.events({
                 recommend:0,
                 readCount: 0,
                 file_id:file_id
-
             })
         } else {
             var post = DB_POSTS.findOne({_id: _id});

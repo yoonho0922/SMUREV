@@ -25,20 +25,41 @@ Template.rev_post.helpers({
 Template.rev_post.events({
 
     'click #btn-mod': function() {
-        if(confirm('수정하겠습니까?')){
-            var _id = FlowRouter.getParam('_id');
-            location.href="/rev_posting/"+_id;
+        if(!Meteor.user()){
+            alert('로그인해주세요.');
+            return;
+        }
+        var _id = FlowRouter.getParam('_id');
+        var revs = DB_REVS.findOne({_id: _id});
+        if(Meteor.user()._id == revs.user_id){
+            if(confirm('수정하겠습니까?')){
+                location.href="/rev_posting/"+_id;
+            }
+        }else{
+            alert('권한이 없습니다.')
         }
 
     },
 
     'click #btn-del': function() {
-        if(confirm('삭제하겠습니까?')){
-            var area = FlowRouter.getParam('area');
-            var tag = FlowRouter.getParam('tag');
-            var order = FlowRouter.getParam('order');
-            DB_REVS.remove({_id: FlowRouter.getParam('_id')});
-            location.href="/rev_main/"+area+"/"+tag+"/"+order;
+        if(!Meteor.user()){
+            alert('로그인해주세요.');
+            return;
+        }
+
+        var _id = FlowRouter.getParam('_id');
+        var revs = DB_REVS.findOne({_id: _id});
+        if(Meteor.user()._id == revs.user_id || !revs.user_id){
+            if(confirm('삭제하겠습니까?')){
+                var area = FlowRouter.getParam('area');
+                var tag = FlowRouter.getParam('tag');
+                var order = FlowRouter.getParam('order');
+                DB_REVS.remove({_id: _id});
+                alert('삭제되었습니다.');
+                location.href="/rev_main/"+area+"/"+tag+"/"+order;
+            }
+        }else{
+            alert('권한이 없습니다.')
         }
 
     },
