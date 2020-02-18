@@ -57,7 +57,8 @@ Template.rev_post.events({
         DB_COMMENT.insert({    // 댓글 DB에 저장
             createdAt: new Date(),          // 저장 시각
             comment: comment,// 댓글내용
-            writer: Meteor.user()._id,//유저아이디
+            writer: Meteor.user().emails.address,//유저아이디
+            username:Meteor.user().profile.nickname,
             revs_id: FlowRouter.getParam('_id')
         });
         $('#comment-input').val('');

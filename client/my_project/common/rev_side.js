@@ -1,9 +1,17 @@
-import {toggleClass} from "cheerio";
-
 FlowRouter.template('/rev_side', 'rev_side');
 
 Template.rev_side.onRendered(function() {
     // Session.set('mymod', false);
+    switch (FlowRouter.current().path) {
+        case '/rev_main/전체/전체/new':
+            $('#nav-item0').attr('style', 'color:red')
+            return
+        case '/rev_main/상명대/전체/new':
+            $('#nav-item1').attr('style', 'color:red')
+            return
+        default:
+
+    }
 });
 
 Template.rev_side.helpers({
@@ -20,7 +28,20 @@ Template.rev_side.helpers({
         var proPicture = DB_PRO_PICTURE.findOne({user_id: userInfo._id});
         alert(proPicture.file_id.link());
         return proPicture.file_id.link();
-    }
+    },
+
+    // nav_item0: function() {
+    //   if (FlowRouter.current().path === '/rev_main/전체/전체/new')
+    //       return 'background-color: lightgray;'
+    // },
+    // ex_carousel: function() {
+    //   if (FlowRouter.current().path === '/ex_carousel')
+    //     return 'color: red;'
+    // }
+
+
+// }
+
 });
 
 Template.rev_side.events({
