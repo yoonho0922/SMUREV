@@ -15,19 +15,15 @@
                     <div style="margin-top: 20px">
                         <div  style="padding: 10px;">
                             <div style="border-radius: 25px; border: 2px solid rgba(128,128,128,0.71); padding: 20px;">
-                                {{#if tag = '전체'}}
-                                    <a id="btn-tag0" href="/rev_myPosts/{{area}}/전체/new" class="btn " style="margin: 5px; margin-right: 15px">#전체</a>
-                                    {{else}}
-                                    <a id="btn-tag0" href="/rev_myPosts/{{area}}/전체/new" class="btn btn-outline-dark" style="margin: 5px; margin-right: 15px">#전체</a>
-                                {{/if}}
-                                <a id="btn-tag1" href="/rev_myPosts/{{area}}/한식/new" class="btn btn-outline-dark" style="margin: 5px 15px;">#한식</a>
-                                <a id="btn-tag2" href="/rev_myPosts/{{area}}/일식/new" class="btn btn-outline-dark" style="margin: 5px 15px;">#일식</a>
-                                <a id="btn-tag3" href="/rev_myPosts/{{area}}/중식/new" class="btn btn-outline-dark" style="margin: 5px 15px;">#중식</a>
-                                <a id="btn-tag4" href="/rev_myPosts/{{area}}/양식/new" class="btn btn-outline-dark" style="margin: 5px 15px;">#양식</a>
-                                <a id="btn-tag5" href="/rev_myPosts/{{area}}/분식/new" class="btn btn-outline-dark" style="margin: 5px 15px;">#분식</a>
-                                <a id="btn-tag6" href="/rev_myPosts/{{area}}/카페/new" class="btn btn-outline-dark" style="margin: 5px 15px;">#카페</a>
-                                <a id="btn-tag7" href="/rev_myPosts/{{area}}/포차/new" class="btn btn-outline-dark" style="margin: 5px 15px;">#포차</a>
-                                <a id="btn-tag8" href="/rev_myPosts/{{area}}/기타/new" class="btn btn-outline-dark" style="margin: 5px 15px;">#기타</a>
+                                <a id="btn-tag0" href="/rev_myPosts/{{area}}/전체/new" class="btn btn-outline-dark" style="{{activated0}}margin: 5px; margin-right: 15px">#전체</a>
+                                <a id="btn-tag1" href="/rev_myPosts/{{area}}/한식/new" class="btn btn-outline-dark" style="{{activated1}}margin: 5px 15px;">#한식</a>
+                                <a id="btn-tag2" href="/rev_myPosts/{{area}}/일식/new" class="btn btn-outline-dark" style="{{activated2}}margin: 5px 15px;">#일식</a>
+                                <a id="btn-tag3" href="/rev_myPosts/{{area}}/중식/new" class="btn btn-outline-dark" style="{{activated3}}margin: 5px 15px;">#중식</a>
+                                <a id="btn-tag4" href="/rev_myPosts/{{area}}/양식/new" class="btn btn-outline-dark" style="{{activated4}}margin: 5px 15px;">#양식</a>
+                                <a id="btn-tag5" href="/rev_myPosts/{{area}}/분식/new" class="btn btn-outline-dark" style="{{activated5}}margin: 5px 15px;">#분식</a>
+                                <a id="btn-tag6" href="/rev_myPosts/{{area}}/카페/new" class="btn btn-outline-dark" style="{{activated6}}margin: 5px 15px;">#카페</a>
+                                <a id="btn-tag7" href="/rev_myPosts/{{area}}/포차/new" class="btn btn-outline-dark" style="{{activated7}}margin: 5px 15px;">#포차</a>
+                                <a id="btn-tag8" href="/rev_myPosts/{{area}}/기타/new" class="btn btn-outline-dark" style="{{activated8}}margin: 5px 15px;">#기타</a>
                             </div>
                         </div>
                         <div  style="padding: 10px;">
@@ -53,7 +49,45 @@
                         </div>
                         <div  style="padding: 10px;">
 
-                                {{>main_album}}
+                            <div style="border-radius: 25px; border: 2px solid rgba(128,128,128,0.71); padding: 20px;">
+                                <div>
+                                    <p>지역 : {{area}} 태그 : {{tag}} 정렬 : {{order}}</p>
+                                    <div class="row">
+                                        {{#each boards}}
+                                            <div class="col-md-3">
+                                                <div class="mb-4 shadow-sm">
+                                                    <a href="/rev_post/{{posting_area}}/{{posting_tag}}/{{order}}/{{_id}}" ><img style="height:300px" src="{{link}}" alt="" class="card-img-top"></a>
+                                                    <div class="card-body" style="width:350px;height: 200px;overflow:hidden">
+                                                        <div class="recommend">
+                                                            <div class="rec" style="width:50px;height:50px;float:right;">
+                                                                <!--                                        <a href="#"><img src="/examples/좋아요2.jpeg" style="width:50px;height:50px;float: right" alt=""></a>-->
+                                                                <a id="btn-rec" href="#" class="btn btn-outline-black"><img src="/examples/좋아요2.jpeg" style="width:40px;height:50px;float: right" alt=""></a>
+                                                                <p class="rec" style="padding:0px 30px;">{{recommend}}</p>
+                                                            </div>
+                                                            <div id="title" style="overflow:hidden">
+                                                                <a href="/rev_post/{{posting_area}}/{{posting_tag}}/{{order}}/{{_id}}"><p class="card-text" style="font-size:35px;color: #333333;white-space: nowrap"><strong>{{title}}</strong></p></a>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="content">
+                                                            <div class="card-text" style="font-size: 18px;padding:20px 0px">{{{content}}}</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <div class="btn-user">
+                                                            <div class="text-muted" style="padding:15px">작성자</div><!--로그인하면 아이디 넣을수있게-->
+                                                        </div>
+                                                        <small class="btn">
+                                                            <a href="/rev_main/{{posting_area}}/전체/new" type="button" style="color: #fff; background:gray; font-size:1em; border-radius:1.5em; padding:1px 13px;">#{{posting_area}}</a>
+                                                            <a href="/rev_main/전체/{{posting_tag}}/new" type="button" style="color: #fff; background:gray; font-size:1em; border-radius:1.5em; padding:1px 13px;">#{{posting_tag}}</a>
+                                                        </small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {{/each}}
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
