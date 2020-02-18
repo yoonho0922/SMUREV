@@ -3,4 +3,4 @@
 DB_REVS = new Mongo.Collection('DB_REVS');
 DB_REVSUPLOAD = new Mongo.Collection('DB_REVSUPLOAD');
 DB_COMMENT = new Mongo.Collection('DB_COMMENT');
-DB_PROFILE = new Mongo.Collection('DB_PROFILE');
+DB_PRO_PICTURE = new Mongo.Collection('DB_PRO_PICTURE');

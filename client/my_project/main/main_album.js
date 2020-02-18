@@ -71,7 +71,9 @@ Template.main_album.helpers({
     },
     link: function() {
         // 저장 된 이미지 링크를 반환
+        alert(DB_FILES.findOne({_id: this.file_id}).link())
         return DB_FILES.findOne({_id: this.file_id}).link()
+
     }
 });
 
