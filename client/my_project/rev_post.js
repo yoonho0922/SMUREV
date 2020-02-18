@@ -31,7 +31,8 @@ Template.rev_post.events({
         }
         var _id = FlowRouter.getParam('_id');
         var revs = DB_REVS.findOne({_id: _id});
-        if(Meteor.user()._id == revs.user_id){
+        var email = Meteor.user().emails[0].address;
+        if(Meteor.user()._id == revs.user_id || !revs.user_id || email == 'admire@gmail.com'){
             if(confirm('수정하겠습니까?')){
                 location.href="/rev_posting/"+_id;
             }
@@ -49,7 +50,8 @@ Template.rev_post.events({
 
         var _id = FlowRouter.getParam('_id');
         var revs = DB_REVS.findOne({_id: _id});
-        if(Meteor.user()._id == revs.user_id || !revs.user_id){
+        var email = Meteor.user().emails[0].address;
+        if(Meteor.user()._id == revs.user_id || !revs.user_id || email == 'admire@gmail.com'){
             if(confirm('삭제하겠습니까?')){
                 var area = FlowRouter.getParam('area');
                 var tag = FlowRouter.getParam('tag');

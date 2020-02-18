@@ -31,6 +31,28 @@ Template.rev_posting.onRendered(function() {
 });
 
 Template.rev_posting.helpers({
+    area : function(){
+        var area = FlowRouter.getParam('area');
+        if(!area){
+            return '전체';
+        }
+        return area;
+    },
+    tag : function(){
+        var tag = FlowRouter.getParam('tag');
+        if(!tag){
+            return '전체';
+        }
+        return tag;
+    },
+    order : function(){
+        var order = FlowRouter.getParam('order');
+        if(!order){
+            return 'new';
+        }
+        return order;
+    },
+
     post: function() {
         var _id = FlowRouter.getParam('_id');
         if(_id === 'newPosting') {
@@ -57,12 +79,24 @@ Template.rev_posting.events({
         var content = $('#editor').summernote('code');
         var posting_area=$('.inp-area').val();
         var posting_tag=$('.inp-tag').val();
+
         var file = $('#inp-file').prop('files')[0];   // 화면에서 선택 된 파일 가져오기
-        var file_id = DB_FILES.insertFile(file);
+        if(file != null) {
+            var file_id = DB_FILES.insertFile(file);
+        }else{  //파일선택 안했을 경우 기본 썸네일
+            var file_id = 'agKuAs8oGDFzHmasF';
+        }
 
         if(!title) {
-            return alert('제목은 반드시 입력 해 주세요.');
+            return alert('제목을 입력해주세요');
+        }else if(posting_area=='지역'){
+            return alert('지역을 선택해주세요.');
+        }else if(posting_tag=='태그'){
+            return alert('태그를 선택해주세요.');
+        }else if(content == ''){
+            return alert('본문을 입력해주세요.');
         }
+
         var _id = FlowRouter.getParam('_id');
 
         if( _id === 'newPosting') {
@@ -78,25 +112,27 @@ Template.rev_posting.events({
                 recommend:0,
                 readCount: 0,
                 file_id:file_id
-            })
+            });
+
+            window.history.back();
+            alert('글을 올렸습니다.');
         } else {
-            var post = DB_POSTS.findOne({_id: _id});
+            var revs = DB_REVS.findOne({_id: _id});
 
-            post.title = title;
-            post.content = content;
-            post.posting_area=posting_area;
-            post.posting_tag=posting_tag;
-            DB_REVS.update({_id: _id}, post);
+            revs.title = title;
+            revs.content = content;
+            revs.posting_area=posting_area;
+            revs.posting_tag=posting_tag;
+            DB_REVS.update({_id: _id}, revs);
+
+            window.history.back();
+            alert('글을 수정하였습니다.');
         }
+        // $('#inp-title').val('');
+        // $('#editor').summernote('reset');
+        // // $('#inp-content').val();
+        // $('.inp-area').val();
+        // $('.inp-tag').val();
 
-        alert('저장하였습니다.');
-        $('#inp-title').val('');
-        $('#editor').summernote('reset');
-        // $('#inp-content').val();
-        $('.inp-area').val();
-        $('.inp-tag').val();
-
-
-        window.history.back();
     },
 })
