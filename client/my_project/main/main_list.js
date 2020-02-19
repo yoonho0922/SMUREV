@@ -1,11 +1,11 @@
 FlowRouter.template('/main_list', 'main_list');
 
 
-Template.main_feed.onRendered(function() {
+Template.main_list.onRendered(function() {
 
 });
 
-Template.main_feed.helpers({
+Template.main_list.helpers({
     boards: function() {
         var area = FlowRouter.getParam('area');
         var tag = FlowRouter.getParam('tag');
@@ -43,7 +43,7 @@ Template.main_feed.helpers({
     }
 });
 
-Template.main_feed.helpers({
+Template.main_list.helpers({
 
     area : function(){
         var area = FlowRouter.getParam('area');
@@ -68,7 +68,7 @@ Template.main_feed.helpers({
 
 });
 
-Template.main_feed.events({
+Template.main_list.events({
     'click #btn-rec': function() {
     }
 });

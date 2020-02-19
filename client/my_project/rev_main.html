@@ -29,21 +29,21 @@
                         </div>
                         <div  style="padding: 10px;">
                             <div style="border-radius: 25px; border: 2px solid rgba(128,128,128,0.71); padding: 20px;">
-                                <button id='btn-album' class="btn btn-sm btn-outline-secondary">앨범형</button>
-                                <button id='btn-feed' class="btn btn-sm btn-outline-secondary">피드형</button>
+                                <button id='btn-list' style="{{activated40}}" class="btn btn-sm btn-outline-secondary">목록형</button>
+                                <button id='btn-album' style="{{activated41}}" class="btn btn-sm btn-outline-secondary">앨범형</button>
 
                                 <div class="btn-group" style="float:right">
-                                    <a id="btn-newest" href="/rev_main/{{area}}/{{tag}}/new" type="button" class="btn btn-sm btn-outline-secondary">최신순</a>
-                                    <a id="btn-rec" href="/rev_main/{{area}}/{{tag}}/rec" type="button" class="btn btn-sm btn-outline-secondary">추천순</a>
+                                    <a id="btn-newest" style="{{activated30}}" href="/rev_main/{{area}}/{{tag}}/new" type="button" class="btn btn-sm btn-outline-secondary">최신순</a>
+                                    <a id="btn-rec" style="{{activated31}}" href="/rev_main/{{area}}/{{tag}}/rec" type="button" class="btn btn-sm btn-outline-secondary">추천순</a>
                                 </div>
                             </div>
                         </div>
                         <div  style="padding: 10px;">
 
-                            {{#if type_list}}
-                                {{>main_feed}}
-                            {{else}}
+                            {{#if view_type}}
                                 {{>main_album}}
+                            {{else}}
+                                {{>main_list}}
                             {{/if}}
                         </div>
                     </div>
