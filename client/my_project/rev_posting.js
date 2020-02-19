@@ -114,8 +114,10 @@ Template.rev_posting.events({
                 file_id:file_id
             });
 
-            window.history.back();
+
+            // window.history.back();
             alert('글을 올렸습니다.');
+            location.href="/rev_main/전체/전체/new";
         } else {
             var revs = DB_REVS.findOne({_id: _id});
 
