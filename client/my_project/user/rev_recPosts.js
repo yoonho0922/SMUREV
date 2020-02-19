@@ -5,32 +5,39 @@ Template.rev_recPosts.helpers({
         var area = FlowRouter.getParam('area');
         var tag = FlowRouter.getParam('tag');
         var order = FlowRouter.getParam('order')
-        if(area=='전체'&&tag=='전체'){
-            if(order=='rec'){
-                return DB_REVS.findAll({}, {sort: {recommend: -1}});
-            }else{
-                return DB_REVS.findAll({}, {sort: {createdAt: -1}});
-            }
-        }else if(area=='전체'){
-            if(order=='rec'){
-                return DB_REVS.findAll({'posting_tag': tag}, {sort: {recommend: -1}});
-            }else{
-                return DB_REVS.findAll({'posting_tag': tag}, {sort: {createdAt: -1}});
-            }
+        var revs = new Array();
+        var recommend = DB_RECOMMEND.findAll({user_id:Meteor.user()._id})
+        recommend.forEach(function(element){
+             revs.push(DB_REVS.findOne({_id : element.post_id}));
+        });
+        return revs;
 
-        }else if(tag=='전체'){
-            if(order=='rec'){
-                return DB_REVS.findAll({'posting_area': area}, {sort: {recommend: -1}});
-            }else{
-                return DB_REVS.findAll({'posting_area': area}, {sort: {createdAt: -1}});
-            }
-        }else{
-            if(order=='rec'){
-                return DB_REVS.findAll({'posting_area': area, 'posting_tag': tag}, {sort: {recommend: -1}});
-            }else{
-                return DB_REVS.findAll({'posting_area': area, 'posting_tag': tag}, {sort: {createdAt: -1}});
-            }
-        }
+        // if(area=='전체'&&tag=='전체'){
+        //     if(order=='rec'){
+        //         return DB_REVS.findAll({}, {sort: {recommend: -1}});
+        //     }else{
+        //         return DB_REVS.findAll({}, {sort: {createdAt: -1}});
+        //     }
+        // }else if(area=='전체'){
+        //     if(order=='rec'){
+        //         return DB_REVS.findAll({'posting_tag': tag}, {sort: {recommend: -1}});
+        //     }else{
+        //         return DB_REVS.findAll({'posting_tag': tag}, {sort: {createdAt: -1}});
+        //     }
+        //
+        // }else if(tag=='전체'){
+        //     if(order=='rec'){
+        //         return DB_REVS.findAll({'posting_area': area}, {sort: {recommend: -1}});
+        //     }else{
+        //         return DB_REVS.findAll({'posting_area': area}, {sort: {createdAt: -1}});
+        //     }
+        // }else{
+        //     if(order=='rec'){
+        //         return DB_REVS.findAll({'posting_area': area, 'posting_tag': tag}, {sort: {recommend: -1}});
+        //     }else{
+        //         return DB_REVS.findAll({'posting_area': area, 'posting_tag': tag}, {sort: {createdAt: -1}});
+        //     }
+        // }
 
     },
     YMD: function() {
