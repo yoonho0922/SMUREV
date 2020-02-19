@@ -1,20 +1,19 @@
 FlowRouter.template('/rev_side', 'rev_side');
 
-Template.rev_side.onRendered(function() {
-    FlowRouter.cu
-    // switch (FlowRouter.current().path) {
-    //
-    //     case '/rev_main/상명대/전체/new':
-    //         alert(10)
-    //         $('#nav-item1').attr('style', 'color:red')
-    //         return
-    //     case '/rev_main/전체/전체/new':
-    //         alert(11)
-    //         $('#nav-item0').attr('style', 'background-color:lightgray')
-    //         return
-    //     default:
-    // }
-});
+// Template.rev_side.onRendered(function() {
+//
+//     var path = FlowRouter.current().path;
+//     var split = path.split('/');
+//
+//     switch (split[1]) {
+//         case 'rev_myPosts':
+//             $('#myPosts').attr('style', 'color:blue')
+//             break;
+//         case 'rev_recPosts':
+//             $('#recPosts').attr('style', 'color:blue')
+//             break;
+//     }
+// });
 
 Template.rev_side.helpers({
     email: function() {
@@ -27,11 +26,25 @@ Template.rev_side.helpers({
         return Session.get('modProfile');
     },
     link: function() {  //프사 가져오기
-        var proPicture = DB_PRO_PICTURE.findOne({user_id: userInfo._id});
-        alert(proPicture.file_id.link());
-        return proPicture.file_id.link();
+        var proPicture = DB_PRO_PICTURE.findOne({user_id: Meteor.user()._id});
+        return DB_FILES.findOne({_id: proPicture.file_id}).link();
     },
 
+    //버튼 활성화
+    activated10 : function(){
+        var path = FlowRouter.current().path;
+        var split = path.split('/');
+        if(split[1]=='rev_myPosts'){
+            return 'color : blue';
+        } return;
+    },
+    activated11 : function(){
+        var path = FlowRouter.current().path;
+        var split = path.split('/');
+        if(split[1]=='rev_recPosts'){
+            return 'color : blue';
+        } return;
+    },
     activated0: function(){
         if(FlowRouter.getParam('area') == '전체'){
             return 'color : skyblue;';
@@ -86,18 +99,6 @@ Template.rev_side.helpers({
         }
         return;
     },
-    activated10: function(){
-        if(FlowRouter.getParam('area') == '기타'){
-            return 'color : skyblue;';
-        }
-        return;
-    },
-    activated11: function(){
-        if(FlowRouter.getParam('area') == '기타'){
-            return 'color : skyblue;';
-        }
-        return;
-    }
 
 });
 

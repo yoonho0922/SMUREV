@@ -5,15 +5,15 @@
             {{#if currentUser}}
 
                     {{#with userInfo}}
-                        <img style="border: 0px solid black;border-radius:70px;-moz-border-radius: 70px;-html-border-radius: 70px;-webkit-border-radius: 70px;width: 80px;height: 80px" src="{{link}}" />
-                        <a href="/rev_myPage" style="padding-left: 25px;font-size: 19px">{{profile.nickname}}</a>
+                        <a href="{{link}}" target="_blank"><img href="{{link}}" style="border: 0px solid black;border-radius:70px;-moz-border-radius: 70px;-html-border-radius: 70px;-webkit-border-radius: 70px;width: 80px;height: 80px" src="{{link}}" /></a>
+                        <a href="/rev_myPage" style="color: black;padding-left: 25px;font-size: 19px">{{profile.nickname}}</a>
                         <a class="text-muted" style="padding-left: 110px;font-size: 15px">({{email}})</a>
                         <div class="my_info" style="padding-top: 20px;padding-left: 25px">
                             <div>
-                                <a href="/rev_myPosts/전체/전체/new" style="{{activated10}} color: #333333; font-size: 17px">내가 쓴 글 보기</a>
+                                <a id="myPosts" href="/rev_myPosts/전체/전체/new" style="{{activated10}} color: #333333; font-size: 17px">내가 쓴 글 보기</a>
                             </div>
                             <div>
-                                <a href="/rev_recPosts/전체/전체/new" style="{{activated11}} color: #333333; font-size: 17px">좋아요한 글 보기</a>
+                                <a id="recPosts" href="/rev_recPosts/전체/전체/new" style="{{activated11}} color: #333333; font-size: 17px">추천한 글 보기</a>
                             </div>
                         </div>
                         <div class="new_post" style="padding-top: 25px">
