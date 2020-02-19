@@ -22,7 +22,19 @@
                 <!--        </ul>-->
 
                 <ul class="navbar-nav ml-auto">
-                    {{>rev_search}}
+
+<!--                    검색기능-->
+                    <div class="search" style="width: 400px">
+                        <!--        <span><input class="form-control form-control-dark" style=" width: 400px" type="text" placeholder="Search" aria-label="Search"></span>-->
+                        <!--        <button id="btn-search" style="width:50px;height: 30px">검색</button>-->
+                        <div class="input-group">
+                            <input type="text" id="inp-search" class="form-control" placeholder="Search" aria-label="Search">
+                            <span class="input-group-btn">
+                                <a href="/rev_searchresult/전체/전체/new"><button id="btn-search" class="btn" type="button" style="background-color: #05728f">검색</button></a>
+                            </span>
+                        </div>
+                    </div>
+<!--여기까지 검색-->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" style="padding-right: 30px;padding-left: 30px"
                            aria-haspopup="true" aria-expanded="false">USER</a>

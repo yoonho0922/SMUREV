@@ -97,3 +97,9 @@
 :검색기능 만드는 중
 -글 올린이후 메인페이지로 이동
 -검색기능 만드는중(db에서 뽑아오는거 하기)
+
+2020.02.19
+:검색기능
+-rev_search에 있던거 rev_navbar로 합침
+-검색 결과 나오는 페이지를 rev_searchresult로 둠.
+-근데 결과가 안나와 'content':search_content로 했는데 이게 아닌가봄
