@@ -18,6 +18,7 @@ Template.ex_posts.helpers({
 
 Template.ex_posts.events({
   'click #btn-remove': function() {
+    console.log(this._id);
     if(confirm('삭제 하시겠습니까?')) {
       DB_POSTS.remove({_id: this._id});
       alert('삭제 되었습니다.');

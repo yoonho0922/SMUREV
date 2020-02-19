@@ -10,9 +10,8 @@
                             <div class="card-body" style="width:350px;height: 200px;overflow:hidden">
                                 <div class="recommend">
                                     <div class="rec" style="width:50px;height:50px;float:right;">
-<!--                                        <a href="#"><img src="/examples/좋아요2.jpeg" style="width:50px;height:50px;float: right" alt=""></a>-->
-                                        <a id="btn-rec" href="#" class="btn btn-outline-black"><img src="/examples/좋아요2.jpeg" style="width:40px;height:50px;float: right" alt=""></a>
-                                        <p class="rec" style="padding:0px 30px;">{{recommend}}</p>
+                                        <img src="/examples/{{rec_img}}" style="padding-right:5px; height:30px; float:right;">
+                                        <p class="rec" style="float: bottom; padding:0px 30px;">{{recommend}}</p>
                                     </div>
                                     <div id="title" style="overflow:hidden">
                                         <a href="/rev_post/{{posting_area}}/{{posting_tag}}/{{order}}/{{_id}}"><p class="card-text" style="font-size:35px;color: #333333;white-space: nowrap"><strong>{{title}}</strong></p></a>
@@ -22,7 +21,7 @@
                             </div>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-user">
-                                    <div class="text-muted" style="padding:15px">작성자</div><!--로그인하면 아이디 넣을수있게-->
+                                    <div class="text-muted" style="padding:15px">작성자</div>
                                 </div>
                                 <small class="btn">
                                     <a href="/rev_main/{{posting_area}}/전체/new" type="button" style="color: #fff; background:gray; font-size:1em; border-radius:1.5em; padding:1px 13px;">#{{posting_area}}</a>

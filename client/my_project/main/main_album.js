@@ -73,6 +73,17 @@ Template.main_album.helpers({
         // 저장 된 이미지 링크를 반환
         return DB_FILES.findOne({_id: this.file_id}).link()
 
+    },
+    rec_img: function () {
+        var post_id = this.id
+        console.log(post_id);
+        var user_id = Meteor.user()._id;
+
+        if(!DB_RECOMMEND.findOne({post_id : post_id, user_id : user_id})){
+            return 'rec_normal.png';
+        }else{
+            return 'rec_over.png';
+        }
     }
 });
 
