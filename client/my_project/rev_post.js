@@ -19,6 +19,16 @@ Template.rev_post.helpers({
         return Meteor.users.findOne({writer: FlowRouter.getParam('_id')}).username;
 
 
+    },
+    rec_img: function () {
+        var post_id = FlowRouter.getParam('_id');
+        var user_id = Meteor.user()._id;
+
+        if(!DB_RECOMMEND.findOne({post_id : post_id, user_id : user_id})){
+            return 'rec_normal.png';
+        }else{
+            return 'rec_over.png';
+        }
     }
 });
 
@@ -67,11 +77,24 @@ Template.rev_post.events({
     },
 
     'click #btn-rec': function() {
-        var _id = FlowRouter.getParam('_id')
-        DB_REVS.update({_id: _id}, {
-            $inc: {recommend: 1}  //조회수 1 증가 업데이트
-        });
-        alert('추천')
+        var post_id = FlowRouter.getParam('_id');
+        var user_id = Meteor.user()._id;
+        var recommend = DB_RECOMMEND.findOne({post_id : post_id, user_id : user_id});
+        var revs = DB_REVS.findOne({_id : post_id});
+        if(!recommend){
+            DB_RECOMMEND.insert({   //추천 관계 목록 업데이트
+                post_id : post_id,
+                user_id : user_id
+            });
+            revs.recommend += 1;    //REVS의 post 추천수 증가
+            DB_REVS.update({_id: post_id}, revs);
+            alert('추천');
+        }else{
+            DB_RECOMMEND.remove({_id : recommend._id});     //추천 관계 목록 삭제
+            revs.recommend -= 1;    //REVS의 post 추천수 감소
+            DB_REVS.update({_id: post_id}, revs);
+            alert('추천 취소');
+        }
     },
 
     'click #submit':function () {
