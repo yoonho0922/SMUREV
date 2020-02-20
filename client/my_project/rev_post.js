@@ -67,8 +67,12 @@ Template.rev_post.events({
                 var tag = FlowRouter.getParam('tag');
                 var order = FlowRouter.getParam('order');
                 DB_REVS.remove({_id: _id});
+
+                var rec = DB_RECOMMEND.findOne({post_id : _id});
+                DB_RECOMMEND.remove({_id : rec._id});   //추천 목록 DB에서 삭제
+                
                 alert('삭제되었습니다.');
-                location.href="/rev_main/"+area+"/"+tag+"/"+order;
+                window.history.back();
             }
         }else{
             alert('권한이 없습니다.')
