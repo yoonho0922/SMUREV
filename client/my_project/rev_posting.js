@@ -2,6 +2,7 @@ FlowRouter.template('/rev_posting/:_id', 'rev_posting');
 
 
 Template.rev_posting.onRendered(function() {
+
     $('#editor').summernote({
         popover: {},
         minHeight: 200,
@@ -56,6 +57,9 @@ Template.rev_posting.helpers({
     post: function() {
         var _id = FlowRouter.getParam('_id');
         if(_id === 'newPosting') {
+            $('#select1').val('전체');
+
+
             return {};    //새글 작성일때는 화면에 비어있는 데이터를 제공.
         }
 
@@ -65,10 +69,20 @@ Template.rev_posting.helpers({
 
 
         return DB_REVS.findOne({_id: _id});
+    },
+
+    selected10 : function(){
+        var area = FlowRouter.getParam('area');
+        if(area=='상명대'){
+            return 'selected';
+        }
     }
+
 });
 
 Template.rev_posting.events({
+
+
     'click #btn-save': function() {
 
         var user_id = Meteor.user()._id;
@@ -87,19 +101,23 @@ Template.rev_posting.events({
             var file_id = 'agKuAs8oGDFzHmasF';
         }
 
+
         if(!title) {
             return alert('제목을 입력해주세요');
-        }else if(posting_area=='지역'){
+        }else if(posting_area==''){
             return alert('지역을 선택해주세요.');
-        }else if(posting_tag=='태그'){
+        }else if(posting_tag==''){
             return alert('태그를 선택해주세요.');
         }else if(content == ''){
             return alert('본문을 입력해주세요.');
         }
 
+
+
         var _id = FlowRouter.getParam('_id');
 
         if( _id === 'newPosting') {
+
             DB_REVS.insert({
                 user_id : user_id,
                 user_email : user_email,
@@ -121,10 +139,12 @@ Template.rev_posting.events({
         } else {
             var revs = DB_REVS.findOne({_id: _id});
 
+
             revs.title = title;
             revs.content = content;
             revs.posting_area=posting_area;
             revs.posting_tag=posting_tag;
+            revs.file_id=file_id;
             DB_REVS.update({_id: _id}, revs);
 
             window.history.back();
