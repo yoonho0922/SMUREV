@@ -3,10 +3,6 @@ FlowRouter.template('/rev_main/:area/:tag', 'rev_main');
 FlowRouter.template('/rev_main/:area', 'rev_main');
 FlowRouter.template('/rev_main', 'rev_main');
 
-Template.rev_main.onRendered(function() {
-
-});
-
 Template.rev_main.helpers({
 
     view_type: function() {
@@ -41,13 +37,13 @@ Template.rev_main.helpers({
         return;
     },
     activated30: function(){
-        if(FlowRouter.getParam('order') == 'new'){
+        if(FlowRouter.getParam('order') == 'new'){  //최신순일 때
             return 'background-color : gray; color : white;';
         }
         return;
     },
     activated31: function(){
-        if(FlowRouter.getParam('order') == 'rec'){
+        if(FlowRouter.getParam('order') == 'rec'){  //추천순일 때
             return 'background-color : gray; color : white;';
         }
         return;

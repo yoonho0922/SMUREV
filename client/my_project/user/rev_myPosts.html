@@ -42,48 +42,46 @@
                                 </div>
 
                                 <div class="btn-group" style="float:right">
-                                    <a id="btn-newest" href="/rev_main/{{area}}/{{tag}}/new" type="button" class="btn btn-sm btn-outline-secondary">최신순</a>
-                                    <a id="btn-rec" href="/rev_main/{{area}}/{{tag}}/rec" type="button" class="btn btn-sm btn-outline-secondary">추천순</a>
+                                    <a id="btn-newest" href="/rev_myPosts/{{area}}/{{tag}}/new" style="{{activated30}}" type="button" class="btn btn-sm btn-outline-secondary">최신순</a>
+                                    <a id="btn-rec" href="/rev_myPosts/{{area}}/{{tag}}/rec" style="{{activated31}}" type="button" class="btn btn-sm btn-outline-secondary">추천순</a>
                                 </div>
                             </div>
                         </div>
                         <div  style="padding: 10px;">
 
-                            <div style="border-radius: 25px; border: 2px solid rgba(128,128,128,0.71); padding: 20px;">
-                                <div>
-                                    <p>지역 : {{area}} 태그 : {{tag}} 정렬 : {{order}}</p>
-                                    <div class="row">
-                                        {{#each boards}}
-                                            <div class="col-md-3">
-                                                <div class="mb-4 shadow-sm">
-                                                    <a href="/rev_post/{{posting_area}}/{{posting_tag}}/{{order}}/{{_id}}" ><img style="height:300px" src="{{link}}" alt="" class="card-img-top"></a>
-                                                    <div class="card-body" style="width:350px;height: 200px;overflow:hidden">
-                                                        <div class="recommend">
-                                                            <div class="rec" style="width:50px;height:50px;float:right;">
-                                                                <!--                                        <a href="#"><img src="/examples/좋아요2.jpeg" style="width:50px;height:50px;float: right" alt=""></a>-->
-                                                                <a id="btn-rec" href="#" class="btn btn-outline-black"><img src="/examples/좋아요2.jpeg" style="width:40px;height:50px;float: right" alt=""></a>
-                                                                <p class="rec" style="padding:0px 30px;">{{recommend}}</p>
-                                                            </div>
-                                                            <div id="title" style="overflow:hidden">
-                                                                <a href="/rev_post/{{posting_area}}/{{posting_tag}}/{{order}}/{{_id}}"><p class="card-text" style="font-size:35px;color: #333333;white-space: nowrap"><strong>{{title}}</strong></p></a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="d-flex justify-content-between align-items-center">
-                                                        <div class="btn-user">
-                                                            <div class="text-muted" style="padding:15px">작성자</div><!--로그인하면 아이디 넣을수있게-->
-                                                        </div>
-                                                        <small class="btn">
-                                                            <a href="/rev_main/{{posting_area}}/전체/new" type="button" style="color: #fff; background:gray; font-size:1em; border-radius:1.5em; padding:1px 13px;">#{{posting_area}}</a>
-                                                            <a href="/rev_main/전체/{{posting_tag}}/new" type="button" style="color: #fff; background:gray; font-size:1em; border-radius:1.5em; padding:1px 13px;">#{{posting_tag}}</a>
-                                                        </small>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        {{/each}}
+                            {{#each boards}}
+                                <div style="width:1620px; margin-bottom:20px;border-radius: 25px; border: 2px solid rgba(128,128,128,0.71); padding-bottom: 30px; padding-top: 30px; padding-left: 30px ">
+                                    <div style="width:1550px; height:150px;">
+                                        <table class="feed-table">
+                                            <tr>
+                                                <td rowspan="3">
+                                                    <a href="/rev_post/{{posting_area}}/{{posting_tag}}/{{order}}/{{_id}}"><img style="width:150px; height: 150px; margin-right: 20px" src="{{link}}"></a>
+                                                </td>
+                                                <td colspan="4" style="width:100%; height:30%;font-size: 50px;" >
+                                                    <a  href="/rev_post/{{posting_area}}/{{posting_tag}}/{{order}}/{{_id}}">
+                                                        <p style="font-size:50px; color: #333333 ;"><strong>{{title}}</strong></p>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr >
+                                                <td  style="height: 12%" >
+                                                    {{username}}/ {{createdAt}}
+                                                </td>
+                                                <td width="30%">
+                                                    <a href="/rev_myPosts/{{posting_area}}/전체/new" type="button" style="color: #fff; background:gray; font-size:1em; border-radius:1.5em; padding:1px 13px;">#{{posting_area}}</a>
+                                                    <a href="/rev_myPosts/{{posting_tag}}/전체/new" type="button" style="color: #fff; background:gray; font-size:1em; border-radius:1.5em; padding:1px 13px;">#{{posting_tag}}</a>
+                                                </td>
+                                                <td width="3%">
+                                                    <img src="/examples/rec_normal.png" style="padding-right:5px; height:30px; float:right;">
+                                                </td>
+                                                <td width="7%">
+                                                    {{recommend}}
+                                                </td>
+                                            </tr>
+                                        </table>
                                     </div>
                                 </div>
-                            </div>
+                            {{/each}}
                         </div>
                     </div>
 

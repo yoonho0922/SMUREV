@@ -76,10 +76,13 @@ Template.main_album.helpers({
     },
     rec_img: function () {
         var post_id = this.id
-        console.log(post_id);
-        var user_id = Meteor.user()._id;
-
-        if(!DB_RECOMMEND.findOne({post_id : post_id, user_id : user_id})){
+        var user = Meteor.user()
+        
+        if(user == null){   //로그아웃 상태일 시
+            return 'rec_normal.png';
+        }
+        // 로그인 상태일 시
+        if(!DB_RECOMMEND.findOne({post_id : post_id, user_id : user._id})){
             return 'rec_normal.png';
         }else{
             return 'rec_over.png';

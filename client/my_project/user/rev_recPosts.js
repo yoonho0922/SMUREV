@@ -5,39 +5,100 @@ Template.rev_recPosts.helpers({
         var area = FlowRouter.getParam('area');
         var tag = FlowRouter.getParam('tag');
         var order = FlowRouter.getParam('order')
-        var revs = new Array();
+
+        //추천 목록에 있는 게시글 배열revs에 저장
+        var rec_revs = new Array();
         var recommend = DB_RECOMMEND.findAll({user_id:Meteor.user()._id})
         recommend.forEach(function(element){
-             revs.push(DB_REVS.findOne({_id : element.post_id}));
+             rec_revs.push(DB_REVS.findOne({_id : element.post_id}));
         });
-        return revs;
 
-        // if(area=='전체'&&tag=='전체'){
-        //     if(order=='rec'){
-        //         return DB_REVS.findAll({}, {sort: {recommend: -1}});
-        //     }else{
-        //         return DB_REVS.findAll({}, {sort: {createdAt: -1}});
-        //     }
-        // }else if(area=='전체'){
-        //     if(order=='rec'){
-        //         return DB_REVS.findAll({'posting_tag': tag}, {sort: {recommend: -1}});
-        //     }else{
-        //         return DB_REVS.findAll({'posting_tag': tag}, {sort: {createdAt: -1}});
-        //     }
-        //
-        // }else if(tag=='전체'){
-        //     if(order=='rec'){
-        //         return DB_REVS.findAll({'posting_area': area}, {sort: {recommend: -1}});
-        //     }else{
-        //         return DB_REVS.findAll({'posting_area': area}, {sort: {createdAt: -1}});
-        //     }
-        // }else{
-        //     if(order=='rec'){
-        //         return DB_REVS.findAll({'posting_area': area, 'posting_tag': tag}, {sort: {recommend: -1}});
-        //     }else{
-        //         return DB_REVS.findAll({'posting_area': area, 'posting_tag': tag}, {sort: {createdAt: -1}});
-        //     }
-        // }
+        var boards = new Array();
+        // return revs;
+
+        // revs.sort()
+
+        if(area=='전체'&&tag=='전체'){  //필터링 X
+            if(order=='rec'){
+                boards = rec_revs.sort(function(a, b) { // 추천 내림차순 정렬
+                    return b["recommend"] - a["recommend"];
+                });
+                return boards;
+            }else{
+                boards = rec_revs.sort(function(a, b) { // 시간 내림차순
+                    return b["createdAt"] - a["createdAt"];
+                });
+                return boards;
+            }
+        }else if(area=='전체'){   //태그만 선택됨
+            if(order=='rec'){
+                rec_revs.forEach(function(e){
+                    if(e.posting_tag == tag){
+                        boards.push(e);
+                    }
+                });
+
+                return boards.sort(function(a, b) { // 시간 내림차순 정렬
+                    return b["recommend"] - a["recommend"];
+                });
+
+            }else{
+                rec_revs.forEach(function(e){
+                    if(e.posting_tag == tag){
+                        boards.push(e);
+                    }
+                });
+
+                return boards.sort(function(a, b) { // 시간 내림차순 정렬
+                    return b["createdAt"] - a["createdAt"];
+                });
+            }
+
+        }else if(tag=='전체'){    //지역만 선택됨
+            if(order=='rec'){
+                rec_revs.forEach(function(e){
+                    if(e.posting_area == area){
+                        boards.push(e);
+                    }
+                });
+
+                return boards.sort(function(a, b) { // 추천 내림차순 정렬
+                    return b["recommend"] - a["recommend"];
+                });
+            }else{
+                rec_revs.forEach(function(e){
+                    if(e.posting_area == area){
+                        boards.push(e);
+                    }
+                });
+
+                return boards.sort(function(a, b) { // 시간 내림차순 정렬
+                    return b["createdAt"] - a["createdAt"];
+                });
+            }
+        }else{  //지역 태그 둘 다 선택됨
+            if(order=='rec'){
+                rec_revs.forEach(function(e){
+                    if(e.posting_tag == tag && e.posting_area == area){
+                        boards.push(e);
+                    }
+                });
+
+                return boards.sort(function(a, b) { // 추천 내림차순 정렬
+                    return b["recommend"] - a["recommend"];
+                });
+            }else{
+                rec_revs.forEach(function(e){
+                    if(e.posting_tag == tag && e.posting_area == area){
+                        boards.push(e);
+                    }
+                });
+
+                return boards.sort(function(a, b) { // 시간 내림차순 정렬
+                    return b["createdAt"] - a["createdAt"];
+                });
+            }
+        }
 
     },
     YMD: function() {
@@ -52,7 +113,21 @@ Template.rev_recPosts.helpers({
 
     },
 
+
+
     //버튼 활성화 비활성화
+    activated30: function(){
+        if(FlowRouter.getParam('order') == 'new'){  //최신순일 때
+            return 'background-color : gray; color : white;';
+        }
+        return;
+    },
+    activated31: function(){
+        if(FlowRouter.getParam('order') == 'rec'){  //추천순일 때
+            return 'background-color : gray; color : white;';
+        }
+        return;
+    },
     activated0: function(){
         if(FlowRouter.getParam('tag') == '전체'){
             return 'background-color : skyblue; color : white;';
