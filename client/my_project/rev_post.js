@@ -39,13 +39,7 @@ Template.rev_post.helpers({
         var user_id = this.user_id;
         var user = Meteor.users.findOne({_id: user_id});
         return user.profile.nickname;
-    },
-    comment_email : function(){
-        var user_id = this.user_id;
-        console.log(user_id);
-        var user = Meteor.users.findOne({_id: user_id});
-        return user.emails[0].address;
-    },
+    }
 });
 
 Template.rev_post.events({
@@ -123,6 +117,7 @@ Template.rev_post.events({
         DB_COMMENT.insert({    // 댓글 DB에 저장
             post_id: FlowRouter.getParam('_id'),
             user_id: Meteor.user()._id,
+            user_email: Meteor.user().emails[0].address,
             createdAt: new Date(),          // 저장 시각
             comment: comment,// 댓글내용
         });
