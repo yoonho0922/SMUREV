@@ -18,29 +18,47 @@
                                 <div id="ex_posting">
                                     <section class="jumbotron" style="background-color: white;">
                                         <div class="container">
+<!--                                            썸네일미리보기-->
+                                            <script type="text/javascript">
+                                                function LoadImg(value) {
+                                                    if(value.files&&value.files[0]){
+                                                        var reader = new FileReader();
+                                                        reader.onload=function(e) {
+                                                            $('#LoadImg').attr('src', e.target.result);
+                                                        }
+                                                        reader.readAsDataURL(value.files[0]);
+                                                    }
+
+                                                }
+                                            </script>
 
                                             {{#with post}}
                                                 <div class="row text-center">
                                                     <div class="input-group mb-1 col-md-12">
                                                         <input class="form-control" style="height: 60px" value="{{title}}" type="text" id="inp-title" placeholder="제목"/>
-                                                        <input type="file"  id="inp-file" style="padding-top: 18px;padding-left: 13px"/>
+                                                        <span><input type="file"  id="inp-file" style="padding-top: 18px;padding-left: 13px" onchange="LoadImg(this)"/></span>
+
                                                     </div>
 
                                                     <div class="input-group mb-1 col-md-12">
+
                                                         <div class="dropdown" >
                                                             <select class="inp-area" style="height:35px;width:90px;font-size: 16px">
-                                                                <option>지역</option>
-                                                                <option>상명대</option>
-                                                                <option>신촌</option>
-                                                                <option>경복궁</option>
-                                                                <option>종각</option>
-                                                                <option>을지로</option>
-                                                                <option>홍제</option>
-                                                                <option>불광</option>
+                                                                <option selected="selected">전체</option>
+
+                                                                <option selected="{{selected10}}">상명대</option>
+                                                                <option selected="{{selected12}}">신촌</option>
+                                                                <option selected="{{selected13}}">경복궁</option>
+                                                                <option selected="{{selected14}}">종각</option>
+                                                                <option selected="{{selected15}}">을지로</option>
+                                                                <option selected="{{selected16}}">홍제</option>
+                                                                <option selected="{{selected17}}">불광</option>
+
                                                             </select>
 
                                                             <select class="inp-tag" style="height:35px;width:90px;font-size: 16px">
-                                                                <option>태그</option>
+<!--                                                                <option selected>전체</option>-->
+<!--                                                                <option selected>{{posting_tag}}</option>-->
                                                                 <option>한식</option>
                                                                 <option>일식</option>
                                                                 <option>중식</option>
@@ -51,10 +69,12 @@
                                                                 <option>기타</option>
                                                             </select>
                                                         </div>
+
                                                     </div>
                                                     <div class="input-group mb-1 col-md-12">
 
                                                         <div id="editor">{{{content}}}</div>
+                                                        <img id = "LoadImg" style="width: 300px;height: 200px;margin-left: 70px">
                                                     </div>
                                                 </div>
                                             {{/with}}
