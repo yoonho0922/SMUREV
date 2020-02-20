@@ -11,9 +11,6 @@ Template.rev_post.helpers({
     area: function(){
         return FlowRouter.getParam('area');
     },
-    comments: function() {
-        return DB_COMMENT.find({revs_id: FlowRouter.getParam('_id')});
-    },
     writer: function() {
         //this에는 DB_COMMENTS {} 하나하나가 들어 있음.
         return Meteor.users.findOne({writer: FlowRouter.getParam('_id')}).username;
@@ -29,7 +26,26 @@ Template.rev_post.helpers({
         }else{
             return 'rec_over.png';
         }
-    }
+    },
+    comments: function() {
+        return DB_COMMENT.find({post_id: FlowRouter.getParam('_id')});
+    },
+    comment_link : function(){
+        var user_id = this.user_id;
+        var user = Meteor.users.findOne({_id: user_id});
+        return DB_FILES.findOne({_id: user.profile.img}).link();
+    },
+    comment_nickname : function(){
+        var user_id = this.user_id;
+        var user = Meteor.users.findOne({_id: user_id});
+        return user.profile.nickname;
+    },
+    comment_email : function(){
+        var user_id = this.user_id;
+        console.log(user_id);
+        var user = Meteor.users.findOne({_id: user_id});
+        return user.emails[0].address;
+    },
 });
 
 Template.rev_post.events({
@@ -105,11 +121,10 @@ Template.rev_post.events({
         var comment=$('#comment-input').val();
 
         DB_COMMENT.insert({    // 댓글 DB에 저장
+            post_id: FlowRouter.getParam('_id'),
+            user_id: Meteor.user()._id,
             createdAt: new Date(),          // 저장 시각
             comment: comment,// 댓글내용
-            writer: Meteor.user().emails.address,//유저아이디
-            username:Meteor.user().profile.nickname,
-            revs_id: FlowRouter.getParam('_id')
         });
         $('#comment-input').val('');
     },
