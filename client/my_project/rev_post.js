@@ -72,17 +72,18 @@ Template.rev_post.events({
         var revs = DB_REVS.findOne({_id: _id});
         var email = Meteor.user().emails[0].address;
         if(Meteor.user()._id == revs.user_id || !revs.user_id || email == 'admire@gmail.com'){
-            if(confirm('삭제하겠습니까?')){
-                var area = FlowRouter.getParam('area');
-                var tag = FlowRouter.getParam('tag');
-                var order = FlowRouter.getParam('order');
+            if(confirm('삭제하겠습니까?')==true){
+                // var area = FlowRouter.getParam('area');
+                // var tag = FlowRouter.getParam('tag');
+                // var order = FlowRouter.getParam('order');
                 DB_REVS.remove({_id: _id});
+                alert('삭제되었습니다.');
+                window.history.back();
 
                 var rec = DB_RECOMMEND.findOne({post_id : _id});
                 DB_RECOMMEND.remove({_id : rec._id});   //추천 목록 DB에서 삭제
 
-                alert('삭제되었습니다.');
-                window.history.back();
+
             }
         }else{
             alert('권한이 없습니다.')
@@ -136,6 +137,7 @@ Template.rev_post.events({
             }
 
         }
+
 
     }
 })
