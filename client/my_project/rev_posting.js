@@ -235,9 +235,9 @@ Template.rev_posting.events({
 
         if(!title) {
             return alert('제목을 입력해주세요');
-        }else if(posting_area==''){
+        }else if(posting_area=='지역'){
             return alert('지역을 선택해주세요.');
-        }else if(posting_tag==''){
+        }else if(posting_tag=='태그'){
             return alert('태그를 선택해주세요.');
         }else if(content == ''){
             return alert('본문을 입력해주세요.');

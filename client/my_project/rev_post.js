@@ -17,6 +17,15 @@ Template.rev_post.helpers({
 
 
     },
+    link : function(){
+        var _id = FlowRouter.getParam('_id');
+        var file_id = DB_REVS.findOne({_id : _id}).file_id;
+        if(!file_id){   //파일이 없을 경우
+            return '/img/default_post_img.jpg'   //기본 썸네일
+        }else{
+            return DB_FILES.findOne({_id: file_id}).link();
+        }
+    },
     rec_img: function () {
         var post_id = FlowRouter.getParam('_id');
         var user_id = Meteor.user()._id;
