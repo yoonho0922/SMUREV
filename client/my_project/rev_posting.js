@@ -71,12 +71,134 @@ Template.rev_posting.helpers({
         return DB_REVS.findOne({_id: _id});
     },
 
+    //지역
     selected10 : function(){
-        var area = FlowRouter.getParam('area');
+        var _id = FlowRouter.getParam('_id');
+        var area = DB_REVS.findOne({_id:_id}).posting_area;
+        if(area=='전체'){
+            return 'selected';
+        }
+    },
+    selected11 : function(){
+        var _id = FlowRouter.getParam('_id');
+        var area = DB_REVS.findOne({_id:_id}).posting_area;
         if(area=='상명대'){
             return 'selected';
         }
-    }
+    },
+    selected12 : function(){
+        var _id = FlowRouter.getParam('_id');
+        var area = DB_REVS.findOne({_id:_id}).posting_area;
+        if(area=='신촌'){
+            return 'selected';
+        }
+    },
+    selected13 : function(){
+        var _id = FlowRouter.getParam('_id');
+        var area = DB_REVS.findOne({_id:_id}).posting_area;
+        if(area=='경복궁'){
+            return 'selected';
+        }
+    },
+    selected14 : function(){
+        var _id = FlowRouter.getParam('_id');
+        var area = DB_REVS.findOne({_id:_id}).posting_area;
+        if(area=='종각'){
+            return 'selected';
+        }
+    },
+    selected15 : function(){
+        var _id = FlowRouter.getParam('_id');
+        var area = DB_REVS.findOne({_id:_id}).posting_area;
+        if(area=='을지로'){
+            return 'selected';
+        }
+    },
+    selected16 : function(){
+        var _id = FlowRouter.getParam('_id');
+        var area = DB_REVS.findOne({_id:_id}).posting_area;
+        if(area=='홍제'){
+            return 'selected';
+        }
+    },
+    selected17 : function(){
+        var _id = FlowRouter.getParam('_id');
+        var area = DB_REVS.findOne({_id:_id}).posting_area;
+        if(area=='불광'){
+            return 'selected';
+        }
+    },
+    selected18 : function(){
+        var _id = FlowRouter.getParam('_id');
+        var area = DB_REVS.findOne({_id:_id}).posting_area;
+        if(area=='기타'){
+            return 'selected';
+        }
+    },
+    //태그
+    selected20 : function(){
+        var _id = FlowRouter.getParam('_id');
+        var tag = DB_REVS.findOne({_id:_id}).posting_tag;
+        if(tag=='전체'){
+            return 'selected';
+        }
+    },
+    selected21 : function(){
+        var _id = FlowRouter.getParam('_id');
+        var tag = DB_REVS.findOne({_id:_id}).posting_tag;
+        if(tag=='한식'){
+            return 'selected';
+        }
+    },
+    selected22 : function(){
+        var _id = FlowRouter.getParam('_id');
+        var tag = DB_REVS.findOne({_id:_id}).posting_tag;
+        if(tag=='일식'){
+            return 'selected';
+        }
+    },
+    selected23 : function(){
+        var _id = FlowRouter.getParam('_id');
+        var tag = DB_REVS.findOne({_id:_id}).posting_tag;
+        if(tag=='중식'){
+            return 'selected';
+        }
+    },
+    selected24 : function(){
+        var _id = FlowRouter.getParam('_id');
+        var tag = DB_REVS.findOne({_id:_id}).posting_tag;
+        if(tag=='양식'){
+            return 'selected';
+        }
+    },
+    selected25 : function(){
+        var _id = FlowRouter.getParam('_id');
+        var tag = DB_REVS.findOne({_id:_id}).posting_tag;
+        if(tag=='분식'){
+            return 'selected';
+        }
+    },
+    selected26 : function(){
+        var _id = FlowRouter.getParam('_id');
+        var tag = DB_REVS.findOne({_id:_id}).posting_tag;
+        if(tag=='카페'){
+            return 'selected';
+        }
+    },
+    selected27 : function(){
+        var _id = FlowRouter.getParam('_id');
+        var tag = DB_REVS.findOne({_id:_id}).posting_tag;
+        if(tag=='포차'){
+            return 'selected';
+        }
+    },
+    selected28 : function(){
+        var _id = FlowRouter.getParam('_id');
+        var tag = DB_REVS.findOne({_id:_id}).posting_tag;
+        if(tag=='기타'){
+            return 'selected';
+        }
+    },
 
 });
 
