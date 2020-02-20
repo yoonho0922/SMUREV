@@ -20,17 +20,17 @@
                                         <div class="container">
 <!--                                            썸네일미리보기-->
                                             <script type="text/javascript">
-                                                function LoadImg(value) {
-                                                    if(value.files&&value.files[0]){
-                                                        var reader = new FileReader();
-                                                        reader.onload=function(e) {
-                                                            $('#LoadImg').attr('src', e.target.result);
-                                                        }
-                                                        reader.readAsDataURL(value.files[0]);
+                                            function LoadImg(value) {
+                                                if(value.files&&value.files[0]){
+                                                    var reader = new FileReader();
+                                                    reader.onload=function(e) {
+                                                        $('#LoadImg').attr('src', e.target.result);
                                                     }
-
+                                                    reader.readAsDataURL(value.files[0]);
                                                 }
-                                            </script>
+
+                                            }
+                                        </script>
 
                                             {{#with post}}
                                                 <div class="row text-center">
@@ -73,7 +73,7 @@
                                                     <div class="input-group mb-1 col-md-12">
 
                                                         <div id="editor">{{{content}}}</div>
-                                                        <img id = "LoadImg" style="width: 300px;height: 200px;margin-left: 70px">
+                                                        <img id = "LoadImg" src="{{link}}" alt="엑박" style="width: 300px;height: 200px;margin-left: 70px">
                                                     </div>
                                                 </div>
                                             {{/with}}

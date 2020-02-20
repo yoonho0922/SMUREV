@@ -77,7 +77,13 @@ Template.main_list.helpers({
     },
     link: function() {
         // 저장 된 이미지 링크를 반환
-        return DB_FILES.findOne({_id: this.file_id}).link()
+        var file = DB_FILES.findOne({_id: this.file_id});
+        if(!file){
+            return '/img/default_post_img.jpg';
+        }else{
+            return file.link();
+        }
+
     },
     username:function () {
         return DB_REVS.findOne({_id: this.user_nickname})

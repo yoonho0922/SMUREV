@@ -9,7 +9,6 @@ Template.rev_posting.onRendered(function() {
         maximumImageFileSize: 1048576*10,
         callbacks: {
             onImageUpload : function(files) {
-                alert(111)
                 if (!files.length) return;
                 var file = files[0];
                 // create FileReader
@@ -53,7 +52,19 @@ Template.rev_posting.helpers({
         }
         return order;
     },
-
+    link : function(){
+        var _id = FlowRouter.getParam('_id');
+        if(_id === "newPosting"){   //글쓰기 일경우 기본 썸네일
+            return '/img/default_post_img.jpg';
+        }
+        var file_id = DB_REVS.findOne({_id : _id}).file_id;
+        if(!file_id){   //파일을 안저장했을 경우
+            return '/img/default_post_img.jpg'   //기본 썸네일
+        }else{
+            return DB_FILES.findOne({_id: file_id}).link();
+        }
+        
+    },
     post: function() {
         var _id = FlowRouter.getParam('_id');
         if(_id === 'newPosting') {
@@ -217,10 +228,8 @@ Template.rev_posting.events({
         var posting_tag=$('.inp-tag').val();
 
         var file = $('#inp-file').prop('files')[0];   // 화면에서 선택 된 파일 가져오기
-        if(file != null) {
-            var file_id = DB_FILES.insertFile(file);
-        }else{  //파일선택 안했을 경우 기본 썸네일
-            var file_id = 'agKuAs8oGDFzHmasF';
+        if(file != null) {  //파일이 선택됐을 경우
+            var file_id = DB_FILES.insertFile(file);//DB_FILES에 파일 저장하고 file_id가져오기
         }
 
 
@@ -234,17 +243,15 @@ Template.rev_posting.events({
             return alert('본문을 입력해주세요.');
         }
 
-
-
         var _id = FlowRouter.getParam('_id');
 
         if( _id === 'newPosting') {
-
+            var createdAt = new Date()
             DB_REVS.insert({
                 user_id : user_id,
                 user_email : user_email,
                 user_nickname : user_nickname,
-                createdAt: new Date(),
+                createdAt: createdAt,
                 title: title,
                 content: content,
                 posting_area:posting_area,
@@ -253,30 +260,26 @@ Template.rev_posting.events({
                 readCount: 0,
                 file_id:file_id
             });
-
-
-            // window.history.back();
+            _id = DB_REVS.findOne({createdAt : createdAt})._id
             alert('글을 올렸습니다.');
-            location.href="/rev_main/전체/전체/new";
+            location.href="/rev_post/"+posting_area+"/"+posting_tag+"/new/"+_id;
         } else {
             var revs = DB_REVS.findOne({_id: _id});
-
 
             revs.title = title;
             revs.content = content;
             revs.posting_area=posting_area;
             revs.posting_tag=posting_tag;
-            revs.file_id=file_id;
+            if(file != null){
+                revs.file_id=file_id;
+            }
             DB_REVS.update({_id: _id}, revs);
 
-            window.history.back();
+            // window.history.back();      이거 때문에 글 수정 시 파일 저장이 안됐던거임 하.......
             alert('글을 수정하였습니다.');
+            var order = FlowRouter.getParam('order');
+            location.href="/rev_post/"+posting_area+"/"+posting_tag+"/"+order+"/"+_id;
         }
-        // $('#inp-title').val('');
-        // $('#editor').summernote('reset');
-        // // $('#inp-content').val();
-        // $('.inp-area').val();
-        // $('.inp-tag').val();
 
     },
 })
