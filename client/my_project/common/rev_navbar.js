@@ -7,6 +7,7 @@ Template.rev_navbar.events({
     'click #btn-logout': function() {
         Meteor.logout();
         alert("로그아웃 되었습니다.");
+        location.href="/rev_main/전체/전체/new/";
     },
 //////검색기능
     'click #btn-search': function () {

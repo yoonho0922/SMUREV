@@ -28,54 +28,54 @@
                         </div>
                         <div  style="padding: 10px;">
                             <div style="border-radius: 25px; border: 2px solid rgba(128,128,128,0.71); padding: 20px;">
-                         {{#with board}}
-                             <table class="post-table">
-                                 <tr>
-                                     <td id="title" colspan="2">{{title}}</td>
-                                 </tr>
-                                 <tr>
-                                     <td colspan="2">
-                                         <div style="float:left;">{{user_nickname}}({{user_email}})</div>
-                                         <div style="float:right; padding-left: 10px">
-                                             <a id="btn-mod" href="">수정</a>
-                                             <a id="btn-del" href="">삭제</a>
-                                         </div>
-                                         <div style="float:right;">{{createdAt}}</div>
-                                     </td>
-                                 </tr>
-                                 <tr>
-                                     <td colspan="2" id="content">{{{content}}}</td>
-                                 </tr>
-                                 <tr>
-                                     <td>
-                                         <a href="/rev_main/{{posting_area}}/전체/new" type="button" style="color: #fff; background:gray; font-size:1em; border-radius:1.5em; padding:1px 13px;">#{{posting_area}}</a>
-                                         <a href="/rev_main/{{posting_area}}/{{posting_tag}}/new" type="button" style="color: #fff; background:gray; font-size:1em; border-radius:1.5em; padding:1px 13px;">#{{posting_tag}}</a>
-                                     </td>
-                                     <td style="vertical-align:middle;">
-                                         <a id="btn-rec"><img src="/examples/{{rec_img}}" style="max-width: 100%; height: auto; float:right;"></a>
-                                         <div style="float:right;">{{recommend}}</div>
-                                     </td>
-                                 </tr>
+                                {{#with board}}
+                                    <table class="post-table">
+                                        <tr>
+                                            <td id="title" colspan="2">{{title}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <div style="float:left;">{{user_nickname}}({{user_email}})</div>
+                                                <div style="float:right; padding-left: 10px">
+                                                    <a id="btn-mod" href="">수정</a>
+                                                    <a id="btn-del" href="">삭제</a>
+                                                </div>
+                                                <div style="float:right;">{{createdAt}}</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2" id="content">{{{content}}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <a href="/rev_main/{{posting_area}}/전체/new" type="button" style="color: #fff; background:gray; font-size:1em; border-radius:1.5em; padding:1px 13px;">#{{posting_area}}</a>
+                                                <a href="/rev_main/{{posting_area}}/{{posting_tag}}/new" type="button" style="color: #fff; background:gray; font-size:1em; border-radius:1.5em; padding:1px 13px;">#{{posting_tag}}</a>
+                                            </td>
+                                            <td style="vertical-align:middle;">
+                                                <a id="btn-rec"><img src="/examples/{{rec_img}}" style="max-width: 100%; height: auto; float:right;"></a>
+                                                <div style="float:right;">{{recommend}}</div>
+                                            </td>
+                                        </tr>
 
-                             </table>
-                         {{/with}}
+                                    </table>
+                                {{/with}}
                                 <!--댓글기능-->
                                 <div class="container">
                                     <div class="row">
                                         {{#each comments}}
-                                        <div style="width: 1300px">
-                                            <div class="text" >
-                                                <img src="{{comment_link}}" style="border: 0px solid black;border-radius:70px;-moz-border-radius: 70px;-html-border-radius: 70px;-webkit-border-radius: 70px;width: 80px;height: 80px" />
-                                                <span style="font-size: 20px">{{comment}}</span>
-                                                <button id="comment-remove" type="button" class="btn btn-sm btn-outline-secondary" style="float: right; ">x</button>
-                                            </div>
+                                            <div style="width: 1300px">
+                                                <div class="text" >
+                                                    <img src="{{comment_link}}" style="border: 0px solid black;border-radius:70px;-moz-border-radius: 70px;-html-border-radius: 70px;-webkit-border-radius: 70px;width: 80px;height: 80px" />
+                                                    <span style="font-size: 20px">{{comment}}</span>
+                                                    <button id="comment-remove" type="button" class="btn btn-sm btn-outline-secondary" style="float: right; ">x</button>
+                                                </div>
 
-                                            <div id="comment-user" style="font-size: 14px;padding-left: 12px;padding-top: 5px">{{comment_nickname}}({{user_email}})
-                                                <span id="comment-date" style="font-size: 14px; padding-left: 30px">{{createdAt}}</span>
+                                                <div id="comment-user" style="font-size: 14px;padding-left: 12px;padding-top: 5px">{{comment_nickname}}({{user_email}})
+                                                    <span id="comment-date" style="font-size: 14px; padding-left: 30px">{{createdAt}}</span>
+                                                </div>
+                                                <hr id="hr-1" size="7px">
                                             </div>
-                                            <hr id="hr-1" size="7px">
-                                        </div>
-                                    {{/each}}
+                                        {{/each}}
                                     </div>
                                 </div>
 
@@ -89,18 +89,23 @@
                                             <link rel="stylesheet" type="text/css" media="screen" href="rev_comment.less">
 
                                         </div>
-                                        <div class="com2">
-                                            <div id="form-commentInfo">
-                                                <div id="comment-count">댓글 <span id="count">0</span></div>
-                                                <div class = "c">
-                                                    <textarea id="comment-input" placeholder="댓글을 입력해 주세요."></textarea>
-                                                    <button id="submit">등록</button>
+                                        {{#if currentUser}}
+                                            <div class="com2">
+                                                <div id="form-commentInfo">
+                                                    <div id="comment-count">댓글</div>
+                                                    <div class = "c">
+                                                        <textarea id="comment-input" placeholder="댓글을 입력해 주세요."></textarea>
+                                                        <button id="submit">등록</button>
+
+                                                    </div>
+
 
                                                 </div>
-
-
                                             </div>
-                                        </div>
+                                        {{else}}
+                                            <div class="log">로그인을 해주세요</div>
+                                        {{/if}}
+
                                     </div>
                                 </section>
 

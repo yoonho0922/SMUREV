@@ -80,7 +80,7 @@ Template.rev_post.events({
 
                 var rec = DB_RECOMMEND.findOne({post_id : _id});
                 DB_RECOMMEND.remove({_id : rec._id});   //추천 목록 DB에서 삭제
-                
+
                 alert('삭제되었습니다.');
                 window.history.back();
             }
@@ -120,7 +120,7 @@ Template.rev_post.events({
             user_email: Meteor.user().emails[0].address,
             createdAt: new Date(),          // 저장 시각
             comment: comment,// 댓글내용
-        });use
+        });
         $('#comment-input').val('');
     },
     'click #comment-remove': function () {
