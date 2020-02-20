@@ -82,7 +82,9 @@ Template.rev_searchresult.helpers({
 
     },
 
-
+    search_content : function(){
+        return FlowRouter.getParam('search_content');
+    },
     YMD: function() {
         return this.createdAt.toStringYMD();
     },
@@ -129,6 +131,18 @@ Template.rev_searchresult.helpers({
     },
 
     //버튼 활성화 비활성화
+    activated30: function(){
+        if(FlowRouter.getParam('order') == 'new'){  //최신순일 때
+            return 'background-color : gray; color : white;';
+        }
+        return;
+    },
+    activated31: function(){
+        if(FlowRouter.getParam('order') == 'rec'){  //추천순일 때
+            return 'background-color : gray; color : white;';
+        }
+        return;
+    },
     activated0: function(){
         if(FlowRouter.getParam('tag') == '전체'){
             return 'background-color : skyblue; color : white;';

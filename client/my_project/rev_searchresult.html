@@ -31,7 +31,7 @@
                             <div style="border-radius: 25px; border: 2px solid rgba(128,128,128,0.71); padding: 20px;">
                                 <button id='btn-album' data-toggle="dropdown" class="btn btn-sm btn-outline-secondary">{{area}} ▼</button>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="/rev_searchresult/전체/전체/new/{{search_content}}">전체</a>
+                                    <a class="dropdown-item" href="/rev_searchresult/전체/전체/new/{{sesearchResultarch_content}}">전체</a>
                                     <a class="dropdown-item" href="/rev_searchresult/상명대/전체/new/{{search_content}}">상명대</a>
                                     <a class="dropdown-item" href="/rev_searchresult/신촌/전체/new/{{search_content}}">신촌</a>
                                     <a class="dropdown-item" href="/rev_searchresult/경복궁/전체/new/{{search_content}}">경복궁</a>
@@ -43,8 +43,8 @@
                                 </div>
 
                                 <div class="btn-group" style="float:right">
-                                    <a id="btn-newest" href="/rev_main/{{area}}/{{tag}}/new/{{search_content}}" type="button" class="btn btn-sm btn-outline-secondary">최신순</a>
-                                    <a id="btn-rec" href="/rev_main/{{area}}/{{tag}}/rec/{{search_content}}" type="button" class="btn btn-sm btn-outline-secondary">추천순</a>
+                                    <a id="btn-newest" style="{{activated30}}" href="/rev_searchresult/{{area}}/{{tag}}/new/{{search_content}}" type="button" class="btn btn-sm btn-outline-secondary">최신순</a>
+                                    <a id="btn-rec" style="{{activated31}}" href="/rev_searchresult/{{area}}/{{tag}}/rec/{{search_content}}" type="button" class="btn btn-sm btn-outline-secondary">추천순</a>
                                 </div>
                             </div>
                         </div>
