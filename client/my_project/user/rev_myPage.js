@@ -28,6 +28,7 @@ Template.rev_myPage.events({
         Meteor.users.update({_id: userInfo._id}, {
             $set: {
                 'profile.nickname': nickname,
+                'profile.img' : file_id
             }
         });
         //프로필 사진

@@ -72,7 +72,6 @@ Template.rev_login.events({
                     alert(err);
                 }
             });
-            // location.href="/rev_main/전체/전체/new";
         }
         else {
             alert('비밀번호가 일치하지 않습니다. 다시 확인 해 주세요.');

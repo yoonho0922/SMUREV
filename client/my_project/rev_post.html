@@ -63,19 +63,19 @@
                                 <div class="container">
                                     <div class="row">
                                         {{#each comments}}
-                                            <div style="width: 1300px">
-                                                <div class="text" >
-                                                    <img style="border: 0px solid black;border-radius:70px;-moz-border-radius: 70px;-html-border-radius: 70px;-webkit-border-radius: 70px;width: 80px;height: 80px" src="{{link}}" />
-                                                    <span style="font-size: 20px">{{comment}}</span>
-                                                    <button id="comment-remove" type="button" class="btn btn-sm btn-outline-secondary" style="float: right; ">x</button>
-                                                </div>
-
-                                                <div id="comment-user" style="font-size: 14px;padding-left: 12px;padding-top: 5px">{{username}}
-                                                <span id="comment-date" style="font-size: 14px; padding-left: 30px">{{createdAt}}</span>
-                                                </div>
-                                                <hr id="hr-1" size="7px">
+                                        <div style="width: 1300px">
+                                            <div class="text" >
+                                                <img src="{{comment_link}}" style="border: 0px solid black;border-radius:70px;-moz-border-radius: 70px;-html-border-radius: 70px;-webkit-border-radius: 70px;width: 80px;height: 80px" />
+                                                <span style="font-size: 20px">{{comment}}</span>
+                                                <button id="comment-remove" type="button" class="btn btn-sm btn-outline-secondary" style="float: right; ">x</button>
                                             </div>
-                                        {{/each}}
+
+                                            <div id="comment-user" style="font-size: 14px;padding-left: 12px;padding-top: 5px">{{comment_nickname}}({{user_email}})
+                                                <span id="comment-date" style="font-size: 14px; padding-left: 30px">{{createdAt}}</span>
+                                            </div>
+                                            <hr id="hr-1" size="7px">
+                                        </div>
+                                    {{/each}}
                                     </div>
                                 </div>
 

@@ -26,8 +26,8 @@ Template.rev_side.helpers({
         return Session.get('modProfile');
     },
     link: function() {  //프사 가져오기
-        var proPicture = DB_PRO_PICTURE.findOne({user_id: Meteor.user()._id});
-        return DB_FILES.findOne({_id: proPicture.file_id}).link();
+        var user = Meteor.user();
+        return DB_FILES.findOne({_id: user.profile.img}).link();
     },
 
     //버튼 활성화
