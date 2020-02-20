@@ -42,6 +42,10 @@ Template.main_album.helpers({
     },
     HMS: function() {
         return this.createdAt.toStringHMS();
+    },
+    nickname: function() {
+        var user_id = this.user_id;
+        return Meteor.users.findOne({_id: user_id}).profile.nickname;
     }
 
 });
@@ -71,7 +75,12 @@ Template.main_album.helpers({
     },
     link: function() {
         // 저장 된 이미지 링크를 반환
-        return DB_FILES.findOne({_id: this.file_id}).link()
+        var file = DB_FILES.findOne({_id: this.file_id});
+        if(!file){
+            return '/img/default_post_img.jpg';
+        }else{
+            return file.link();
+        }
 
     },
     rec_img: function () {
