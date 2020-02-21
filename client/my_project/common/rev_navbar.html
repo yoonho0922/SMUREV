@@ -1,7 +1,7 @@
 <template name="rev_navbar">
     <div id="ex_navbar">
         <nav class="navbar navbar-expand-md navbar-dark bg-dark text-right">
-            <button id="before" style="background-color: lightgray;font-size: 23px;border-radius:1.5em;">◀이전</button>
+            <button id="before" class="btn btn-outline-light" style="font-size: 22px;border-radius:1.5em;">◀이전</button>
             <a href="/rev_main/전체/전체/new"><img src="/examples/logo.png" alt="" class="nav-logo" style="max-height: 40px;padding-left: 900px"></a>
             <a href="/rev_main/전체/전체/new" class="navbar-brand" style="font-size: 20px;">Codeasy</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
@@ -48,7 +48,7 @@
 <!--                    </li>-->
                     <li class="nav-item">
                         {{#if currentUser}}
-                            <button id="btn-logout" class="btn btn-outline-primary">sign out</button>
+                            <button id="btn-logout" class="btn btn-outline-light">sign out</button>
                             {{else}}
                             <a class="btn btn-outline-primary" href="/rev_login">Sign in</a>
                         {{/if}}
