@@ -26,7 +26,7 @@
                                 <a id="btn-tag7" href="/rev_main/{{area}}/포차/new" class="btn btn-outline-dark" style="margin: 5px 15px;">#포차</a>
                             </div>
                         </div>
-                        <div  style="padding: 10px;">
+                        <div  style="padding: 10px; ">
                             <div style="border-radius: 25px; border: 2px solid rgba(128,128,128,0.71); padding: 20px;">
                                 {{#with board}}
                                     <table class="post-table" style="border: 0px">
@@ -35,7 +35,7 @@
                                         </tr>
                                         <tr>
                                             <td colspan="2">
-                                                <div style="float:left; padding-left: 30px">{{user_nickname}}({{user_email}})</div>
+                                                <div style="float:left; padding-left: 40px">{{user_nickname}}({{user_email}})</div>
                                                 <div style="float:right; padding-left: 10px">
                                                     <a id="btn-mod" href="">수정</a>
                                                     <a id="btn-del" href="">삭제</a>
@@ -52,16 +52,20 @@
                                                 <a href="/rev_main/{{posting_area}}/{{posting_tag}}/new" type="button" style="color: #fff; background:gray; font-size:1em; border-radius:1.5em; padding:1px 13px;">#{{posting_tag}}</a>
                                             </td>
                                             <td style="vertical-align:middle; padding-top: 100px;">
-                                                <a id="btn-rec"><img src="/examples/{{rec_img}}" style="max-width: 100%; height: auto; float:right;"></a>
-                                                <div style="float:right;padding-right: 10px;padding-top: 4px">{{recommend}}</div>
+                                                <a id="btn-rec"><img src="/examples/{{rec_img}}" style="max-width: 100%; height: 40px; float:right;"></a>
+                                                <div style="float:right;padding-right: 10px;padding-top: 10px">{{recommend}}</div>
                                             </td>
                                         </tr>
 
                                     </table>
+
                                 {{/with}}
+                            </div>
+                        </div>
+                        <div style="background-color: #E8F5FF;border-radius: 25px;">
                                 <!--댓글기능-->
                                 {{#each comments}}
-                                    <div class="comment" style="width: 1450px;padding-top: 30px;padding-left: 110px">
+                                    <div class="comment" style="width: 1450px;padding-top: 30px;padding-left: 110px;">
                                         <img src="{{comment_link}}" style="border: 0px solid black;border-radius:70px;-moz-border-radius: 70px;-html-border-radius: 70px;-webkit-border-radius: 70px;width: 80px;height: 80px" />
                                         <span style="font-size: 20px;padding-left: 30px">{{comment}}</span>
                                         <button id="comment-remove" type="button" class="btn btn-sm btn-outline-secondary" style="float: right; ">x</button>
@@ -110,7 +114,7 @@
 
                                 <!--댓글기능-->
 
-                            </div>
+<!--                            </div>-->
                         </div>
                     </div>
                     <!-- main-->

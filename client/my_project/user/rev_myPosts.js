@@ -38,6 +38,10 @@ Template.rev_myPosts.helpers({
     },
     HMS: function() {
         return this.createdAt.toStringHMS();
+    },
+    nickname: function() {
+        var user_id = this.user_id;
+        return Meteor.users.findOne({_id: user_id}).profile.nickname;
     }
 
 });
