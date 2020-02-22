@@ -1,14 +1,14 @@
 <template name="rev_login">
     <div id="ex_login_custom" class="text-center">
         <div class="form">
-            <a href="/codeasy"><img class="mb-4" src="/examples/logo.png" alt="" width="80" height="72"></a>
+            <img class="mb-4" src="/examples/title_icon.png" alt="" width="100" height="90">
 
             {{#if currentUser}}
-                <button id="btn-home" class="btn btn-lg btn-outline-dark btn-block">home</button>
-                <button id="btn-fix" class="btn btn-lg btn-outline-dark btn-block">정보수정</button>
+                <button id="btn-home" class="btn btn-lg btn-outline-dark btn-block" style="font-weight: bold">home</button>
+                <button id="btn-fix" class="btn btn-lg btn-outline-dark btn-block" style="font-weight: bold">정보수정</button>
             {{else}}
                 {{#if isSignUpMode}}  <!-- 회원가입모드 일 경우 -->
-                    <h1 class="h3 mb-3 font-weight-normal">Please rev_sign Up</h1>
+                    <h1 class="h3 mb-3" style="font-weight: bold">sign Up</h1>
                     <input id="inp-email" type="email" class="form-control mb-1" placeholder="Email address" required autofocus>
                     <input id="inp-password" type="password" class="form-control mb-1" placeholder="Password" required>
                     <input id="inp-passwordConfirm" type="password" class="form-control mb-1" placeholder="Password" required>
@@ -17,10 +17,10 @@
                             <input type="checkbox" value="remember-me"> Remember me
                         </label>
                     </div>
-                    <button id="btn-signUp" class="btn btn-lg btn-outline-dark btn-block">Sign Up</button>
+                    <button id="btn-signUp" class="btn btn-lg btn-outline-dark btn-block" style="font-weight: bold">Sign Up</button>
                     <button id="btn-back" class="btn btn-lg btn-primary btn-block">Back</button>
                 {{else}} <!-- 회원가입모드가 아닐 경우 -->
-                    <h1 class="h3 mb-3 font-weight-normal">Please rev_sign in</h1>
+                    <h1 class="h3 mb-3" style="font-weight: bold">Please sign in</h1>
                     <input id="inp-email" type="email" class="form-control mb-1" placeholder="Email address" required autofocus>
                     <input id="inp-password" type="password" class="form-control mb-1" placeholder="Password" required>
                     <div class="checkbox mb-3">
@@ -28,8 +28,8 @@
                             <input type="checkbox" value="remember-me"> Remember me
                         </label>
                     </div>
-                    <button id="btn-signIn" class="btn btn-lg btn-outline-primary btn-block">Sign in</button>
-                    <button id="btn-signUpMode" class="btn btn-lg btn-primary btn-block">Sign Up</button>
+                    <button id="btn-signIn" class="btn btn-lg btn-outline-primary btn-block" style="font-weight: bold">Sign in</button>
+                    <button id="btn-signUpMode" class="btn btn-lg btn-primary btn-block" style="font-weight: bold">Sign Up</button>
                 {{/if}}
             {{/if}}
 

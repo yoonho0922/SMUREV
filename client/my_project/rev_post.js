@@ -1,5 +1,6 @@
 FlowRouter.template('/rev_post/:area/:tag/:order/:_id','rev_post');
 
+
 Template.rev_post.helpers({
     board: function() {
         var _id = FlowRouter.getParam('_id');

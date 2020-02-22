@@ -129,6 +129,20 @@ Template.rev_searchresult.helpers({
         return DB_FILES.findOne({_id: this.file_id}).link()
 
     },
+    rec_img: function () {
+        var post_id = this.id
+        var user = Meteor.user()
+
+        if(user == null){   //로그아웃 상태일 시
+            return 'rec_normal.png';
+        }
+        // 로그인 상태일 시
+        if(!DB_RECOMMEND.findOne({post_id : post_id, user_id : user._id})){
+            return 'rec_normal.png';
+        }else{
+            return 'rec_over.png';
+        }
+    },
 
     //버튼 활성화 비활성화
     activated30: function(){
