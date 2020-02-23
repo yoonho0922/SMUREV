@@ -256,6 +256,7 @@ Template.rev_posting.events({
                 posting_tag:posting_tag,
                 recommend:0,
                 readCount: 0,
+                commentCount:0,
                 file_id:file_id
             });
             _id = DB_REVS.findOne({createdAt : createdAt})._id

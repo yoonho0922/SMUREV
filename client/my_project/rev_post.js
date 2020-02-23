@@ -137,31 +137,45 @@ Template.rev_post.events({
     },
 
     'click #submit':function () {
+
+        var post_id = FlowRouter.getParam('_id');
+        var user_id = Meteor.user()._id;
         var comment=$('#comment-input').val();
+        var revs = DB_REVS.findOne({_id : post_id});
+
 
         DB_COMMENT.insert({    // 댓글 DB에 저장
-            post_id: FlowRouter.getParam('_id'),
-            user_id: Meteor.user()._id,
+            post_id: post_id,
+            user_id: user_id,
             user_email: Meteor.user().emails[0].address,
             createdAt: new Date(),          // 저장 시각
             comment: comment,// 댓글내용
         });
         $('#comment-input').val('');
+
+        revs.commentCount += 1;    //REVS의 commentCount 증가
+        DB_REVS.update({_id: post_id}, revs);
+        alert('댓글등록');
+
     },
     'click #comment-remove': function () {
-        if(confirm('삭제 하시겠습니까?')) {
+        if (confirm('삭제 하시겠습니까?')) {
             var comment_user_id = this.user_id;
             var current_user_id = Meteor.user()._id;
-            if(comment_user_id == current_user_id || Meteor.user().emails[0].address == "admire@gmail.com"){
+            var post_id = FlowRouter.getParam('_id');
+            var revs = DB_REVS.findOne({_id: post_id});
+
+            if (comment_user_id == current_user_id || Meteor.user().emails[0].address == "admire@gmail.com") {
                 //댓글쓴이 '본인'일 경우 또는 '관리자계정'일 경우
                 DB_COMMENT.remove({_id: this._id});
+
+                revs.commentCount -= 1;    //REVS의 post 추천수 감소
+                DB_REVS.update({_id: post_id}, revs);
+                alert('댓글 삭제');
                 alert('삭제 되었습니다.');
-            }else{
+            } else {
                 alert('권한이 없습니다!')
             }
-
         }
-
-
     }
 })
