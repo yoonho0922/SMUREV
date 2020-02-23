@@ -18,15 +18,17 @@ Template.rev_myPage.helpers({
 
 Template.rev_myPage.events({
     'click #btn-update-profile': function() {
-        if($('#inp-file') == null){
-            alert('프로필 사진을 선택해주세요!');
-            return;
-        }
 
         var userInfo = Meteor.user();
         var nickname = $('#inp-nickname').val();
         var file = $('#inp-file').prop('files')[0];   // 화면에서 선택 된 파일 가져오기
-        var file_id = DB_FILES.insertFile(file);
+        if(!file){  //파일을 안 등록했을 경우
+            var file_id = userInfo.profile.img;
+        }else{  //등록 했을 경우
+            var file_id = DB_FILES.insertFile(file);
+        }
+
+
 
         //유저 닉넴 중복체크
 
@@ -37,21 +39,6 @@ Template.rev_myPage.events({
                 'profile.img' : file_id
             }
         });
-        //프로필 사진
-
-        var proPicture = DB_PRO_PICTURE.findOne({user_id: userInfo._id});
-
-        if(!proPicture){    //프사를 처음 등록하는 경우
-            DB_PRO_PICTURE.insert({
-                'user_id' : userInfo._id,
-                'file_id' : file_id
-            })
-        }else{
-            alert(file_id)  //프사를 수정하는 경우
-            proPicture.file_id = file_id;
-            DB_PRO_PICTURE.update({_id:proPicture._id}, proPicture);
-        }
-
 
         alert('수정 되었습니다')
         Session.set('modProfile', false);
