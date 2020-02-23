@@ -130,7 +130,7 @@ Template.rev_searchresult.helpers({
 
     },
     rec_img: function () {
-        var post_id = this.id
+        var post_id = this._id
         var user = Meteor.user()
 
         if(user == null){   //로그아웃 상태일 시
