@@ -46,13 +46,15 @@ Template.main_list.helpers({
         return Meteor.users.findOne({_id:user_id}).profile.nickname;
     },
     rec_img: function () {
-        var post_id = this.id
+        var post_id = this._id
         var user = Meteor.user()
 
         if(user == null){   //로그아웃 상태일 시
             return 'rec_normal.png';
         }
         // 로그인 상태일 시
+        
+        //유저가 this 게시글을 추천했는지 안했는지 판별
         if(!DB_RECOMMEND.findOne({post_id : post_id, user_id : user._id})){
             return 'rec_normal.png';
         }else{
