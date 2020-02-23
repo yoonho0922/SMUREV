@@ -5,8 +5,14 @@ Template.rev_myPage.helpers({
         return Meteor.user();
     },
     link : function(){
-        var proPicture = DB_PRO_PICTURE.findOne({user_id: Meteor.user()._id});
-        return DB_FILES.findOne({_id: proPicture.file_id}).link();
+
+        var file_id = Meteor.user().profile.img;
+        if(!file_id){   //사진 등록 안했을 경우
+            return '/img/default_user_img.png'   //기본 썸네일
+        }else{
+            return DB_FILES.findOne({_id: file_id}).link(); //등록된 사진
+        }
+
     }
 })
 

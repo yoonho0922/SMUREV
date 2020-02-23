@@ -16,10 +16,11 @@
                         <div  style="padding-top: 79px; padding-left: 610px ">
 
                             {{#with userInfo}}
-                                <img style="border: 0px solid black;border-radius:70px;-moz-border-radius: 70px;-html-border-radius: 70px;-webkit-border-radius: 70px;width: 150px;height: 150px" src="{{link}}" />
+                                <img src="{{link}}" id="LoadImg"
+                                     style="border: 0px solid black;border-radius:70px;-moz-border-radius: 70px;-html-border-radius: 70px;-webkit-border-radius: 70px;width: 150px;height: 150px"/>
                                 <h1 class="h3 mb-3 font-weight-normal">{{user_email}}</h1>
                                 <div style="margin-left: -20px"><input id="inp-nickname" type="text" class="form-control mb-1" style="width: 200px;text-align:center" placeholder="Nickname" value="{{profile.nickname}}"></div>
-                                <input type="file"  id="inp-file" style="padding-top: 18px;margin-left: -14px;"/>
+                                <input type="file"  id="inp-file"  onchange="LoadImg(this)" style="padding-top: 18px;margin-left: -14px;"/>
                             {{/with}}
                             <div class="new_post" style="padding-top: 25px">
                                 <button id="btn-update-profile" class="btn" style="width: 270px;height:40px; margin-left: -50px;background-color: lightgray;color: white">
@@ -36,7 +37,7 @@
 
     </id>
     </div>
-    <!--                                            썸네일미리보기-->
+    <!--등록한 파일 미리보기-->
     <script type="text/javascript">
         function LoadImg(value) {
             if(value.files&&value.files[0]){

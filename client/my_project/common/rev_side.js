@@ -22,12 +22,32 @@ Template.rev_side.helpers({
     userInfo: function() {
         return Meteor.user();
     },
+    nickname : function(){
+        //정보 수정 한번도 안했을 경우 닉네임 등록
+        if(Meteor.user().profile == null){
+            var userInfo = Meteor.user();
+            //이메일의 @ 앞 부분을 닉네임으로 설정
+            var nickname = Meteor.user().emails[0].address.split('@')[0];
+            Meteor.users.update({_id: userInfo._id}, {
+                $set: {
+                    'profile.nickname': nickname,
+                }
+            });
+        }
+
+        return Meteor.user().profile.nickname;
+    },
     modProfile: function () {
         return Session.get('modProfile');
     },
     link: function() {  //프사 가져오기
-        var user = Meteor.user();
-        return DB_FILES.findOne({_id: user.profile.img}).link();
+
+        var file_id = Meteor.user().profile.img;
+        if(!file_id){   //사진 등록 안했을 경우
+            return '/img/default_user_img.png'   //기본 썸네일
+        }else{
+            return DB_FILES.findOne({_id: file_id}).link(); //등록된 사진
+        }
     },
 
     //버튼 활성화
