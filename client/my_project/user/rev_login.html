@@ -8,7 +8,7 @@
                 <button id="btn-fix" class="btn btn-lg btn-outline-dark btn-block" style="font-weight: bold">정보수정</button>
             {{else}}
                 {{#if isSignUpMode}}  <!-- 회원가입모드 일 경우 -->
-                    <h1 class="h3 mb-3" style="font-weight: bold">sign Up</h1>
+                    <h1 class="h3 mb-3" style="font-weight: bold">WELCOME!</h1>
                     <input id="inp-email" type="email" class="form-control mb-1" placeholder="Email address" required autofocus>
                     <input id="inp-password" type="password" class="form-control mb-1" placeholder="Password" required>
                     <input id="inp-passwordConfirm" type="password" class="form-control mb-1" placeholder="Password" required>
@@ -18,9 +18,9 @@
                         </label>
                     </div>
                     <button id="btn-signUp" class="btn btn-lg btn-outline-dark btn-block" style="font-weight: bold">Sign Up</button>
-                    <button id="btn-back" class="btn btn-lg btn-primary btn-block">Back</button>
+                    <button id="btn-back" class="btn btn-lg btn-dark btn-block">Back</button>
                 {{else}} <!-- 회원가입모드가 아닐 경우 -->
-                    <h1 class="h3 mb-3" style="font-weight: bold">Please sign in</h1>
+                    <h1 class="h3 mb-3" style="font-weight: bold;">Please sign in</h1>
                     <input id="inp-email" type="email" class="form-control mb-1" placeholder="Email address" required autofocus>
                     <input id="inp-password" type="password" class="form-control mb-1" placeholder="Password" required>
                     <div class="checkbox mb-3">
@@ -28,8 +28,8 @@
                             <input type="checkbox" value="remember-me"> Remember me
                         </label>
                     </div>
-                    <button id="btn-signIn" class="btn btn-lg btn-outline-primary btn-block" style="font-weight: bold">Sign in</button>
-                    <button id="btn-signUpMode" class="btn btn-lg btn-primary btn-block" style="font-weight: bold">Sign Up</button>
+                    <button id="btn-signIn" class="btn btn-lg btn-outline-dark btn-block" style="font-weight: bold">Sign in</button>
+                    <button id="btn-signUpMode" class="btn btn-lg btn-dark btn-block" style="font-weight: bold">Sign Up</button>
                 {{/if}}
             {{/if}}
 

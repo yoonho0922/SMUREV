@@ -129,6 +129,10 @@ Template.rev_searchresult.helpers({
         return DB_FILES.findOne({_id: this.file_id}).link()
 
     },
+    nickname: function(){
+        var user_id = this.user_id;
+        return Meteor.users.findOne({_id:user_id}).profile.nickname;
+    },
     rec_img: function () {
         var post_id = this._id
         var user = Meteor.user()
