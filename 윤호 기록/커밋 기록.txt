@@ -129,3 +129,9 @@
 
 :마이페이지 버그 수정
 -정보 수정 시 파일 선택 안 했을 경우 프사 그대로 유지되게
+
+:post 관련 기능
+-newPosting에서 nickname 저장 뺌 / main_list에서 email표기 뺌
+-rev_post에서 글쓴이 닉네임 동적으로 변경, 프사 넣음
+-글 삭제 시 DB_RECOMMEND에서 추천 목록 완전히 안 사라지는 버그 수정
+

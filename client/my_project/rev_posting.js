@@ -220,7 +220,6 @@ Template.rev_posting.events({
 
         var user_id = Meteor.user()._id;
         var user_email = Meteor.user().emails[0].address;
-        var user_nickname = Meteor.user().profile.nickname;
 
         var title = $('#inp-title').val();
         var content = $('#editor').summernote('code');
@@ -250,7 +249,6 @@ Template.rev_posting.events({
             DB_REVS.insert({
                 user_id : user_id,
                 user_email : user_email,
-                user_nickname : user_nickname,
                 createdAt: createdAt,
                 title: title,
                 content: content,

@@ -21,6 +21,10 @@ Template.rev_myPage.events({
 
         var userInfo = Meteor.user();
         var nickname = $('#inp-nickname').val();
+
+        //유저 닉넴 중복체크
+
+
         var file = $('#inp-file').prop('files')[0];   // 화면에서 선택 된 파일 가져오기
         if(!file){  //파일을 안 등록했을 경우
             var file_id = userInfo.profile.img;
@@ -29,8 +33,6 @@ Template.rev_myPage.events({
         }
 
 
-
-        //유저 닉넴 중복체크
 
         //글로된 유저 정보 업데이트
         Meteor.users.update({_id: userInfo._id}, {

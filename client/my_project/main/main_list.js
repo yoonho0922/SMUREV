@@ -86,10 +86,6 @@ Template.main_list.helpers({
             return file.link();
         }
 
-    },
-    username:function () {
-        return DB_REVS.findOne({_id: this.user_nickname})
-
     }
 
 });

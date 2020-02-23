@@ -12,6 +12,20 @@ Template.rev_post.helpers({
     area: function(){
         return FlowRouter.getParam('area');
     },
+    nickname : function(){
+        var _id = FlowRouter.getParam('_id');
+        var user_id = DB_REVS.findOne({_id:_id}).user_id;
+        var user = Meteor.users.findOne({_id:user_id});
+        return user.profile.nickname;
+    },
+    user_link : function(){
+        var _id = FlowRouter.getParam('_id');
+        var user_id = DB_REVS.findOne({_id:_id}).user_id;
+        var user = Meteor.users.findOne({_id:user_id});
+        var file_id = user.profile.img;
+        return DB_FILES.findOne({_id: file_id}).link();
+    },
+
     writer: function() {
         //this에는 DB_COMMENTS {} 하나하나가 들어 있음.
         return Meteor.users.findOne({writer: FlowRouter.getParam('_id')}).username;
@@ -83,17 +97,17 @@ Template.rev_post.events({
         var email = Meteor.user().emails[0].address;
         if(Meteor.user()._id == revs.user_id || !revs.user_id || email == 'admire@gmail.com'){
             if(confirm('삭제하겠습니까?')==true){
-                // var area = FlowRouter.getParam('area');
-                // var tag = FlowRouter.getParam('tag');
-                // var order = FlowRouter.getParam('order');
                 DB_REVS.remove({_id: _id});
+
+                //추천 목록 DB에서 삭제
+                var rec = DB_RECOMMEND.findAll({post_id : _id});
+                rec.forEach(function(e) {
+                    DB_RECOMMEND.remove({_id : e._id});
+                });
+
+
                 alert('삭제되었습니다.');
                 window.history.back();
-
-                var rec = DB_RECOMMEND.findOne({post_id : _id});
-                DB_RECOMMEND.remove({_id : rec._id});   //추천 목록 DB에서 삭제
-
-
             }
         }else{
             alert('권한이 없습니다.')
