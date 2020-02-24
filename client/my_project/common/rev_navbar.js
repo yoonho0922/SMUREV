@@ -11,7 +11,7 @@ Template.rev_navbar.events({
     },
 //////검색기능
     'click #btn-search': function () {
-        alert("검색");
+        // alert("검색");
         var search_content=$('#inp-search').val();
 
         location.href="/rev_searchresult/전체/전체/new/"+search_content
