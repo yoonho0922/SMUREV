@@ -215,8 +215,7 @@ Template.rev_posting.helpers({
 
 Template.rev_posting.events({
 
-
-    'click #btn-save': function() {
+'click #btn-save': function() {
 
         var user_id = Meteor.user()._id;
         var user_email = Meteor.user().emails[0].address;
