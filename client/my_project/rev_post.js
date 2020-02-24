@@ -36,7 +36,8 @@ Template.rev_post.helpers({
         var _id = FlowRouter.getParam('_id');
         var file_id = DB_REVS.findOne({_id : _id}).file_id;
         if(!file_id){   //파일이 없을 경우
-            return '/img/default_post_img.jpg'   //기본 썸네일
+            // return '/img/default_post_img.jpg'   //기본 썸네일
+            return '/examples/0002.jpeg'
         }else{
             return DB_FILES.findOne({_id: file_id}).link();
         }
