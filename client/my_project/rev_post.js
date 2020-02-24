@@ -42,6 +42,11 @@ Template.rev_post.helpers({
         }
     },
     rec_img: function () {
+
+        if(Meteor.user() == null){
+            return 'rec_normal.png';
+        }
+
         var post_id = FlowRouter.getParam('_id');
         var user_id = Meteor.user()._id;
 
@@ -116,6 +121,11 @@ Template.rev_post.events({
     },
 
     'click #btn-rec': function() {
+        if(!Meteor.user()){
+            alert('로그인해주세요.');
+            return;
+        }
+
         var post_id = FlowRouter.getParam('_id');
         var user_id = Meteor.user()._id;
         var recommend = DB_RECOMMEND.findOne({post_id : post_id, user_id : user_id});
