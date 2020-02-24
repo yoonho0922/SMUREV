@@ -13,6 +13,11 @@ Template.rev_myPage.helpers({
             return DB_FILES.findOne({_id: file_id}).link(); //등록된 사진
         }
 
+    },
+    notices : function(){
+        var passive_user_id = Meteor.user()._id;
+        return DB_NOTICE.findAll({passive_user_id : passive_user_id});
+
     }
 })
 

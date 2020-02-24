@@ -166,6 +166,16 @@ Template.rev_post.events({
 
         revs.commentCount += 1;    //REVS의 commentCount 증가
         DB_REVS.update({_id: post_id}, revs);
+
+        //알림 등록
+        var passive_user_id = DB_REVS.findOne({_id : post_id}).user_id;
+        DB_NOTICE.insert({
+            passive_user_id : passive_user_id,
+            active_user_id : user_id,
+            post_id : post_id ,
+            notice_type : "com"
+        });
+
         alert('댓글등록');
 
     },
