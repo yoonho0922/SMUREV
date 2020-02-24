@@ -27,10 +27,11 @@ Template.rev_myPage.helpers({
     notice_content : function () {
         var notice = this;
         if(notice.notice_type === "rec"){
-            var active_user = Meteor.users.findOne({_id:this.active_user_id});
-            return active_user.nickname;
+            var active_user = Meteor.users.findOne({_id:this.active_user_id}).profile.nickname;
+            var post = DB_REVS.findOne({_id : this.post_id}).title;
+            return active_user + "님이 회원님의 게시글(" + post + ")을 추천하였습니다.";
         }else if(notice.notice_type === "com"){
-            var active_user = Meteor.users.findOne({_id:"oaj6sM3qeGjPvfoDu"}).profile.nickname;
+            var active_user = Meteor.users.findOne({_id:this.active_user_id}).profile.nickname;
             var post = DB_REVS.findOne({_id : this.post_id}).title;
             return active_user + "님이 회원님의 게시글(" + post + ")에 댓글을 달았습니다.";
         }
@@ -65,5 +66,9 @@ Template.rev_myPage.events({
 
         alert('수정 되었습니다')
         Session.set('modProfile', false);
+    },
+
+    'click #btn-remove' : function() {
+        DB_NOTICE.remove({_id : this._id});
     }
 })
