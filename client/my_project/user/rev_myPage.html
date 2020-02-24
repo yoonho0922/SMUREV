@@ -12,27 +12,26 @@
 
                 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4"><div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
                     <!--네모박스-->
-                    <div style="margin-top: 20px">
+                    <div style="margin-top: 20px;">
 
                         <div  style="padding: 10px;">
                             <div id="btn-tag" style="border-radius: 25px; border: 2px solid rgba(128,128,128,0.71); padding: 20px;">
-
-                                <div  style="padding-top: 79px; padding-left: 610px ">
-
                                     {{#with userInfo}}
-                                        <img src="{{link}}" id="LoadImg"
-                                             style="border: 0px solid black;border-radius:70px;-moz-border-radius: 70px;-html-border-radius: 70px;-webkit-border-radius: 70px;width: 150px;height: 150px"/>
-                                        <h1 class="h3 mb-3 font-weight-normal">{{user_email}}</h1>
-                                        <div style="margin-left: -20px"><input id="inp-nickname" type="text" class="form-control mb-1" style="width: 200px;text-align:center" placeholder="Nickname" value="{{profile.nickname}}"></div>
-                                        <input type="file"  id="inp-file"  onchange="LoadImg(this)" style="padding-top: 18px;margin-left: -14px;"/>
+                                        <div  style="padding-top: 40px; padding-left: 510px ">
+                                            <img src="{{link}}" id="LoadImg" style="border: 0px solid black;border-radius:70px;-moz-border-radius: 70px;-html-border-radius: 70px;-webkit-border-radius: 70px;width: 150px;height: 150px"/>
+                                        </div>
+                                        <div style="padding-left: 700px;margin-top: -140px">
+                                             <span style="margin-left: 0px"><input id="inp-nickname" type="text" class="form-control mb-1" style="width: 200px;text-align:center" placeholder="Nickname" value="{{profile.nickname}}"></span>
+                                             <input type="file"  id="inp-file"  onchange="LoadImg(this)" style="padding-top: 18px;margin-left: 0px; padding-bottom: 20px"/>
+                                        </div>
                                     {{/with}}
-                                    <div class="new_post" style="padding-top: 25px">
-                                        <button id="btn-update-profile" class="btn" style="width: 270px;height:40px; margin-left: -50px;background-color: lightgray;color: white">
+                                    <div class="new_post" style="padding-top: 0px">
+                                        <button id="btn-update-profile" class="btn" style="width: 270px;height:40px; margin-left: 700px;margin-bottom:40px;background-color: lightgray;color: white">
                                             수정 <span class="sr-only">(current)</span>
                                         </button>
                                     </div>
 
-                                </div>
+
 
                             </div>
 
@@ -46,15 +45,15 @@
                             <div id="btn-tag" style="border-radius: 25px; border: 2px solid rgba(128,128,128,0.71); padding: 20px;">
                     <!--네모박스-->
                                 <div class="row">
-                                    <table class="table table-striped">
+                                    <table class="table">
                                         <tbody>
                                         {{#each notices}}
                                                 <tr>
                                                     <td>
-                                                        <img  src="{{active_user_link}}" style="border: 0px solid black;border-radius:70px;-moz-border-radius: 70px;-html-border-radius: 70px;-webkit-border-radius: 70px;width: 80px;height: 80px" />
+                                                        <img  src="{{active_user_link}}" style="margin-top:0px;margin-left:40px;border: 0px solid black;border-radius:70px;-moz-border-radius: 70px;-html-border-radius: 70px;-webkit-border-radius: 70px;width: 80px;height: 80px" />
                                                     </td>
                                                     <td>
-                                                        <a href="/rev_post/{{post_href}}" style="color: black">{{notice_content}}</a>
+                                                        <a href="/rev_post/{{post_href}}" style="color: black;font-size: 17px;">{{notice_content}}</a>
                                                     </td>
                                                     <td><button id="btn-remove" class="close" style="float: left;">
                                                         <span aria-hidden="true">&times;</span>
