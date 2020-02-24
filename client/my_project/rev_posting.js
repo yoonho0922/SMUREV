@@ -215,8 +215,8 @@ Template.rev_posting.helpers({
 
 Template.rev_posting.events({
 
-'click #btn-save': function() {
-
+'click #btn-save': function(evt) {
+        evt.preventDefault()
         var user_id = Meteor.user()._id;
         var user_email = Meteor.user().emails[0].address;
 
@@ -260,7 +260,8 @@ Template.rev_posting.events({
             });
             _id = DB_REVS.findOne({createdAt : createdAt})._id
             alert('글을 올렸습니다.');
-            location.href="/rev_post/"+posting_area+"/"+posting_tag+"/new/"+_id;
+            // location.href="/rev_post/"+posting_area+"/"+posting_tag+"/new/"+_id;
+            FlowRouter.go(`/rev_post/${posting_area}/${posting_tag}/${order}/${_id}`)
         } else {
             var revs = DB_REVS.findOne({_id: _id});
 
@@ -276,7 +277,8 @@ Template.rev_posting.events({
             // window.history.back();      이거 때문에 글 수정 시 파일 저장이 안됐던거임 하.......
             alert('글을 수정하였습니다.');
             var order = FlowRouter.getParam('order');
-            location.href="/rev_post/"+posting_area+"/"+posting_tag+"/"+order+"/"+_id;
+            // location.href="/rev_post/"+posting_area+"/"+posting_tag+"/"+order+"/"+_id;
+            FlowRouter.go(`/rev_post/${posting_area}/${posting_tag}/${order}/${_id}`)
         }
 
     },
