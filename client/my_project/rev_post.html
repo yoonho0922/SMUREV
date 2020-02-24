@@ -67,6 +67,16 @@
                                             <td style="vertical-align:middle; padding-top: 100px;">
                                                 <a id="btn-rec"><img src="/examples/{{rec_img}}" style="max-width: 100%; height: 40px; float:right;"></a>
                                                 <div style="float:right;padding-right: 10px;padding-top: 10px">{{recommend}}</div>
+                                                <a id="rec_user-btn" onclick="more()" type="button" style="color : gray; float:right; padding-right: 10px">추천한 사람 보기</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td  colspan="2" id="rec_user" style="display: none">
+                                                <hr>
+                                                {{#each rec_users}}
+                                                <p style="float : right; padding-right: 10px">{{rec_user_nickname}}</p>
+                                                {{/each}}
+
                                             </td>
                                         </tr>
 
@@ -141,6 +151,19 @@
 
     </id>
     </div>
+
+    <script>
+        function more() {
+            if(document.getElementById('rec_user').style.display != ''){
+                document.getElementById('rec_user').style.display = '';
+                $(document.getElementById('rec_user-btn')).text("접기");
+            }else{
+                document.getElementById('rec_user').style.display = 'none';
+                $(document.getElementById('rec_user-btn')).text("추천인 보기");
+            }
+        }
+
+    </script>
 
     <style>
         table {

@@ -57,6 +57,15 @@ Template.rev_post.helpers({
             return 'rec_over.png';
         }
     },
+    rec_users : function(){
+        var post_id = FlowRouter.getParam('_id');
+        return DB_RECOMMEND.findAll({post_id:post_id});
+    },
+    rec_user_nickname : function(){
+        var user_id = this.user_id;
+        return Meteor.users.findOne({_id : user_id}).profile.nickname;
+    },
+
     comments: function() {
         return DB_COMMENT.find({post_id: FlowRouter.getParam('_id')});
     },
