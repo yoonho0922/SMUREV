@@ -14,10 +14,26 @@ Template.rev_myPage.helpers({
         }
 
     },
+    active_user_link : function(){
+        var user_id = this.active_user_id;
+        var user = Meteor.users.findOne({_id: user_id});
+        return DB_FILES.findOne({_id: user.profile.img}).link();
+    },
     notices : function(){
         var passive_user_id = Meteor.user()._id;
         return DB_NOTICE.findAll({passive_user_id : passive_user_id});
 
+    },
+    notice_content : function () {
+        var notice = this;
+        if(notice.notice_type === "rec"){
+            var active_user = Meteor.users.findOne({_id:this.active_user_id});
+            return active_user.nickname;
+        }else if(notice.notice_type === "com"){
+            var active_user = Meteor.users.findOne({_id:"oaj6sM3qeGjPvfoDu"}).profile.nickname;
+            var post = DB_REVS.findOne({_id : this.post_id}).title;
+            return active_user + "님이 회원님의 게시글(" + post + ")에 댓글을 달았습니다.";
+        }
     }
 })
 
