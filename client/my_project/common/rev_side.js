@@ -67,55 +67,55 @@ Template.rev_side.helpers({
     },
     activated0: function(){
         if(FlowRouter.getParam('area') == '전체'){
-            return 'color : skyblue;';
+            return 'background-color : #E8F5FF;color:skyblue';
         }
         return;
     },
     activated1: function(){
         if(FlowRouter.getParam('area') == '상명대'){
-            return 'color : skyblue;';
+            return 'background-color : #E8F5FF;color:skyblue';
         }
         return;
     },
     activated2: function(){
         if(FlowRouter.getParam('area') == '신촌'){
-            return 'color : skyblue;';
+            return 'background-color : #E8F5FF;color : skyblue;';
         }
         return;
     },
     activated3: function(){
         if(FlowRouter.getParam('area') == '경복궁'){
-            return 'color : skyblue;';
+            return 'background-color : #E8F5FF;color : skyblue;';
         }
         return;
     },
     activated4: function(){
         if(FlowRouter.getParam('area') == '종각'){
-            return 'color : skyblue;';
+            return 'background-color : #E8F5FF;color : skyblue;';
         }
         return;
     },
     activated5: function(){
         if(FlowRouter.getParam('area') == '을지로'){
-            return 'color : skyblue;';
+            return 'background-color : #E8F5FF;color : skyblue;';
         }
         return;
     },
     activated6: function(){
         if(FlowRouter.getParam('area') == '홍제'){
-            return 'color : skyblue;';
+            return 'background-color : #E8F5FF;color : skyblue;';
         }
         return;
     },
     activated7: function(){
         if(FlowRouter.getParam('area') == '불광'){
-            return 'color : skyblue;';
+            return 'background-color : #E8F5FF;color : skyblue;';
         }
         return;
     },
     activated8: function(){
         if(FlowRouter.getParam('area') == '기타'){
-            return 'color : skyblue;';
+            return 'background-color : #E8F5FF;color : skyblue;';
         }
         return;
     },
