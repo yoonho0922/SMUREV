@@ -23,6 +23,9 @@ Template.rev_post.helpers({
         var user_id = DB_REVS.findOne({_id:_id}).user_id;
         var user = Meteor.users.findOne({_id:user_id});
         var file_id = user.profile.img;
+        if(!file_id){
+            return '/img/default_user_img.png'  //파일 없을 경우 기본 사진
+        }
         return DB_FILES.findOne({_id: file_id}).link();
     },
 
@@ -72,7 +75,11 @@ Template.rev_post.helpers({
     comment_link : function(){
         var user_id = this.user_id;
         var user = Meteor.users.findOne({_id: user_id});
-        return DB_FILES.findOne({_id: user.profile.img}).link();
+        var file_id = user.profile.img;
+        if(!file_id){
+            return '/img/default_user_img.png'  //파일 없을 경우 기본 사진
+        }
+        return DB_FILES.findOne({_id: file_id}).link();
     },
     comment_nickname : function(){
         var user_id = this.user_id;

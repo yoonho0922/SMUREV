@@ -53,9 +53,11 @@ Template.rev_myPage.events({
         var nickname = $('#inp-nickname').val();
 
         //유저 닉넴 중복체크
-        if(Meteor.users.findOne({'profile.nickname' : nickname}) != null){
-            alert('닉네임이 중복됩니다!!')
-            return;
+        if(Meteor.user().profile.nickname != nickname){
+            if(Meteor.users.findOne({'profile.nickname' : nickname})){
+                alert('닉네임이 중복됩니다!!')
+                return;
+            }
         }
 
         var file = $('#inp-file').prop('files')[0];   // 화면에서 선택 된 파일 가져오기
