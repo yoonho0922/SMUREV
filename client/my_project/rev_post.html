@@ -89,12 +89,22 @@
                                 <!--댓글기능-->
                                 {{#each comments}}
                                     <div class="comment" style="width: 1500px;padding-top: 30px;padding-left: 100px;">
-                                        <img src="{{comment_link}}" style="border: 0px solid black;border-radius:70px;-moz-border-radius: 70px;-html-border-radius: 70px;-webkit-border-radius: 70px;width: 80px;height: 80px" />
-                                        <span style="font-size: 20px;padding-left: 30px;white-space: normal;width: 500px;">{{comment}}</span>
-                                        <button id="comment-remove" type="button" class="btn btn-sm btn-outline-secondary" style="float: right; margin-left: -100px">x</button>
+                                        <tr style="width: 1500px;white-space: normal">
+                                            <td>
+                                                <img src="{{comment_link}}" style="border: 0px solid black;border-radius:70px;-moz-border-radius: 70px;-html-border-radius: 70px;-webkit-border-radius: 70px;width: 80px;height: 80px" />
+                                            </td>
+                                            <td rowspan="2" style="width: 1500px;   font-size: 20px;padding-left: 30px; word-break: break-all">
+                                                {{comment}}
+<!--                                                <span style="font-size: 20px;padding-left: 30px;width: 500px">{{comment}}</span>-->
+
+                                            </td>
+                                            <td>
+                                                <button id="comment-remove" type="button" class="btn btn-sm btn-outline-secondary" style="float: right; margin-left: 0px">x</button>
+                                            </td>
+                                        </tr>
 
 
-                                        <div id="comment-user" style="font-size: 14px;padding-top: 5px;padding-left: 20px">{{comment_nickname}}({{user_email}})
+                                        <div id="comment-user" style="font-size: 14px;padding-top: 20px;padding-left: 20px">{{comment_nickname}}({{user_email}})
                                             <span id="comment-date" style="font-size: 14px; padding-left: 30px">{{createdAt}}</span>
                                         </div>
                                         <hr>
