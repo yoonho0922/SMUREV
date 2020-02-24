@@ -141,10 +141,12 @@ Template.rev_post.events({
 
             //알림 등록
             var passive_user_id = DB_REVS.findOne({_id : post_id}).user_id;
+            var post_title = DB_REVS.findOne({_id : post_id}).title;
             DB_NOTICE.insert({
                 passive_user_id : passive_user_id,
                 active_user_id : user_id,
                 post_id : post_id ,
+                post_title : post_title,
                 notice_type : "rec"
             });
 
@@ -186,11 +188,14 @@ Template.rev_post.events({
         DB_REVS.update({_id: post_id}, revs);
 
         //알림 등록
-        var passive_user_id = DB_REVS.findOne({_id : post_id}).user_id;
+        var rev = DB_REVS.findOne({_id : post_id});
+        var passive_user_id = rev.user_id;
+        var post_title = rev.title;
         DB_NOTICE.insert({
             passive_user_id : passive_user_id,
             active_user_id : user_id,
             post_id : post_id ,
+            post_title : post_title,
             notice_type : "com"
         });
 

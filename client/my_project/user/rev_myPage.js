@@ -26,15 +26,23 @@ Template.rev_myPage.helpers({
     },
     notice_content : function () {
         var notice = this;
+        var post = this.post_title;
+
         if(notice.notice_type === "rec"){
             var active_user = Meteor.users.findOne({_id:this.active_user_id}).profile.nickname;
-            var post = DB_REVS.findOne({_id : this.post_id}).title;
             return active_user + "님이 회원님의 게시글(" + post + ")을 추천하였습니다.";
         }else if(notice.notice_type === "com"){
             var active_user = Meteor.users.findOne({_id:this.active_user_id}).profile.nickname;
-            var post = DB_REVS.findOne({_id : this.post_id}).title;
             return active_user + "님이 회원님의 게시글(" + post + ")에 댓글을 달았습니다.";
         }
+    },
+    post_href : function(){
+        var post = DB_REVS.findOne({_id:this.post_id});
+        var area = post.posting_area;
+        var tag = post.posting_tag;
+        var _id = post._id;
+        // /rev_post/경복궁/한식/new/be3gMiic7DrMnr38K
+        return area + "/" + tag + "/new/" + _id;
     }
 })
 
