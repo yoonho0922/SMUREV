@@ -138,11 +138,29 @@ Template.rev_post.events({
             });
             revs.recommend += 1;    //REVS의 post 추천수 증가
             DB_REVS.update({_id: post_id}, revs);
+
+            //알림 등록
+            var passive_user_id = DB_REVS.findOne({_id : post_id}).user_id;
+            DB_NOTICE.insert({
+                passive_user_id : passive_user_id,
+                active_user_id : user_id,
+                post_id : post_id ,
+                notice_type : "rec"
+            });
+
             alert('추천');
         }else{
             DB_RECOMMEND.remove({_id : recommend._id});     //추천 관계 목록 삭제
             revs.recommend -= 1;    //REVS의 post 추천수 감소
             DB_REVS.update({_id: post_id}, revs);
+
+            // //알림 삭제
+            // var notice = DB_NOTICE.findOne({active_user_id : user_id, post_id : post_id});
+            // if(notice != null){     //알림이 남아있을 경우 지워준다.
+            //     var notice_id = DB_NOTICE.findOne({active_user_id : user_id, post_id : post_id})._id;
+            //     DB_NOTICE.remove({_id:notice_id});
+            // }
+
             alert('추천 취소');
         }
     },
@@ -192,7 +210,8 @@ Template.rev_post.events({
 
                 revs.commentCount -= 1;    //REVS의 post 추천수 감소
                 DB_REVS.update({_id: post_id}, revs);
-                alert('댓글 삭제');
+
+
                 alert('삭제 되었습니다.');
             } else {
                 alert('권한이 없습니다!')
