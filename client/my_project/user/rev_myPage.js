@@ -30,10 +30,10 @@ Template.rev_myPage.helpers({
 
         if(notice.notice_type === "rec"){
             var active_user = Meteor.users.findOne({_id:this.active_user_id}).profile.nickname;
-            return active_user + "님이 회원님의 게시글(" + post + ")을 추천하였습니다.";
+            return active_user + " 님이 회원님의 게시글 \'" + post + "\' 을(를) 추천하였습니다.";
         }else if(notice.notice_type === "com"){
             var active_user = Meteor.users.findOne({_id:this.active_user_id}).profile.nickname;
-            return active_user + "님이 회원님의 게시글(" + post + ")에 댓글을 달았습니다.";
+            return active_user + " 님이 회원님의 게시글 \'" + post + "\' 에 댓글을 달았습니다.";
         }
     },
     post_href : function(){

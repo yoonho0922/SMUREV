@@ -44,18 +44,22 @@
                         <div  style="padding: 10px;">
                             <div id="btn-tag" style="border-radius: 25px; border: 2px solid rgba(128,128,128,0.71); padding: 20px;">
                     <!--네모박스-->
-                                <div class="row">
+                                <div class="row" style="padding-right : 20px; padding-left: 20px">
+                                    <div>
+                                        <img src="/img/notification_img.png" style="width: 50px; height: 50px; float : left"/>
+                                        <p style="font-size: 36px; float: left; margin-left: 20px">알림</p>
+                                    </div>
                                     <table class="table">
                                         <tbody>
                                         {{#each notices}}
                                                 <tr  style="padding-right: 10px; padding-left : 10px">
-                                                    <td>
+                                                    <td style="vertical-align: middle">
                                                         <img  src="{{active_user_link}}" style="margin-top:0px;margin-left:40px;border: 0px solid black;border-radius:70px;-moz-border-radius: 70px;-html-border-radius: 70px;-webkit-border-radius: 70px;width: 80px;height: 80px" />
                                                     </td>
-                                                    <td>
+                                                    <td style="vertical-align: middle">
                                                         <a href="/rev_post/{{post_href}}" style="color: black;font-size: 25px;">{{notice_content}}</a>
                                                     </td>
-                                                    <td><button id="btn-remove" class="close" style="float: left;">
+                                                    <td style="vertical-align: middle"><button id="btn-remove" class="close" style="float: left;">
                                                         <span aria-hidden="true">&times;</span>
                                                     </button></td>
                                                 </tr>
