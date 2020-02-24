@@ -43,7 +43,7 @@ Template.main_list.helpers({
     },
     nickname: function(){
         var user_id = this.user_id;
-        return Meteor.users.findOne({_id:user_id}).profile.nickname;
+        return Meteor.users.findOne({_id:user_id}).profile.nickname + " ";
     },
     rec_img: function () {
         var post_id = this._id
