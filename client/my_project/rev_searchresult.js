@@ -8,7 +8,7 @@ Template.rev_searchresult.helpers({
         var tag = FlowRouter.getParam('tag');
         var order = FlowRouter.getParam('order');
         var search_content=FlowRouter.getParam('search_content');
-        var user_id = Meteor.users.findOne({'profile.nickname' : "라치"})._id;
+        var user_id = Meteor.users.findOne({'profile.nickname' : search_content})._id;
         // var search_content=DB_SEARCH.findOne({search_content: this.search_content})
         // alert(DB_SEARCH.search_content)
 
