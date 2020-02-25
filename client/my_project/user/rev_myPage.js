@@ -17,7 +17,11 @@ Template.rev_myPage.helpers({
     active_user_link : function(){
         var user_id = this.active_user_id;
         var user = Meteor.users.findOne({_id: user_id});
-        return DB_FILES.findOne({_id: user.profile.img}).link();
+        var file_id = user.profile.img;
+        if(!file_id){
+            return '/img/default_user_img.png'  //파일 없을 경우 기본 사진
+        }
+        return DB_FILES.findOne({_id: file_id}).link();
     },
     notices : function(){
         var passive_user_id = Meteor.user()._id;
