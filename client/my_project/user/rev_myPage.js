@@ -52,6 +52,12 @@ Template.rev_myPage.events({
         var userInfo = Meteor.user();
         var nickname = $('#inp-nickname').val();
 
+        //Null처리
+        if(!nickname){
+            alert('닉네임을 입력해 주세요!!')
+            return;
+        }
+
         //유저 닉넴 중복체크
         if(Meteor.user().profile.nickname != nickname){
             if(Meteor.users.findOne({'profile.nickname' : nickname})){
