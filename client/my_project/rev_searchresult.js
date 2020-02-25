@@ -8,34 +8,35 @@ Template.rev_searchresult.helpers({
         var tag = FlowRouter.getParam('tag');
         var order = FlowRouter.getParam('order');
         var search_content=FlowRouter.getParam('search_content');
+        var user_id = Meteor.users.findOne({'profile.nickname' : "라치"})._id;
         // var search_content=DB_SEARCH.findOne({search_content: this.search_content})
         // alert(DB_SEARCH.search_content)
 
         if(area=='전체'&&tag=='전체'){
             if(order=='rec'){
-                return DB_REVS.findAll({user_nickname:search_content}, {sort: {recommend: -1}});
+                return DB_REVS.findAll({user_id : user_id}, {sort: {recommend: -1}});
 
             }else{
-                return DB_REVS.findAll({user_nickname:search_content}, {sort: {createdAt: -1}});
+                return DB_REVS.findAll({user_id : user_id}, {sort: {createdAt: -1}});
             }
         }else if(area=='전체'){
             if(order=='rec'){
-                return DB_REVS.findAll({user_nickname:search_content,'posting_tag': tag}, {sort: {recommend: -1}});
+                return DB_REVS.findAll({user_id : user_id,'posting_tag': tag}, {sort: {recommend: -1}});
             }else{
-                return DB_REVS.findAll({user_nickname:search_content, 'posting_tag': tag}, {sort: {createdAt: -1}});
+                return DB_REVS.findAll({user_id : user_id, 'posting_tag': tag}, {sort: {createdAt: -1}});
             }
 
         }else if(tag=='전체'){
             if(order=='rec'){
-                return DB_REVS.findAll({user_nickname:search_content,'posting_area': area}, {sort: {recommend: -1}});
+                return DB_REVS.findAll({user_id : user_id,'posting_area': area}, {sort: {recommend: -1}});
             }else{
-                return DB_REVS.findAll({user_nickname:search_content,'posting_area': area}, {sort: {createdAt: -1}});
+                return DB_REVS.findAll({user_id : user_id,'posting_area': area}, {sort: {createdAt: -1}});
             }
         }else{
             if(order=='rec'){
-                return DB_REVS.findAll({user_nickname:search_content,'posting_area': area, 'posting_tag': tag}, {sort: {recommend: -1}});
+                return DB_REVS.findAll({user_id : user_id,'posting_area': area, 'posting_tag': tag}, {sort: {recommend: -1}});
             }else{
-                return DB_REVS.findAll({user_nickname:search_content,'posting_area': area, 'posting_tag': tag}, {sort: {createdAt: -1}});
+                return DB_REVS.findAll({user_id : user_id,'posting_area': area, 'posting_tag': tag}, {sort: {createdAt: -1}});
             }
         }
 
