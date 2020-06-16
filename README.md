@@ -1,11 +1,11 @@
 ## SMUREV
-[Meteor](https://www.meteor.com/)를 사용한 슴우들을 위한 맛집 리뷰 사이트 개발 프로젝트
+[Meteor](https://www.meteor.com/)를 사용한 슴우들을 위한 맛집 리뷰 사이트 개발 프로젝트   
 [Codeasy](https://github.com/codeasy-org/codeasy) 프로젝트의 일환
 <br/>
 
 ### Contributor<br/>
-[yoonho0922](https://github.com/yoonho0922)<br/>
-[hhz2000](https://github.com/hhz2000)<br/>
+* [yoonho0922](https://github.com/yoonho0922)<br/>
+* [hhz2000](https://github.com/hhz2000)<br/>
 
 ## Web Application Smple
 <p align="center"><img src="/public/capture_main01.png" width="80%" height="80%"></p>
