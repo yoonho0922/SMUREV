@@ -1,5 +1,6 @@
 ## SMUREV
 [Meteor](https://www.meteor.com/)를 사용한 슴우들을 위한 맛집 리뷰 사이트 개발 프로젝트
+[Codeasy](https://github.com/codeasy-org/codeasy) 프로젝트의 일환
 <br/>
 
 ### Contributor<br/>
