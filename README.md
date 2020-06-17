@@ -6,7 +6,7 @@
 * [yoonho0922](https://github.com/yoonho0922)<br/>
 <br/>
 
-## Web Application Sample
+## Application Sample
 <p align="center"><img src="/public/capture_main01.png" width="80%" height="80%"></p>
 <p align="center"><img src="/public/capture_main02.png" width="80%" height="80%"></p>
 <p align="center"><img src="/public/capture_post.png" width="80%" height="80%"></p>
